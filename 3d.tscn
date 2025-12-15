@@ -1,9 +1,71 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=10 format=3 uid="uid://bt7svw607h6ld"]
 
 [ext_resource type="Texture2D" uid="uid://vmj8up3tby2j" path="res://icon.svg" id="1_y2yqg"]
+[ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="2_fji6l"]
+[ext_resource type="Texture2D" uid="uid://bs5cynw3igday" path="res://MS-DOS - The Elder Scrolls II_ Daggerfall - Non-Playable Characters - Guard.png" id="3_73ytm"]
+[ext_resource type="MeshLibrary" uid="uid://cdyd0w2cy8lxu" path="res://sprite.tres" id="3_iju8q"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://character_body_3d.gd" id="5_7xjic"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iju8q"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7xjic"]
+sky_material = SubResource("ProceduralSkyMaterial_iju8q")
+
+[sub_resource type="Environment" id="Environment_r1q5g"]
+background_mode = 2
+sky = SubResource("Sky_7xjic")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
 
 [node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r1q5g")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0028797786, 0.9999958, 0, -0.9999958, -0.0028797786, 0, 0, 0)
 texture = ExtResource("1_y2yqg")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.642725, 3.4438248)
+script = ExtResource("5_7xjic")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1948981, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
+shape = SubResource("CapsuleShape3D_r1q5g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7685852, -0.019537449, 4.3237305)
+use_collision = true
+size = Vector3(8.177673, 0.09375, 9.452148)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("3_iju8q")
+data = {
+"cells": PackedInt32Array(65535, 0, 0)
+}
+
+[node name="wall" type="GridMap" parent="."]
+mesh_library = ExtResource("2_fji6l")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65535, 2, 0, -65535, 1, 0, -65535, 3, 0, -65536, 3, 0, -65536, 4, 0, -65536, 5, 0, -65535, 5, 0, -65535, 4, 0, -65534, 1, 0, -65534, 0, 0, -65534, 2, 0, -65534, 3, 0, -65534, 4, 0, -65534, 5, 0, -65534, 6, 0, -1, 1, 0, -1, 2, 0, -1, 3, 0, -1, 4, 0, -65535, 6, 0, -65536, 6, 0, -1, 6, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="MsDosTheElderScrollsIiDaggerfallNonPlayableCharactersGuard" type="Sprite2D" parent="."]
+position = Vector2(90, 121)
+texture = ExtResource("3_73ytm")
+region_enabled = true
+region_rect = Rect2(11.255295, -0.7840576, 80.7198, 133.49814)
