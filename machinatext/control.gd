@@ -7,6 +7,7 @@ const answer_given = preload("res://machinatext/answer_given.tscn")
 
 var max_scroll_length := 0
 
+@onready var input_node := %input
 @onready var history_rows = $PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer/History
 @onready var scroll = $PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer
 @onready var scrollbar = scroll.get_v_scroll_bar()
@@ -33,7 +34,6 @@ func scrollbar_change():
 func _on_input_text_submitted(new_text: String) -> void:
 	if (new_text.is_empty()):
 		return
-
 	var Input_Response = input_answer.instantiate()
 	var response = command_processor.process_command(new_text) 
 	Input_Response.set_text(new_text, response)
