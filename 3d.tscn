@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bt7svw607h6ld"]
 
-[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_iju8q"]
+[ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="2_fji6l"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="3_7xjic"]
