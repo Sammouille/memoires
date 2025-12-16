@@ -1,7 +1,7 @@
 extends Control
 
-const input_answer = preload("res://input_answer.tscn")
-const answer_given = preload("res://answer_given.tscn")
+const input_answer = preload("res://machinatext/input_answer.tscn")
+const answer_given = preload("res://machinatext/answer_given.tscn")
 
 @export var max_lines_rememebered = 30
 

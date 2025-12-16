@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" format=3 uid="uid://uuibnkrxwh4h"]
+[gd_resource type="VisualShader" load_steps=0 format=3 uid="uid://uuibnkrxwh4h"]
 
 [resource]
 code = "shader_type sky;

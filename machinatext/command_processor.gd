@@ -1,10 +1,10 @@
 extends Control
 
-const arbre = preload("res://tree.gd")
+const arbre = preload("res://machinatext/tree.gd")
 var arbre0 = [$tree]
 var corps = [$"/root/GlobalTree"]
-const answer_given = preload("res://answer_given.tscn")
-const input_answer = preload("res://input_answer.tscn")
+const answer_given = preload("res://machinatext/answer_given.tscn")
+const input_answer = preload("res://machinatext/input_answer.tscn")
 var fade_in = create_tween()
 var shape_tree = " "
 var tree_branch = "o@@o%;@"
