@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 3.5
-
+const fov = 70
 #BOB head
 @export var Bob_freq = 2.0
 @export var bob_amp = 0.08
@@ -29,9 +29,17 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	# Add zoom
+	if Input.is_action_pressed("zoom"):
+		headPOV.fov = 20
+		sensitivity = 0.005
+	else:
+		headPOV.fov = 70
+
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
