@@ -5,7 +5,7 @@
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="3_11g8y"]
 [ext_resource type="PackedScene" uid="uid://bppbgy361y7l3" path="res://machinatext/control.tscn" id="5_8cnks"]
 [ext_resource type="Script" uid="uid://dlqjk1cd7vpl6" path="res://interactible_machine_txt.gd" id="6_8cnks"]
-[ext_resource type="Script" path="res://area_interactible.gd" id="6_11g8y"]
+[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://area_interactible.gd" id="6_11g8y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iju8q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,6 +82,9 @@ texture = SubResource("ViewportTexture_11g8y")
 script = ExtResource("6_8cnks")
 machine_txt = NodePath("../SubViewport/Control")
 area = NodePath("Area3D")
+
+[node name="Control" parent="Sprite3D" instance=ExtResource("5_8cnks")]
+visible = false
 
 [node name="Area3D" type="Area3D" parent="Sprite3D"]
 script = ExtResource("6_11g8y")
