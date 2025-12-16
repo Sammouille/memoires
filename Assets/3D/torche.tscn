@@ -1,0 +1,143 @@
+[gd_scene load_steps=14 format=4 uid="uid://bosbgyp8e108r"]
+
+[ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="1_mrdg0"]
+[ext_resource type="Texture2D" uid="uid://bj6y50brdij0v" path="res://Assets/3D/torche1.png" id="2_usbat"]
+[ext_resource type="Texture2D" uid="uid://bsdssy0io3pld" path="res://Assets/3D/torche3.png" id="3_i5mj8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7708"]
+transparency = 1
+albedo_texture = ExtResource("1_mrdg0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhvkc"]
+resource_name = "torche"
+transparency = 4
+cull_mode = 2
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hvqe5"]
+_surfaces = [{
+"aabb": AABB(-0.3369911, 2.6628206, 0.0035962872, 0.73996305, 1.1905704, 0.06614129),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("FAABAAIAFAAVAAEAFQADAAEAFQAAAAMAFgAUAAIAFgACAAUAFwAVABQAGAAAABUAFwAYABUAGAAKAAAAGQAXABQAGQAUABYAGgAYABcAGwAKABgAGgAbABgAGwALAAoAEgALABsAEgATAAsAEQASABsAEQAbABoAEAARABoAHAAaABcAEAAaABwAHAAXABkADwAQABwADwAcAB0AHQAcABkADgAPAB0AHQAZAB4ADgAdAB8AHwAdAB4ADQAOAB8AHgAZABYADQAfAAwADAAfACAAHwAeACAADAAgAAkAHgAWACEAIAAeACEAIQAWAAUAIQAFAAYAIAAhACIACQAgACIAIgAhAAYACQAiAAQAIgAGAAcABAAiAAcABAAHAAgA"),
+"lods": [0.086160615, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABAAFAAYABAAGAAcABAAHAAgACQAAAAQACQAKAAAACwAKAAkADAALAAkADQAOAAwADgALAAwADgAPAAsADwAQAAsAEAARAAsAEQASAAsAEgATAAsA")],
+"name": "torche",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("Srr//2ppAAD//yDSAAAAAP//QqQAAAAA/////wAAAABKugAAAAAAAP//ZHYAAAAA//+GSAAAAAD//0MkAAAAAP//AAAAAAAAlXQAAAAAAACVdP////8AAEo6//9qaQAASjoAAAAAAAAAAAAAAAAAAAAAQyQAAAAAAACGSAAAAAAAAGR2AAAAAAAAQqQAAAAAAAAg0gAAAAAAAP//AAAAAEq6QqRqaQAASrog0mppAABKumR2sC0AAJV0QqT//wAAlXQg0v//AACVdGR2//8AAEo6QqRqaQAASjog0mppAABKOmR2sC0AAEo6hkiwLQAAlXSGSP//AABKOkMksC0AAJV0QySwLQAASrqGSLAtAABKukMksC0AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ywmqt"]
+resource_name = "Torche_Plane_009"
+_surfaces = [{
+"aabb": AABB(-0.3369911, 2.6628206, 0.0035962872, 0.73996305, 1.1905704, 0.06614129),
+"attribute_data": PackedByteArray("yZnHEpOzFS6Ts2NJk7PHEsmZK6uTs7Fkk7P/f5OzlZWTsyur/38rq/9/xxJuascSbmorq91UK6vdVJWV3VT/f91UsWTdVGNJ3VQVLt1UxxLJmWNJyZkVLsmZsWT/f2NJ/38VLv9/sWRuamNJbmoVLm5qsWRuav9//3//f25qlZX/f5WVyZn/f8mZlZU="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("FAABAAIAFAAVAAEAFQADAAEAFQAAAAMAFgAUAAIAFgACAAUAFwAVABQAGAAAABUAFwAYABUAGAAKAAAAGQAXABQAGQAUABYAGgAYABcAGwAKABgAGgAbABgAGwALAAoAEgALABsAEgATAAsAEQASABsAEQAbABoAEAARABoAHAAaABcAEAAaABwAHAAXABkADwAQABwADwAcAB0AHQAcABkADgAPAB0AHQAZAB4ADgAdAB8AHwAdAB4ADQAOAB8AHgAZABYADQAfAAwADAAfACAAHwAeACAADAAgAAkAHgAWACEAIAAeACEAIQAWAAUAIQAFAAYAIAAhACIACQAgACIAIgAhAAYACQAiAAQAIgAGAAcABAAiAAcABAAHAAgA"),
+"lods": [0.086160615, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABAAFAAYABAAGAAcABAAHAAgACQAAAAQACQAKAAAACwAKAAkADAALAAkADQAOAAwADgALAAwADgAPAAsADwAQAAsAEAARAAsAEQASAAsAEgATAAsA")],
+"material": SubResource("StandardMaterial3D_mhvkc"),
+"name": "torche",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("Srr//2ppnob//yDSAAB5hf//QqQAAMKE/////wAAeYVKugAAAAA3gv//ZHYAAD6D//+GSAAAYoL//0MkAADsgf//AAAAANuBlXQAAAAA2IKVdP////+8gEo6//9qaeKHSjoAAAAAQIIAAAAAAAADggAAQyQAAEGCAACGSAAA2YIAAGR2AADXgwAAQqQAAKiFAAAg0gAAh4YAAP//AACHhkq6QqRqaaiGSrog0mppnoZKumR2sC2bhpV0QqT//xWBlXQg0v//vICVdGR2//8vgUo6QqRqaemHSjog0mpp4odKOmR2sC3Vh0o6hkiwLW6GlXSGSP//TINKOkMksC3Kg5V0QySwLa2ESrqGSLAteoVKukMksC1/g/9/AAD/fwAA424cEv9/AACcHEdk+md+GP9/AAC9W/4k2TkjRQAA/3//f////3///6cg0J93P5HA/V5f4P9///9walPrEHBm8f9/////f///gnOfDf9/AABqc7UNVEJow/9///9+Rr/Hb3Rd9f9///9YdEP1ZWNc5gwakpcUPyXBCQtFhktigB9mOrVF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hvqe5")
+
+[sub_resource type="Animation" id="Animation_35710"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_q7708")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvgwp"]
+transparency = 1
+albedo_texture = ExtResource("2_usbat")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itxn1"]
+transparency = 1
+albedo_texture = ExtResource("1_mrdg0")
+emission_enabled = true
+emission_energy_multiplier = 2.88
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slo66"]
+transparency = 1
+albedo_texture = ExtResource("3_i5mj8")
+emission_enabled = true
+
+[sub_resource type="Animation" id="Animation_ipxkf"]
+resource_name = "Torche"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_nvgwp"), SubResource("StandardMaterial3D_itxn1"), SubResource("StandardMaterial3D_slo66")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.385]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o76gl"]
+_data = {
+&"RESET": SubResource("Animation_35710"),
+&"Torche": SubResource("Animation_ipxkf")
+}
+
+[node name="Torche" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_ywmqt")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+autoplay = "RESET"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
