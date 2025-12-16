@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://cvrwasa110t2w"]
+
+[ext_resource type="AudioStream" uid="uid://c3x57tqpveh2p" path="res://Assets/son/raw/AlchimistV1.mp3" id="1_aufrl"]
+[ext_resource type="AudioStream" uid="uid://ci2ev3pgmvovk" path="res://Assets/son/raw/AlchimistV2.mp3" id="2_avtu3"]
+[ext_resource type="AudioStream" uid="uid://byjnjn7hxlylb" path="res://Assets/son/raw/AlchimistV3.mp3" id="3_nuvwe"]
+[ext_resource type="AudioStream" uid="uid://t1fj5jare3xp" path="res://Assets/son/raw/AlchimistV4.mp3" id="4_sd6jr"]
+[ext_resource type="AudioStream" uid="uid://clx5tencuq4v8" path="res://Assets/son/raw/AlchimistV5.mp3" id="5_15win"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_aufrl")
+stream_1/stream = ExtResource("2_avtu3")
+stream_2/stream = ExtResource("3_nuvwe")
+stream_3/stream = ExtResource("4_sd6jr")
+stream_4/stream = ExtResource("5_15win")

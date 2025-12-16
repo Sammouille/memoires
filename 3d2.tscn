@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=4 uid="uid://cx7b0ovtilyvc"]
 
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_2pyxx"]
-[ext_resource type="MeshLibrary" uid="uid://d1yk2gy1wy5iv" path="res://Assets/3D/LDLib.tres" id="1_8cnks"]
+[ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="1_8cnks"]
 [ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="2_2q8wl"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="2_v6ftp"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="3_11g8y"]
@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bppbgy361y7l3" path="res://machinatext/control.tscn" id="5_8cnks"]
 [ext_resource type="Texture2D" uid="uid://bl8htombxylpn" path="res://Assets/3D/Eau1.png" id="5_dtd3v"]
 [ext_resource type="Texture2D" uid="uid://bbee357hyamx7" path="res://Assets/3D/Eau2.png" id="6_6bj7g"]
-[ext_resource type="Script" uid="uid://dlqjk1cd7vpl6" path="res://interactible_machine_txt.gd" id="6_8cnks"]
-[ext_resource type="Script" path="res://area_interactible.gd" id="6_11g8y"]
+[ext_resource type="Script" uid="uid://dlqjk1cd7vpl6" path="res://code/interactible_machine_txt.gd" id="6_8cnks"]
+[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="6_11g8y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7708"]
 transparency = 1

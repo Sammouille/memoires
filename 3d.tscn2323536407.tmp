@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=26 format=3 uid="uid://bt7svw607h6ld"]
 
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
@@ -7,11 +7,14 @@
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="5_7xjic"]
 [ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="5_iju8q"]
 [ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_33ndu"]
-[ext_resource type="AudioStream" uid="uid://bwlmhyrcy16gj" path="res://Assets/son/Jester.tres" id="7_euqcc"]
+[ext_resource type="AudioStream" uid="uid://bgyyuuoggagm" path="res://Assets/son/raw/Jester1.mp3" id="7_bqoay"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="7_r1q5g"]
+[ext_resource type="AudioStream" uid="uid://b1worsuqqn240" path="res://Assets/son/raw/Jester2.mp3" id="8_prdp5"]
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="9_tt8b8"]
+[ext_resource type="AudioStream" uid="uid://b16s54drbodxe" path="res://Assets/son/raw/Jester3.mp3" id="9_wnm68"]
+[ext_resource type="AudioStream" uid="uid://8lhehnp5s7d6" path="res://Assets/son/raw/Jester4.mp3" id="10_6sqs6"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="10_33ndu"]
-[ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_tt8b8"]
+[ext_resource type="AudioStream" uid="uid://68p5fwa3jeod" path="res://Assets/son/raw/Jester5.mp3" id="11_e3gwv"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -62,9 +65,16 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
-height = 8.473877
-radius = 8.963379
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33ndu"]
+streams_count = 5
+stream_0/stream = ExtResource("7_bqoay")
+stream_1/stream = ExtResource("8_prdp5")
+stream_2/stream = ExtResource("9_wnm68")
+stream_3/stream = ExtResource("10_6sqs6")
+stream_4/stream = ExtResource("11_e3gwv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iekpf"]
+size = Vector3(11.489014, 6.4730835, 3.7419434)
 
 [node name="scene_base" type="Node3D"]
 
@@ -113,36 +123,21 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 [node name="Jester" type="Node3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -1.6040208, 0.80483294, 0)
 script = ExtResource("6_33ndu")
-voix = ExtResource("7_euqcc")
-nom = "[font_size=30][outline_size=15][outline_color=rebecca_purple]Jester"
+voix = SubResource("AudioStreamRandomizer_33ndu")
 area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="Jester"]
 script = ExtResource("9_tt8b8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Jester/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512693, 1.2837214, -1.1305838)
-shape = SubResource("CylinderShape3D_tt8b8")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, 0.01138258, 1.3709717)
+shape = SubResource("BoxShape3D_iekpf")
 
 [node name="Sprite3D" parent="Jester" instance=ExtResource("5_iju8q")]
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
 
-[node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -5.531002, 1.4728022, 6.8445377)
-script = ExtResource("6_33ndu")
-voix = ExtResource("10_tt8b8")
-nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
-area = NodePath("Area3D")
-
-[node name="Area3D" type="Area3D" parent="Monarch"]
-script = ExtResource("9_tt8b8")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
-shape = SubResource("CylinderShape3D_tt8b8")
-
-[node name="king" parent="Monarch" instance=ExtResource("7_r1q5g")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+[node name="king" parent="." instance=ExtResource("7_r1q5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8797126, 1.4728022, 0.4851458)
 
 [node name="InterfaceDialogues" parent="." instance=ExtResource("10_33ndu")]
 unique_name_in_owner = true

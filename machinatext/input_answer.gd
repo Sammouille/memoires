@@ -8,6 +8,9 @@ var idx_txt:= 0
 var type_speed:= 0.1
 var idx_spd:= 0.0
 
+func set_voice(voix: AudioStream):
+	%AudioStreamPlayer.stream = voix
+
 func set_text(input: String, response: String):
 	$input_submitted.text = " > " + input
 	$answer_given.text = response

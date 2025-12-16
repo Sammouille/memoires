@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=6 format=3 uid="uid://bwlmhyrcy16gj"]
+
+[ext_resource type="AudioStream" uid="uid://bgyyuuoggagm" path="res://Assets/son/raw/Jester1.mp3" id="1_pgyif"]
+[ext_resource type="AudioStream" uid="uid://b1worsuqqn240" path="res://Assets/son/raw/Jester2.mp3" id="2_wgqwa"]
+[ext_resource type="AudioStream" uid="uid://b16s54drbodxe" path="res://Assets/son/raw/Jester3.mp3" id="3_6ovp8"]
+[ext_resource type="AudioStream" uid="uid://8lhehnp5s7d6" path="res://Assets/son/raw/Jester4.mp3" id="4_j7aae"]
+[ext_resource type="AudioStream" uid="uid://68p5fwa3jeod" path="res://Assets/son/raw/Jester5.mp3" id="5_7l7uv"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_pgyif")
+stream_1/stream = ExtResource("2_wgqwa")
+stream_2/stream = ExtResource("3_6ovp8")
+stream_3/stream = ExtResource("4_j7aae")
+stream_4/stream = ExtResource("5_7l7uv")
