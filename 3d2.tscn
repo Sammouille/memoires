@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://cx7b0ovtilyvc"]
+
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://character_body_3d.gd" id="1_2pyxx"]
+[ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="2_v6ftp"]
+[ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="3_11g8y"]
+[ext_resource type="Texture2D" uid="uid://cu8jkop4qf21m" path="res://guard.png" id="4_8cnks"]
+[ext_resource type="PackedScene" uid="uid://defjufb4a1lsd" path="res://fausse_machine_txt.tscn" id="5_v6ftp"]
+[ext_resource type="Script" uid="uid://dlqjk1cd7vpl6" path="res://interactible_machine_txt.gd" id="6_8cnks"]
+[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://area_interactible.gd" id="6_11g8y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iju8q"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_7xjic"]
+sky_material = SubResource("ProceduralSkyMaterial_iju8q")
+
+[sub_resource type="Environment" id="Environment_r1q5g"]
+background_mode = 2
+sky = SubResource("Sky_7xjic")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xe6jm"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_11g8y"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cnks"]
+size = Vector3(11.489014, 6.4730835, 3.7419434)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r1q5g")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
+script = ExtResource("1_2pyxx")
+
+[node name="head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
+
+[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
+shape = SubResource("CapsuleShape3D_r1q5g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7685852, -0.019537449, 4.3237305)
+use_collision = true
+size = Vector3(8.177673, 0.09375, 9.452148)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_v6ftp")
+data = {
+"cells": PackedInt32Array(65535, 0, 0, 65534, 0, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="wall" type="GridMap" parent="."]
+mesh_library = ExtResource("3_11g8y")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65535, 2, 0, -65535, 1, 0, -65535, 3, 0, -65536, 3, 0, -65536, 4, 0, -65536, 5, 0, -65535, 5, 0, -65535, 4, 0, -65534, 1, 0, -65534, 0, 0, -65534, 2, 0, -65534, 3, 0, -65534, 4, 0, -65534, 5, 0, -65534, 6, 0, -1, 1, 0, -1, 2, 0, -1, 3, 0, -1, 4, 0, -65535, 6, 0, -65536, 6, 0, -1, 6, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6031432, 0.8456149, 0)
+billboard = 1
+texture = ExtResource("4_8cnks")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5946578, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D2/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7892989, 0)
+shape = SubResource("ConcavePolygonShape3D_xe6jm")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(1152, 648)
+
+[node name="Control" parent="SubViewport" instance=ExtResource("5_v6ftp")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("machine_txt", "area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -6.314429, 0.69582975, 2.1026084)
+texture = SubResource("ViewportTexture_11g8y")
+script = ExtResource("6_8cnks")
+machine_txt = NodePath("../SubViewport/Control")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Sprite3D"]
+script = ExtResource("6_11g8y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, 0.01138258, 1.3709717)
+shape = SubResource("BoxShape3D_8cnks")
