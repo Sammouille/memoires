@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://467lamtayt8g"]
+
+[ext_resource type="Texture2D" uid="uid://bs5cynw3igday" path="res://characters/MS-DOS - The Elder Scrolls II_ Daggerfall - Non-Playable Characters - Guard.png" id="1_ljkuy"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_64nw0"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85fgi"]
+atlas = ExtResource("1_ljkuy")
+region = Rect2(0, 0, 86, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go338"]
+atlas = ExtResource("1_ljkuy")
+region = Rect2(86, 0, 86, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1cqo"]
+atlas = ExtResource("1_ljkuy")
+region = Rect2(172, 0, 86, 132)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f78h"]
+atlas = ExtResource("1_ljkuy")
+region = Rect2(258, 0, 86, 132)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64nw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85fgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go338")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1cqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f78h")
+}],
+"loop": true,
+"name": &"standing_walk",
+"speed": 5.0
+}]
+
+[node name="scene_guard" type="Sprite3D"]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_64nw0")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_64nw0")
+animation = &"standing_walk"
+autoplay = "standing_walk"

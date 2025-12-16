@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxbv74m8bbjf0"]
+
+[ext_resource type="FontFile" uid="uid://7gefjp167jfe" path="res://OGCourier.otf" id="1_be00w"]
+
+[node name="answer_given" type="Label"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/line_spacing = -7
+theme_override_fonts/font = ExtResource("1_be00w")
+theme_override_font_sizes/font_size = 28
+text = "
+	
+		
+▄▄▄  ▄▄▄ . ▄▄ •  ▄▄▄· ▄▄▄  ·▄▄▄▄  ▄▄▄ .
+▀▄ █·▀▄.▀·▐█ ▀ ▪▐█ ▀█ ▀▄ █·██▪ ██ ▀▄.▀·
+▐▀▀▄ ▐▀▀▪▄▄█ ▀█▄▄█▀▀█ ▐▀▀▄ ▐█· ▐█▌▐▀▀▪▄
+▐█•█▌▐█▄▄▌▐█▄▪▐█▐█ ▪▐▌▐█•█▌██. ██ ▐█▄▄▌
+.▀  ▀ ▀▀▀ ·▀▀▀▀  ▀  ▀ .▀  ▀▀▀▀▀▀•  ▀▀▀ 
+
+
+	
+
+
+"
+autowrap_mode = 2

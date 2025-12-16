@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://xn2qr8dgwpdc"]
+
+[ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="1_64nw0"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" parent="." instance=ExtResource("1_64nw0")]
