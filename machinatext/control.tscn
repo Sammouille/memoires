@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://bppbgy361y7l3"]
+[gd_scene load_steps=11 format=3 uid="uid://bppbgy361y7l3"]
 
 [ext_resource type="Script" uid="uid://bec0hc6mok2x4" path="res://machinatext/control.gd" id="1_0fbet"]
-[ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="1_fj5cn"]
-[ext_resource type="Script" uid="uid://b2icvvlw2pfyq" path="res://machinatext/input.gd" id="2_62e2m"]
+[ext_resource type="Shader" path="res://machinatext/control.gdshader" id="1_fj5cn"]
 [ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="2_ee4bf"]
-[ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="2_kbped"]
-[ext_resource type="FontFile" uid="uid://7gefjp167jfe" path="res://machinatext/OGCourier.otf" id="3_ee4bf"]
+[ext_resource type="Script" path="res://machinatext/tree.gd" id="2_kbped"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="5_i32vc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
 shader = ExtResource("1_fj5cn")
@@ -63,10 +62,6 @@ shader_parameter/vignette_opacity = 0.1150000054625
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
 bg_color = Color(0.09850656, 0.328561, 0, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtu10"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4bf"]
-
 [node name="Control" type="Control"]
 material = SubResource("ShaderMaterial_iy58a")
 layout_mode = 3
@@ -97,6 +92,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
 
 [node name="PanelContainer" type="PanelContainer" parent="PanelContainer"]
+visible = false
 z_index = 1
 material = SubResource("ShaderMaterial_fj5cn")
 layout_mode = 2
@@ -139,15 +135,9 @@ layout_mode = 2
 layout_mode = 2
 text = " > "
 
-[node name="input" type="LineEdit" parent="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+[node name="input" parent="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("5_i32vc")]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("3_ee4bf")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/normal = SubResource("StyleBoxEmpty_qtu10")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ee4bf")
-max_length = 48
-script = ExtResource("2_62e2m")
 
 [node name="reset" type="Button" parent="."]
 z_index = 2
@@ -294,6 +284,4 @@ offset_right = 251.0
 offset_bottom = 145.0
 scale = Vector2(19.452564, 10.180315)
 
-[connection signal="text_submitted" from="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="." method="_on_input_text_submitted"]
-[connection signal="text_submitted" from="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" method="_on_text_submitted"]
 [connection signal="button_down" from="reset" to="." method="_on_button_button_down"]

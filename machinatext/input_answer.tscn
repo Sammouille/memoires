@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgrn6iu5pwdut"]
 
-[ext_resource type="Script" uid="uid://snsobcpj6q8m" path="res://input_answer.gd" id="1_vyxaq"]
-[ext_resource type="PackedScene" uid="uid://tsobe5mubuo5" path="res://input_submitted.tscn" id="2_lf35r"]
-[ext_resource type="PackedScene" uid="uid://bxbv74m8bbjf0" path="res://answer_given.tscn" id="3_xvjo8"]
+[ext_resource type="Script" path="res://machinatext/input_answer.gd" id="1_vyxaq"]
+[ext_resource type="PackedScene" path="res://machinatext/input_submitted.tscn" id="2_lf35r"]
+[ext_resource type="PackedScene" path="res://machinatext/answer_given.tscn" id="3_xvjo8"]
 
 [node name="input_answer" type="VBoxContainer"]
 anchors_preset = 15
