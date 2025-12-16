@@ -1,9 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bt7svw607h6ld"]
 
+[ext_resource type="Texture2D" uid="uid://vmj8up3tby2j" path="res://icon.svg" id="1_y2yqg"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="2_fji6l"]
-[ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="3_7xjic"]
+[ext_resource type="Texture2D" uid="uid://bs5cynw3igday" path="res://MS-DOS - The Elder Scrolls II_ Daggerfall - Non-Playable Characters - Guard.png" id="3_73ytm"]
+[ext_resource type="MeshLibrary" uid="uid://cdyd0w2cy8lxu" path="res://sprite.tres" id="3_iju8q"]
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://character_body_3d.gd" id="5_7xjic"]
-[ext_resource type="Texture2D" uid="uid://cu8jkop4qf21m" path="res://guard.png" id="6_r1q5g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iju8q"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,9 +21,6 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xe6jm"]
-data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
-
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -31,6 +29,10 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r1q5g")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0028797786, 0.9999958, 0, -0.9999958, -0.0028797786, 0, 0, 0)
+texture = ExtResource("1_y2yqg")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
@@ -52,7 +54,7 @@ use_collision = true
 size = Vector3(8.177673, 0.09375, 9.452148)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_7xjic")
+mesh_library = ExtResource("3_iju8q")
 data = {
 "cells": PackedInt32Array(65535, 0, 0, 65534, 0, 0)
 }
@@ -66,14 +68,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6031432, 0.8456149, 0)
-billboard = 1
-texture = ExtResource("6_r1q5g")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Sprite3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5946578, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sprite3D2/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7892989, 0)
-shape = SubResource("ConcavePolygonShape3D_xe6jm")
+[node name="MsDosTheElderScrollsIiDaggerfallNonPlayableCharactersGuard" type="Sprite2D" parent="."]
+position = Vector2(90, 121)
+texture = ExtResource("3_73ytm")
+region_enabled = true
+region_rect = Rect2(11.255295, -0.7840576, 80.7198, 133.49814)
