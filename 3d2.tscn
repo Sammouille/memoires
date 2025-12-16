@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://cx7b0ovtilyvc"]
 
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://character_body_3d.gd" id="1_2pyxx"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_2pyxx"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="2_v6ftp"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="3_11g8y"]
-[ext_resource type="Texture2D" uid="uid://cu8jkop4qf21m" path="res://guard.png" id="4_8cnks"]
-[ext_resource type="PackedScene" uid="uid://defjufb4a1lsd" path="res://fausse_machine_txt.tscn" id="5_v6ftp"]
+[ext_resource type="Texture2D" uid="uid://cu8jkop4qf21m" path="res://characters/guard.png" id="4_8cnks"]
+[ext_resource type="PackedScene" uid="uid://bppbgy361y7l3" path="res://machinatext/control.tscn" id="5_8cnks"]
 [ext_resource type="Script" uid="uid://dlqjk1cd7vpl6" path="res://interactible_machine_txt.gd" id="6_8cnks"]
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://area_interactible.gd" id="6_11g8y"]
 
@@ -90,13 +90,12 @@ shape = SubResource("ConcavePolygonShape3D_xe6jm")
 [node name="SubViewport" type="SubViewport" parent="."]
 size = Vector2i(1152, 648)
 
-[node name="Control" parent="SubViewport" instance=ExtResource("5_v6ftp")]
+[node name="Control" parent="SubViewport" instance=ExtResource("5_8cnks")]
 
-[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("machine_txt", "area")]
+[node name="Sprite3D" type="Sprite3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -6.314429, 0.69582975, 2.1026084)
 texture = SubResource("ViewportTexture_11g8y")
 script = ExtResource("6_8cnks")
-machine_txt = NodePath("../SubViewport/Control")
 area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="Sprite3D"]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu8jkop4qf21m"
-path.s3tc="res://.godot/imported/guard.png-887dfaed5706fc8db2a5742c580edf8d.s3tc.ctex"
+uid="uid://4kq8ipmmd2vk"
+path.s3tc="res://.godot/imported/cha_sheet.png-81d40c7e9fef92fe2d1892321f2c786c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://characters/guard.png"
-dest_files=["res://.godot/imported/guard.png-887dfaed5706fc8db2a5742c580edf8d.s3tc.ctex"]
+source_file="res://characters/cha_sheet.png"
+dest_files=["res://.godot/imported/cha_sheet.png-81d40c7e9fef92fe2d1892321f2c786c.s3tc.ctex"]
 
 [params]
 

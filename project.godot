@@ -15,6 +15,10 @@ run/main_scene="uid://bt7svw607h6ld"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalTree="*res://machinatext/tree.gd"
+
 [input]
 
 ui_left={

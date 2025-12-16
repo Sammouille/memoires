@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=16 format=3 uid="uid://bt7svw607h6ld"]
 
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
@@ -6,6 +6,7 @@
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="3_7xjic"]
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="5_7xjic"]
 [ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="5_iju8q"]
+[ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="7_r1q5g"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -35,7 +36,7 @@ shader_parameter/clouds_shadow_intensity = 1.0
 shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_r1q5g")
 shader_parameter/high_clouds_density = 0.30000000447036
 shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
-shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
+shader_parameter/bottom_color = Color(0.2510261, 0.41236493, 0.67437, 1)
 shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
 shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
 shader_parameter/astro_sampler = ExtResource("2_7xjic")
@@ -102,3 +103,6 @@ metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Sprite3D" parent="." instance=ExtResource("5_iju8q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6040208, 0.80483294, 0)
+
+[node name="king" parent="." instance=ExtResource("7_r1q5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8797126, 1.4728022, 0.4851458)
