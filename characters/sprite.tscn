@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://xn2qr8dgwpdc"]
+[gd_scene load_steps=6 format=3 uid="uid://xn2qr8dgwpdc"]
 
 [ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="1_64nw0"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="2_6nmw5"]
+[ext_resource type="PackedScene" uid="uid://bn58vm7soj4rs" path="res://characters/dragon.tscn" id="3_weawb"]
+[ext_resource type="PackedScene" uid="uid://bg7303qu7ylta" path="res://characters/giant.tscn" id="4_k0uuq"]
+[ext_resource type="PackedScene" uid="uid://b07tyinjqa5gw" path="res://characters/bandits.tscn" id="5_xxq1j"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="jester" parent="." instance=ExtResource("1_64nw0")]
 
 [node name="king" parent="." instance=ExtResource("2_6nmw5")]
+
+[node name="dragon" parent="." instance=ExtResource("3_weawb")]
+
+[node name="giant" parent="." instance=ExtResource("4_k0uuq")]
+
+[node name="bandits" parent="." instance=ExtResource("5_xxq1j")]

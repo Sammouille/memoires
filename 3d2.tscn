@@ -362,10 +362,10 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, -1, -1)
 
-[node name="GridMap2" type="GridMap" parent="."]
+[node name="SOL" type="GridMap" parent="."]
 mesh_library = ExtResource("1_8cnks")
 data = {
-"cells": PackedInt32Array(4, 65534, 3, -65531, 65535, 4)
+"cells": PackedInt32Array(4, 65534, 3, -65531, 65535, 4, -7, 7, 8, -8, 7, 8, -9, 7, 8, -10, 7, 8, -11, 6, 8, -12, 6, 8, -12, 5, 8, -11, 5, 8, -10, 5, 8, -9, 6, 8, -8, 6, 8, -7, 6, 8, -8, 5, 8, -9, 5, 8)
 }
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 

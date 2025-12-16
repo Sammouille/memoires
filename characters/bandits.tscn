@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://b07tyinjqa5gw"]
+
+[ext_resource type="Texture2D" uid="uid://cclcw4wi6i8kf" path="res://characters/monsters.png" id="1_npt8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npt8u"]
+atlas = ExtResource("1_npt8u")
+region = Rect2(960, 661, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alxfi"]
+atlas = ExtResource("1_npt8u")
+region = Rect2(1280, 661, 320, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bye3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npt8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alxfi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7nwub"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[node name="bandits" type="Sprite3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
+sprite_frames = SubResource("SpriteFrames_5bye3")
+autoplay = "default"
+frame_progress = 0.61740094
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_7nwub")
