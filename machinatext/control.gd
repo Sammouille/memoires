@@ -42,9 +42,23 @@ func _on_input_text_submitted(new_text: String) -> void:
 	
 	
 
-func add_answer(answer_given: Control):
-	var fade_in = create_tween()
+func add_answer(answer_given: Label):
 	answer_given.set_visible_ratio(0)
+	#var chrono := Timer.new()
+	#add_child(chrono)
+	#chrono.wait_time = 0.1
+	#chrono.one_shot = true
+	#var idx_txt:= 0
+	#for lettre in answer_given.text:
+		#answer_given.visible_characters += 1
+		#if answer_given.text.substr(idx_txt, 0) != " ":
+			#%AudioStreamPlayer.play()
+		#chrono.start()
+		#await chrono.timeout
+		
+			
+	
+	var fade_in = create_tween()
 	fade_in.tween_property(answer_given, "visible_ratio", 1, answer_given.text.length()*0.03)
 	history_rows.add_child(answer_given)
 	
