@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=23 format=3 uid="uid://bt7svw607h6ld"]
 
 [ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="9_tt8b8"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="10_33ndu"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_tt8b8"]
+[ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="13_iekpf"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -196,5 +197,9 @@ shape = SubResource("CylinderShape3D_tt8b8")
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
 
 [node name="InterfaceDialogues" parent="." instance=ExtResource("10_33ndu")]
+unique_name_in_owner = true
+visible = false
+
+[node name="InterfaceLivres" parent="." instance=ExtResource("13_iekpf")]
 unique_name_in_owner = true
 visible = false

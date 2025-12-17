@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://d13k403yf1uji"]
+
+[ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_qtg4g"]
+[ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="3_sapg6"]
+[ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_rxtyn"]
+[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="8_kg62m"]
+[ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_umwyf"]
+[ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="11_777ts"]
+[ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="12_cb0ju"]
+[ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="12_dibfs"]
+
+[sub_resource type="Curve" id="Curve_iju8q"]
+_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7xjic"]
+curve = SubResource("Curve_iju8q")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r1q5g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1q5g"]
+noise = SubResource("FastNoiseLite_r1q5g")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xjic"]
+shader = ExtResource("1_qtg4g")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/cloud_curves = SubResource("CurveTexture_7xjic")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.02999999932944
+shader_parameter/clouds_light_color = Color(1, 0.80784315, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/high_clouds_density = 0.30000000447036
+shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
+shader_parameter/bottom_color = Color(0.2510261, 0.41236493, 0.67437, 1)
+shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_sampler = ExtResource("2_nnril")
+shader_parameter/astro_scale = 5.5000000819566
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_xe6jm"]
+sky_material = SubResource("ShaderMaterial_7xjic")
+
+[sub_resource type="Environment" id="Environment_r1q5g"]
+background_mode = 2
+sky = SubResource("Sky_xe6jm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
+height = 8.473877
+radius = 8.963379
+
+[node name="scene_base" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.21117467, 0.7699785, 0.6021116, -0.4532166, 0.46865025, -0.7582623, 0, 3.6594257, 1.3243967)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r1q5g")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
+script = ExtResource("3_sapg6")
+
+[node name="head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
+
+[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
+shape = SubResource("CapsuleShape3D_r1q5g")
+
+[node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -5.531002, 1.4728022, 6.8445377)
+script = ExtResource("6_rxtyn")
+voix = ExtResource("10_umwyf")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Monarch"]
+script = ExtResource("8_kg62m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_tt8b8")
+
+[node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
+[node name="InterfaceLivres" parent="." instance=ExtResource("12_dibfs")]
+unique_name_in_owner = true
+visible = false
+offset_top = 448.0
+offset_bottom = 404.0
+
+[node name="InterfaceDialogues" parent="." instance=ExtResource("12_cb0ju")]
+unique_name_in_owner = true
+visible = false
