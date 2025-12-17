@@ -13,12 +13,12 @@ var t = randi_range(5,9)
 
 func process_command(input: String) -> String:
 	if input.contains("épée") or input.contains("épee")or input.contains("epee")or input.contains("epée"):
-		if input.contains("brandir") or input.contains("tenir") or input.contains("porter") or input.contains("enchantée"):
+		if input.contains("brandir") or input.contains("tenir") or input.contains("porter") or input.contains("enchantée") or input.contains("prendre") or input.contains("soulever"):
 			return "L'enchantement qui affecte l'épée magique fait que seule une personne au coeur pur peut la soulever." 
 		elif input.contains("magique"):
 			return "L'épée magique est enchantée."
-		return "Il existe une épée magique qui tranche le métal comme le fil coupe le beurre
- et qui fait fuir les ennemis de la personne qui la détient par la peur."
+		return "Il existe une épée magique qui tranche le métal comme du beurre
+ et qui chez les adversaires fait naître la peur."
 	else:
 		return "Aucun passage de l'ouvrage mentionne cela."
  

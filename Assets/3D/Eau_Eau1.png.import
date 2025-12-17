@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dchjch05b0ch5"
+uid="uid://ch3p7ybymofo1"
 path.s3tc="res://.godot/imported/Eau_Eau1.png-cb4c9cf38d0058f20e4f103852ee79fe.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "29c4bb1c9bdb151d5e71aace430eb3d9"
 }
 
 [deps]
