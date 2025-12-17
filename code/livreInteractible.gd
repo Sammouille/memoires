@@ -16,4 +16,4 @@ func debutInteraction():
 func finInteraction():
 	interface_livre.hide()
 	interface_livre.cleanBoiteDialogue()
-	
+	get_tree().get_first_node_in_group("areajoueureuse").interactible_actuel = null

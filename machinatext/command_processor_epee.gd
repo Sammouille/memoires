@@ -9,7 +9,10 @@ var fade_in = create_tween()
 @export var j = 0
 
 func process_command(input: String) -> String:
-	if input.contains("personne") or input.contains("qui"): 
+	if input.contains("personne") or input.contains("qui") or input.contains("bouffon"): 
 		return "La personne qui rigole sans cesse."
 	else :
+		var i = 1
+		while i > 0:
+			i+= 1
 		return "Je ne sais pas parler, je suis une épée."

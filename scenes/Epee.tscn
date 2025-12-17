@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://d13k403yf1uji"]
+[gd_scene load_steps=50 format=4 uid="uid://d13k403yf1uji"]
 
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_qtg4g"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://4kg18t2h7284" path="res://Assets/3D/pierre1_texturepierre.png" id="14_5wi27"]
 [ext_resource type="Texture2D" uid="uid://bx6o7rpeb017g" path="res://Assets/Objet2D/épée.png" id="15_5wi27"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
+[ext_resource type="AudioStream" uid="uid://c2xmnn42qjt8g" path="res://Assets/son/Mage.tres" id="17_4drxf"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -67,8 +68,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_051ob"]
-height = 44.575012
-radius = 52.13086
+height = 56.227448
+radius = 60.53662
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
 shader = ExtResource("11_051ob")
@@ -127,7 +128,7 @@ shader_parameter/vignette_opacity = 0.1150000054625
 bg_color = Color(0.09850656, 0.328561, 0, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
-height = 44.575012
+height = 34.542877
 radius = 11.911621
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wi27"]
@@ -371,7 +372,7 @@ area = NodePath("AreaLivre")
 transform = Transform3D(0.99999994, 0, -7.1054274e-15, 0, 0.99999994, 0, 7.1054274e-15, 0, 0.99999994, 117.260315, 0, 21.783562)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LegendeEpee/AreaLivre"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -21.00056, 1.3709717)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -15.174343, 1.3709717)
 shape = SubResource("CylinderShape3D_051ob")
 
 [node name="InterfaceDialogueROi" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
@@ -613,16 +614,16 @@ bbcode_enabled = true
 [node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.2833817, 1.4728022, 10.963921)
 script = ExtResource("6_rxtyn")
-accroche = "Ce qu'il ne sait pas, c'est que je connais déjà une personne capable de me porter."
+accroche = "Je n'arrive pas à porter cette épée, je ne sais pas quoi faire ..."
 voix = ExtResource("10_umwyf")
-nom = "[font_size=30][outline_size=15][outline_color=deep_sky_blue]Epée"
-interfaceDialogue = NodePath("../InterfaceDialogueEpee")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+interfaceDialogue = NodePath("../InterfaceDialogueROi")
 area = NodePath("AreaM")
 
 [node name="AreaM" type="Area3D" parent="Monarch"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/AreaM"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.3709726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -7.9660563, 1.3709726)
 shape = SubResource("CylinderShape3D_tt8b8")
 
 [node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
@@ -1022,10 +1023,10 @@ texture = ExtResource("15_5wi27")
 [node name="Monarch" type="Node3D" parent="pierre1" node_paths=PackedStringArray("interfaceDialogue", "area")]
 transform = Transform3D(-8.742278e-09, 0, 0.20000002, 0, 0.20000002, 0, -0.20000002, 0, -8.742278e-09, 0, 1.7469332, 0)
 script = ExtResource("6_rxtyn")
-accroche = "Je n'arrive pas à porter cette épée, je ne sais pas quoi faire ..."
-voix = ExtResource("10_umwyf")
-nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
-interfaceDialogue = NodePath("../../InterfaceDialogueROi")
+accroche = "Ce qu'il ne sait pas, c'est que je connais déjà une personne capable de me porter."
+voix = ExtResource("17_4drxf")
+nom = "[font_size=30][outline_size=15][outline_color=deep_sky_blue]Epée"
+interfaceDialogue = NodePath("../../InterfaceDialogueEpee")
 area = NodePath("AreaEpee")
 
 [node name="AreaEpee" type="Area3D" parent="pierre1/Monarch"]
