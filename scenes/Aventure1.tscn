@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbbpow6crqqus"]
+
+[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="1_61dw1"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="2_4ai6w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ai6w"]
+albedo_texture = ExtResource("1_61dw1")
+uv1_scale = Vector3(-0.76, -0.76, -0.76)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mgaak"]
+material = SubResource("StandardMaterial3D_4ai6w")
+size = Vector2(56.3, 65.49)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
+
+[node name="Aventure1" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_mgaak")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
+script = ExtResource("2_4ai6w")
+
+[node name="head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
+
+[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
+shape = SubResource("CapsuleShape3D_mgaak")

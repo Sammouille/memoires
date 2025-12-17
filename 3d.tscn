@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="5_iju8q"]
 [ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_33ndu"]
 [ext_resource type="AudioStream" uid="uid://bwlmhyrcy16gj" path="res://Assets/son/Jester.tres" id="7_euqcc"]
-[ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="7_r1q5g"]
+[ext_resource type="PackedScene" path="res://characters/king.tscn" id="7_r1q5g"]
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="9_tt8b8"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="10_33ndu"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_tt8b8"]
 [ext_resource type="Texture2D" uid="uid://4kq8ipmmd2vk" path="res://characters/cha_sheet.png" id="12_i57ke"]
-[ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="13_iekpf"]
+[ext_resource type="PackedScene" path="res://scenes/interface_livre.tscn" id="13_iekpf"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -252,11 +252,12 @@ billboard = 1
 sprite_frames = SubResource("SpriteFrames_wnm68")
 autoplay = "default"
 
-[node name="mage" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+[node name="mage" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.5514846, 1.4728022, 5.7805543)
 script = ExtResource("6_33ndu")
 voix = ExtResource("10_tt8b8")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+interfaceDialogue = NodePath("../InterfaceDialogues")
 area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="mage"]
