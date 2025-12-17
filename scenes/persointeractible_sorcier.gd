@@ -10,6 +10,7 @@ func debutInteraction():
 	interfaceDialogue.initxt(accroche, nom)
 	interfaceDialogue.inivoix(voix)
 	interfaceDialogue.show()
+	interfaceDialogue.grab_focus()
 
 func finInteraction():
 	interfaceDialogue.hide()

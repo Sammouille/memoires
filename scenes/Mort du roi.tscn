@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://diife0lvooak4"]
+[gd_scene load_steps=60 format=4 uid="uid://diife0lvooak4"]
 
 [ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="2_45ljr"]
 [ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="2_eecp3"]
@@ -13,6 +13,15 @@
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="9_gadrm"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_25g78"]
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="11_wemac"]
+[ext_resource type="Script" uid="uid://brus5mykmrm80" path="res://scenes/command_processor_sorcier.gd" id="13_byidv"]
+[ext_resource type="Texture2D" uid="uid://4kq8ipmmd2vk" path="res://characters/cha_sheet.png" id="14_43ljb"]
+[ext_resource type="AudioStream" uid="uid://bwlmhyrcy16gj" path="res://Assets/son/Jester.tres" id="15_wemac"]
+[ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="16_k2c1h"]
+[ext_resource type="Shader" path="res://machinatext/control.gdshader" id="17_y2nw7"]
+[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="18_byidv"]
+[ext_resource type="Script" uid="uid://bgj55ot8ukb45" path="res://scenes/command_processor_Jester.gd" id="19_kgbxk"]
+[ext_resource type="Script" path="res://machinatext/tree.gd" id="20_oevfh"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="21_1rqox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7708"]
 transparency = 1
@@ -308,7 +317,93 @@ sky = SubResource("Sky_swpyb")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_25g78"]
+height = 8.473877
+radius = 8.963379
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqoay"]
+atlas = ExtResource("14_43ljb")
+region = Rect2(0, 51, 160, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prdp5"]
+atlas = ExtResource("14_43ljb")
+region = Rect2(160, 51, 160, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wemac"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqoay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prdp5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
+shader = ExtResource("17_y2nw7")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj5cn"]
+shader = ExtResource("17_y2nw7")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_byidv"]
+height = 8.473877
+radius = 8.963379
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_334qw"]
 height = 8.473877
 radius = 8.963379
 
@@ -350,9 +445,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52117467, 0)
 mesh_library = ExtResource("2_45ljr")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(-4, 65534, 655371, -65540, 65534, 11, -65544, 65529, 12, -65544, 65528, 1441804, -65534, 65515, 131101, -3, 65515, 131101, -5, 65516, 1179677, 65531, 65516, 1179677, -8, 65534, 12)
+"cells": PackedInt32Array(-4, 65534, 655371, -65540, 65534, 11, -65544, 65529, 12, -65544, 65528, 1441804, -65534, 65515, 131101, -3, 65515, 131101, -5, 65516, 1179677, 65531, 65516, 1179677, -8, 65534, 12, 65532, 65534, 12, 262142, 65528, 1310738, 196606, 65528, 1310738, 196602, 65535, 1310738, 262138, 65535, 1310738)
 }
-metadata/_editor_floor_ = Vector3(0, -1, 0)
+metadata/_editor_floor_ = Vector3(0, 3, 0)
 
 [node name="objet" type="GridMap" parent="ASSETS"]
 mesh_library = ExtResource("2_45ljr")
@@ -555,9 +650,120 @@ directional_shadow_mode = 0
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_y2nw7")
 
-[node name="InterfaceDialoguesKing" parent="." instance=ExtResource("9_gadrm")]
+[node name="sorcier" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
+transform = Transform3D(-0.2, 0, -3.019916e-08, 0, 0.2, 0, 3.019916e-08, 0, -0.2, 5.112272, -1.3624829, 0.4880514)
+script = ExtResource("9_43ljb")
+accroche = "Si vous venez me dire que ça ne fonctionne pas, je vous répète que ce n'est pas ma faute ! Personne n'était d'accord sur ce moyeu !!!"
+voix = ExtResource("10_25g78")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Sorcier"
+interfaceDialogue = NodePath("InterfaceDialoguesSorcier")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="sorcier"]
+script = ExtResource("11_wemac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sorcier/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_25g78")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="sorcier"]
+transform = Transform3D(4.005, 0, 0, 0, 4.005, 0, 0, 0, 4.005, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_wemac")
+autoplay = "default"
+
+[node name="InterfaceDialoguesSorcier" type="Control" parent="sorcier"]
 unique_name_in_owner = true
 visible = false
+material = SubResource("ShaderMaterial_iy58a")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("18_byidv")
+max_lines_rememebered = 8
+
+[node name="command processor" type="Control" parent="sorcier/InterfaceDialoguesSorcier"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_byidv")
+
+[node name="forest" type="Node" parent="sorcier/InterfaceDialoguesSorcier"]
+script = ExtResource("20_oevfh")
+
+[node name="PanelContainer" type="PanelContainer" parent="sorcier/InterfaceDialoguesSorcier"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="PanelContainer" type="PanelContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_fj5cn")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("21_1rqox")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="sorcier/InterfaceDialoguesSorcier"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
 
 [node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0.2390728, -0.0967989, 3.406087)
@@ -565,7 +771,7 @@ script = ExtResource("9_43ljb")
 accroche = "Je me sens si fatigué... J'ai vécu une belle et longue vie... Je crois... Je pense oui... Je me souviens un peu de la plupart des choses que j'ai faites, et j'ai faites de bonnes choses..."
 voix = ExtResource("10_25g78")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
-interfaceDialogue = NodePath("../InterfaceDialoguesKing")
+interfaceDialogue = NodePath("InterfaceDialoguesKing")
 area = NodePath("Area3D")
 
 [node name="Area3D" type="Area3D" parent="Monarch"]
@@ -577,3 +783,134 @@ shape = SubResource("CylinderShape3D_byidv")
 
 [node name="king" parent="Monarch" instance=ExtResource("6_aa1qn")]
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
+[node name="InterfaceDialoguesKing" parent="Monarch" instance=ExtResource("9_gadrm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="Jester" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -2.887897, -1.3875597, 5.2582912)
+script = ExtResource("9_43ljb")
+accroche = "Un objet qui brille..."
+voix = ExtResource("15_wemac")
+nom = "[font_size=30][outline_size=15][outline_color=rebecca_purple]Jester"
+interfaceDialogue = NodePath("InterfaceDialoguesJester")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Jester"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2282085, 0, 0)
+script = ExtResource("11_wemac")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Jester/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512693, 1.2837214, -1.1305838)
+shape = SubResource("CylinderShape3D_334qw")
+
+[node name="Sprite3D" parent="Jester" instance=ExtResource("16_k2c1h")]
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
+[node name="InterfaceDialoguesJester" type="Control" parent="Jester"]
+visible = false
+material = SubResource("ShaderMaterial_iy58a")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("18_byidv")
+max_lines_rememebered = 8
+
+[node name="command processor" type="Control" parent="Jester/InterfaceDialoguesJester"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("19_kgbxk")
+
+[node name="forest" type="Node" parent="Jester/InterfaceDialoguesJester"]
+script = ExtResource("20_oevfh")
+
+[node name="PanelContainer" type="PanelContainer" parent="Jester/InterfaceDialoguesJester"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="PanelContainer" type="PanelContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_fj5cn")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("21_1rqox")]
+unique_name_in_owner = true
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="Jester/InterfaceDialoguesJester"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Titre" type="RichTextLabel" parent="Jester/InterfaceDialoguesJester"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
+
+[connection signal="text_submitted" from="sorcier/InterfaceDialoguesSorcier/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="sorcier/InterfaceDialoguesSorcier" method="_on_input_text_submitted"]
+[connection signal="button_down" from="sorcier/InterfaceDialoguesSorcier/reset" to="sorcier/InterfaceDialoguesSorcier" method="_on_button_button_down"]
+[connection signal="text_submitted" from="Jester/InterfaceDialoguesJester/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="Jester/InterfaceDialoguesJester" method="_on_input_text_submitted"]
+[connection signal="button_down" from="Jester/InterfaceDialoguesJester/reset" to="Jester/InterfaceDialoguesJester" method="_on_button_button_down"]
