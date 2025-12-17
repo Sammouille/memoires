@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=33 format=3 uid="uid://bt7svw607h6ld"]
 
-[ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_iju8q"]
+[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="2_fji6l"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="3_7xjic"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="9_tt8b8"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="10_33ndu"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_tt8b8"]
+[ext_resource type="Texture2D" uid="uid://4kq8ipmmd2vk" path="res://characters/cha_sheet.png" id="12_i57ke"]
 [ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="13_iekpf"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
@@ -66,6 +67,72 @@ glow_enabled = true
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
 height = 8.473877
 radius = 8.963379
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i57ke"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(0, 350, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnm68"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(320, 350, 320, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i57ke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i57ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnm68")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqoay"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(0, 51, 160, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prdp5"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(160, 51, 160, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wnm68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqoay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prdp5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sqs6"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(0, 647, 320, 410)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3gwv"]
+atlas = ExtResource("12_i57ke")
+region = Rect2(320, 647, 320, 410)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25qfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sqs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3gwv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="scene_base" type="Node3D"]
 
@@ -145,56 +212,65 @@ shape = SubResource("CylinderShape3D_tt8b8")
 [node name="king" parent="Monarch" instance=ExtResource("7_r1q5g")]
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
 
-[node name="Druid" type="Node3D" parent="." node_paths=PackedStringArray("area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0.6294761, 1.4728022, 2.006019)
+[node name="ALCHEMIST" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0.6294761, 1.0157942, 2.006019)
 script = ExtResource("6_33ndu")
 voix = ExtResource("10_tt8b8")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
 area = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="Druid"]
+[node name="Area3D" type="Area3D" parent="ALCHEMIST"]
 script = ExtResource("9_tt8b8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Druid/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ALCHEMIST/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
 shape = SubResource("CylinderShape3D_tt8b8")
 
-[node name="king" parent="Druid" instance=ExtResource("7_r1q5g")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="ALCHEMIST"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_i57ke")
+autoplay = "default"
 
-[node name="Mage" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+[node name="sorcier" type="Node3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.6083946, 1.4728022, -2.8242745)
 script = ExtResource("6_33ndu")
 voix = ExtResource("10_tt8b8")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
 area = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="Mage"]
+[node name="Area3D" type="Area3D" parent="sorcier"]
 script = ExtResource("9_tt8b8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Mage/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sorcier/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
 shape = SubResource("CylinderShape3D_tt8b8")
 
-[node name="king" parent="Mage" instance=ExtResource("7_r1q5g")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="sorcier"]
+transform = Transform3D(4.005, 0, 0, 0, 4.005, 0, 0, 0, 4.005, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_wnm68")
+autoplay = "default"
 
-[node name="Alchemist" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+[node name="mage" type="Node3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.5514846, 1.4728022, 5.7805543)
 script = ExtResource("6_33ndu")
 voix = ExtResource("10_tt8b8")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
 area = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="Alchemist"]
+[node name="Area3D" type="Area3D" parent="mage"]
 script = ExtResource("9_tt8b8")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Alchemist/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="mage/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
 shape = SubResource("CylinderShape3D_tt8b8")
 
-[node name="king" parent="Alchemist" instance=ExtResource("7_r1q5g")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="mage"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_25qfh")
+autoplay = "default"
 
 [node name="InterfaceDialogues" parent="." instance=ExtResource("10_33ndu")]
 unique_name_in_owner = true
