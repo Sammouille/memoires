@@ -47,6 +47,7 @@ billboard = 1
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_5bye3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]

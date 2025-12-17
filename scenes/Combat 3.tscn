@@ -1,31 +1,82 @@
-[gd_scene load_steps=72 format=4 uid="uid://yk5fpjy5mrvo"]
+[gd_scene load_steps=100 format=4 uid="uid://dbfsnf1gv3cib"]
 
-[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="1_61dw1"]
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="2_4ai6w"]
-[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="2_jx1yr"]
-[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="3_ahq85"]
-[ext_resource type="Sky" path="res://new_sky.tres" id="3_mgaak"]
-[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="4_rd22c"]
-[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="5_c52hx"]
-[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="8_ahq85"]
-[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="9_rd22c"]
-[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="10_c52hx"]
-[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="11_56d8s"]
-[ext_resource type="Texture2D" uid="uid://dc045q1wofwrf" path="res://Assets/Objet2D/crâne.png" id="12_rm0fk"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_oqlfj"]
+[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="2_oqlfj"]
+[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_0dvt2"]
+[ext_resource type="Texture2D" uid="uid://dpk7r2a7rwrbw" path="res://shooting_star_sampler.png" id="3_ky31e"]
+[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="4_rdx6m"]
+[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="5_2efot"]
+[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="6_kt8by"]
+[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="7_2vlkj"]
+[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="8_4qgoj"]
+[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="9_0xbru"]
+[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="10_rtg28"]
+[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="11_8frpo"]
+[ext_resource type="Texture2D" uid="uid://iyw2hkps6vu0" path="res://characters/cha_sheet_jester.png" id="13_ky31e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
 
-[sub_resource type="Environment" id="Environment_rd22c"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_enao0"]
+load_path = "res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"
+
+[sub_resource type="Curve" id="Curve_a0i6q"]
+_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_n7aiw"]
+curve = SubResource("Curve_a0i6q")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2aydg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_14rf8"]
+noise = SubResource("FastNoiseLite_2aydg")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wptyr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0i6q"]
+noise = SubResource("FastNoiseLite_wptyr")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnpua"]
+shader = ExtResource("2_oqlfj")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_a0i6q")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_14rf8")
+shader_parameter/cloud_curves = SubResource("CurveTexture_n7aiw")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.02999999932944
+shader_parameter/clouds_light_color = Color(0.48404616, 0.3047016, 0.26667127, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0.12688237, 0.15909973, 0.22913677, 1)
+shader_parameter/bottom_color = Color(0.12287801, 0.13683426, 0.17237219, 1)
+shader_parameter/sun_scatter = Color(0.10210004, 5.340107e-05, 0.35367465, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_sampler = SubResource("CompressedTexture2D_enao0")
+shader_parameter/astro_scale = 3.5000000521542
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.10000000149012
+shader_parameter/shooting_star_sampler = ExtResource("3_ky31e")
+shader_parameter/shooting_star_tint = Color(0.9547902, 0.8833602, 0.7613127, 1)
+
+[sub_resource type="Sky" id="Sky_0dvt2"]
+sky_material = SubResource("ShaderMaterial_jnpua")
+
+[sub_resource type="Environment" id="Environment_rdx6m"]
 background_mode = 2
-sky = ExtResource("3_mgaak")
-ambient_light_color = Color(0.3971593, 0.7969981, 0.86689997, 1)
+sky = SubResource("Sky_0dvt2")
+ambient_light_color = Color(0.9506344, 0.6329455, 0.59810823, 1)
 tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeklp"]
 resource_name = "Material.005"
 cull_mode = 2
-albedo_texture = ExtResource("2_jx1yr")
+albedo_texture = ExtResource("3_0dvt2")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -34,7 +85,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_ahq85")
+albedo_texture = ExtResource("4_rdx6m")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2wpx"]
@@ -177,7 +228,7 @@ points = PackedVector3Array(0.2971, 2.263498, 1.6188744, 0.6375381, 2.263498, 1.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jmsb"]
 resource_name = "bois"
 cull_mode = 2
-albedo_texture = ExtResource("4_rd22c")
+albedo_texture = ExtResource("5_2efot")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -186,7 +237,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("5_c52hx")
+albedo_texture = ExtResource("6_kt8by")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e1aiu"]
@@ -251,7 +302,7 @@ points = PackedVector3Array(-1.6681936, 0.42866653, 0.24882378, 1.6799648, 1.026
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ambq0"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("8_ahq85")
+albedo_texture = ExtResource("7_2vlkj")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -299,7 +350,7 @@ points = PackedVector3Array(1.7652919, 3.6835551, 2.4206274, -1.3181522, 2.45034
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w188h"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("9_rd22c")
+albedo_texture = ExtResource("8_4qgoj")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -347,7 +398,7 @@ points = PackedVector3Array(2.3267443, 3.4285545, 0.9838075, -0.2471928, 2.55540
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv4j5"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("10_c52hx")
+albedo_texture = ExtResource("9_0xbru")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -392,7 +443,7 @@ points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv3u7"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("11_56d8s")
+albedo_texture = ExtResource("10_rtg28")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y1u3b"]
@@ -433,7 +484,7 @@ shadow_mesh = SubResource("ArrayMesh_y1u3b")
 points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1, -1, 0.09096437, 0.97374916, 1, 0.017918563, 1, -1, 5.497119, 0.97374916, 0.97374916, 4.9820933, -1, -1, 4.9820933, -1, 0.97374916, 0.09096437, -1, 1, 5.6561813, 1, 0.30055523, 5.7079577, 1.0186071, 0.30055523, 5.7079577, 0.47991672, -0.95836717, 5.3849, 0.4385847)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ai6w"]
-albedo_texture = ExtResource("1_61dw1")
+albedo_texture = ExtResource("11_8frpo")
 uv1_scale = Vector3(-0.76, -0.76, -0.76)
 uv1_triplanar = true
 
@@ -444,11 +495,125 @@ size = Vector2(138.555, 86.375)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mgaak"]
 points = PackedVector3Array(70.37714, 1.0996428, 43.675667, -70.37714, -1.0996428, -44.278534, -70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, -44.278534, -70.37714, -1.0996428, 43.675667, -70.37714, 1.0996428, 43.675667, 70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, 43.675667)
 
-[node name="Aventure1" type="Node3D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_silo1"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(167, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc6a"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(327, 0, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0dvt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_silo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhc6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_rdx6m"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw0km"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(7, 480, 320, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j32ew"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(327, 480, 320, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ky31e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw0km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j32ew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0dvt2"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2efot"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13y27"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(967, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1qc2"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(1127, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij7d2"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(1287, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilrqw"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(1447, 0, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kt8by"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13y27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1qc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij7d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilrqw")
+}],
+"loop": true,
+"name": &"standing_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ky31e"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kqcq"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(1127, 312, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40imc"]
+atlas = ExtResource("13_ky31e")
+region = Rect2(1447, 312, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rdx6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kqcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40imc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="combat" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
-script = ExtResource("2_4ai6w")
+script = ExtResource("1_oqlfj")
 
 [node name="head" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
@@ -461,8 +626,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_mgaak")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.21117467, 0.7699785, 0.6021116, -0.4532166, 0.46865025, -0.7582623, 0, 3.6594257, 1.3243967)
-light_color = Color(0.32176235, 0.49148655, 0.96642417, 1)
+transform = Transform3D(-0.90702486, -0.42085233, 0.0137563795, -0.41643646, 0.90138674, 0.118669614, -0.06234224, 0.10190764, -0.99283856, 0, 3.6594257, 1.3243967)
+light_color = Color(0.70557904, 0.47547936, 0.027983604, 1)
 light_specular = 2.962
 shadow_enabled = true
 shadow_bias = 0.285
@@ -474,7 +639,7 @@ directional_shadow_mode = 0
 directional_shadow_fade_start = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rd22c")
+environment = SubResource("Environment_rdx6m")
 
 [node name="assets" type="Node3D" parent="."]
 transform = Transform3D(3.4413657, 0, 0, 0, 3.4413655, 0, 0, 0, 3.4413657, -3.8146973e-06, 0, 28.651278)
@@ -3396,8 +3561,78 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="assets/MeshInstance3D/Groupe Arbre4/Arbre_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mu4mu")
 
-[node name="Crane" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.846252, 3.354331, -2.9172573)
+[node name="monsters" type="Node3D" parent="."]
+
+[node name="sorcier" type="Sprite3D" parent="monsters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.193516, 1.5976138, 0.38659525)
 billboard = 1
-texture_filter = 2
-texture = ExtResource("12_rm0fk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/sorcier"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/sorcier/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_0dvt2")
+autoplay = "default"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="monsters/sorcier/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/sorcier/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_rdx6m")
+
+[node name="alchimiste" type="Sprite3D" parent="monsters"]
+transform = Transform3D(0.99999994, 0, -0.00026179937, 0, 1, 0, 0.00026179937, 0, 0.99999994, 13.805544, 1.3078055, 4.2782903)
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/alchimiste"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/alchimiste/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ky31e")
+autoplay = "default"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="monsters/alchimiste/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/alchimiste/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_0dvt2")
+
+[node name="jester" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.219547, 1.387743, 4.6000323)
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jester"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../../king")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jester/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jester/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_2efot")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="jester"]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_kt8by")
+animation = &"standing_walk"
+autoplay = "standing_walk"
+
+[node name="king" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.578472, 0.6957331, 9.022506)
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="king/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="king/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_ky31e")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="king/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_rdx6m")
+autoplay = "default"

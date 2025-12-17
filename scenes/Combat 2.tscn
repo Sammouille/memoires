@@ -1,31 +1,31 @@
-[gd_scene load_steps=72 format=4 uid="uid://yk5fpjy5mrvo"]
+[gd_scene load_steps=84 format=4 uid="uid://dm60yy1s7db1f"]
 
-[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="1_61dw1"]
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="2_4ai6w"]
-[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="2_jx1yr"]
-[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="3_ahq85"]
-[ext_resource type="Sky" path="res://new_sky.tres" id="3_mgaak"]
-[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="4_rd22c"]
-[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="5_c52hx"]
-[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="8_ahq85"]
-[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="9_rd22c"]
-[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="10_c52hx"]
-[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="11_56d8s"]
-[ext_resource type="Texture2D" uid="uid://dc045q1wofwrf" path="res://Assets/Objet2D/crâne.png" id="12_rm0fk"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_n0ilc"]
+[ext_resource type="Sky" uid="uid://cowvfpbrxvi4b" path="res://ciel_nuit.tres" id="2_o6qkm"]
+[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_w3mmi"]
+[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="4_72phv"]
+[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="5_m6r3d"]
+[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="6_q5ovj"]
+[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="7_k0646"]
+[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="8_6m6i0"]
+[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="9_3wua3"]
+[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="10_hd7p5"]
+[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="11_ac6rg"]
+[ext_resource type="Texture2D" uid="uid://dqp0pts7ka163" path="res://characters/monsters_white.png" id="12_dxgwr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
 
-[sub_resource type="Environment" id="Environment_rd22c"]
+[sub_resource type="Environment" id="Environment_dxgwr"]
 background_mode = 2
-sky = ExtResource("3_mgaak")
-ambient_light_color = Color(0.3971593, 0.7969981, 0.86689997, 1)
+sky = ExtResource("2_o6qkm")
+ambient_light_color = Color(0.9506344, 0.6329455, 0.59810823, 1)
 tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeklp"]
 resource_name = "Material.005"
 cull_mode = 2
-albedo_texture = ExtResource("2_jx1yr")
+albedo_texture = ExtResource("3_w3mmi")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -34,7 +34,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_ahq85")
+albedo_texture = ExtResource("4_72phv")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2wpx"]
@@ -177,7 +177,7 @@ points = PackedVector3Array(0.2971, 2.263498, 1.6188744, 0.6375381, 2.263498, 1.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jmsb"]
 resource_name = "bois"
 cull_mode = 2
-albedo_texture = ExtResource("4_rd22c")
+albedo_texture = ExtResource("5_m6r3d")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -186,7 +186,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("5_c52hx")
+albedo_texture = ExtResource("6_q5ovj")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e1aiu"]
@@ -251,7 +251,7 @@ points = PackedVector3Array(-1.6681936, 0.42866653, 0.24882378, 1.6799648, 1.026
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ambq0"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("8_ahq85")
+albedo_texture = ExtResource("7_k0646")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -299,7 +299,7 @@ points = PackedVector3Array(1.7652919, 3.6835551, 2.4206274, -1.3181522, 2.45034
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w188h"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("9_rd22c")
+albedo_texture = ExtResource("8_6m6i0")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -347,7 +347,7 @@ points = PackedVector3Array(2.3267443, 3.4285545, 0.9838075, -0.2471928, 2.55540
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv4j5"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("10_c52hx")
+albedo_texture = ExtResource("9_3wua3")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -392,7 +392,7 @@ points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv3u7"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("11_56d8s")
+albedo_texture = ExtResource("10_hd7p5")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y1u3b"]
@@ -433,7 +433,7 @@ shadow_mesh = SubResource("ArrayMesh_y1u3b")
 points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1, -1, 0.09096437, 0.97374916, 1, 0.017918563, 1, -1, 5.497119, 0.97374916, 0.97374916, 4.9820933, -1, -1, 4.9820933, -1, 0.97374916, 0.09096437, -1, 1, 5.6561813, 1, 0.30055523, 5.7079577, 1.0186071, 0.30055523, 5.7079577, 0.47991672, -0.95836717, 5.3849, 0.4385847)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ai6w"]
-albedo_texture = ExtResource("1_61dw1")
+albedo_texture = ExtResource("11_ac6rg")
 uv1_scale = Vector3(-0.76, -0.76, -0.76)
 uv1_triplanar = true
 
@@ -444,11 +444,85 @@ size = Vector2(138.555, 86.375)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mgaak"]
 points = PackedVector3Array(70.37714, 1.0996428, 43.675667, -70.37714, -1.0996428, -44.278534, -70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, -44.278534, -70.37714, -1.0996428, 43.675667, -70.37714, 1.0996428, 43.675667, 70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, 43.675667)
 
-[node name="Aventure1" type="Node3D"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_n0ilc"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dj30v"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(640, 762, 320, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_og1qf"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(960, 762, 320, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6qkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dj30v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_og1qf")
+}],
+"loop": true,
+"name": &"standing_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w170f"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(654, 5, 320, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmou0"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(974, 5, 320, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dxgwr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w170f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmou0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6qkm"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h70th"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(14, 749, 320, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h72py"]
+atlas = ExtResource("12_dxgwr")
+region = Rect2(334, 749, 320, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0ilc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h70th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h72py")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o6qkm"]
+
+[node name="combat" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
-script = ExtResource("2_4ai6w")
+script = ExtResource("1_n0ilc")
 
 [node name="head" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
@@ -461,8 +535,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_mgaak")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.21117467, 0.7699785, 0.6021116, -0.4532166, 0.46865025, -0.7582623, 0, 3.6594257, 1.3243967)
-light_color = Color(0.32176235, 0.49148655, 0.96642417, 1)
+transform = Transform3D(-0.90702486, -0.42085233, 0.0137563795, -0.41643646, 0.90138674, 0.118669614, -0.06234224, 0.10190764, -0.99283856, 0, 3.6594257, 1.3243967)
+light_color = Color(0.70557904, 0.47547936, 0.027983604, 1)
 light_specular = 2.962
 shadow_enabled = true
 shadow_bias = 0.285
@@ -474,7 +548,7 @@ directional_shadow_mode = 0
 directional_shadow_fade_start = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rd22c")
+environment = SubResource("Environment_dxgwr")
 
 [node name="assets" type="Node3D" parent="."]
 transform = Transform3D(3.4413657, 0, 0, 0, 3.4413655, 0, 0, 0, 3.4413657, -3.8146973e-06, 0, 28.651278)
@@ -3396,8 +3470,55 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="assets/MeshInstance3D/Groupe Arbre4/Arbre_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mu4mu")
 
-[node name="Crane" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.846252, 3.354331, -2.9172573)
+[node name="monsters" type="Node3D" parent="."]
+
+[node name="king" type="Sprite3D" parent="monsters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.660123, 1.303374, 0)
 billboard = 1
-texture_filter = 2
-texture = ExtResource("12_rm0fk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="monsters/king/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/king/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_n0ilc")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/king"]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_o6qkm")
+animation = &"standing_walk"
+autoplay = "standing_walk"
+
+[node name="giant" type="Sprite3D" parent="monsters/king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.745423, 0, -6.18819)
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/king/giant"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/king/giant/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_dxgwr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="monsters/king/giant/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/king/giant/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o6qkm")
+
+[node name="mage" type="Sprite3D" parent="monsters"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.285078, 1.9182882, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/mage"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/mage/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_n0ilc")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="monsters/mage/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/mage/MeshInstance3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_o6qkm")

@@ -1,23 +1,77 @@
-[gd_scene load_steps=72 format=4 uid="uid://yk5fpjy5mrvo"]
+[gd_scene load_steps=83 format=4 uid="uid://d0imngbi0dm8x"]
 
-[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="1_61dw1"]
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="2_4ai6w"]
-[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="2_jx1yr"]
-[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="3_ahq85"]
-[ext_resource type="Sky" path="res://new_sky.tres" id="3_mgaak"]
-[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="4_rd22c"]
-[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="5_c52hx"]
-[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="8_ahq85"]
-[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="9_rd22c"]
-[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="10_c52hx"]
-[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="11_56d8s"]
-[ext_resource type="Texture2D" uid="uid://dc045q1wofwrf" path="res://Assets/Objet2D/crâne.png" id="12_rm0fk"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_bp245"]
+[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="2_yrmrc"]
+[ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_7x4kj"]
+[ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="4_fal3i"]
+[ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="5_sswun"]
+[ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="6_4d1ps"]
+[ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="7_u0flm"]
+[ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="8_uvakf"]
+[ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="9_1huaq"]
+[ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="10_xqanp"]
+[ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="11_m6pvr"]
+[ext_resource type="PackedScene" uid="uid://bn58vm7soj4rs" path="res://characters/dragon.tscn" id="13_yrmrc"]
+[ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="14_7x4kj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
 
-[sub_resource type="Environment" id="Environment_rd22c"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7x4kj"]
+load_path = "res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"
+
+[sub_resource type="Curve" id="Curve_fal3i"]
+_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_sswun"]
+curve = SubResource("Curve_fal3i")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4d1ps"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u0flm"]
+noise = SubResource("FastNoiseLite_4d1ps")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_uvakf"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1huaq"]
+noise = SubResource("FastNoiseLite_uvakf")
+seamless = true
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xqanp"]
+load_path = "res://.godot/imported/shooting_star_sampler.png-ff1e808fa5f8310e548f777b9285bd3e.s3tc.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m6pvr"]
+shader = ExtResource("2_yrmrc")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_1huaq")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_u0flm")
+shader_parameter/cloud_curves = SubResource("CurveTexture_sswun")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.02999999932944
+shader_parameter/clouds_light_color = Color(0.48404616, 0.3047016, 0.26667127, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0.20551747, 0.13863552, 0.16746369, 1)
+shader_parameter/bottom_color = Color(0.093891524, 0.12908623, 0.24643788, 1)
+shader_parameter/sun_scatter = Color(0.16031504, 0.100573696, 0.0063920887, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_sampler = SubResource("CompressedTexture2D_7x4kj")
+shader_parameter/astro_scale = 3.5000000521542
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.10000000149012
+shader_parameter/shooting_star_sampler = SubResource("CompressedTexture2D_xqanp")
+shader_parameter/shooting_star_tint = Color(0.9547902, 0.8833602, 0.7613127, 1)
+
+[sub_resource type="Sky" id="Sky_58yqy"]
+sky_material = SubResource("ShaderMaterial_m6pvr")
+
+[sub_resource type="Environment" id="Environment_ga5wk"]
 background_mode = 2
-sky = ExtResource("3_mgaak")
+sky = SubResource("Sky_58yqy")
 ambient_light_color = Color(0.3971593, 0.7969981, 0.86689997, 1)
 tonemap_mode = 2
 glow_enabled = true
@@ -25,7 +79,7 @@ glow_enabled = true
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeklp"]
 resource_name = "Material.005"
 cull_mode = 2
-albedo_texture = ExtResource("2_jx1yr")
+albedo_texture = ExtResource("3_7x4kj")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -34,7 +88,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("3_ahq85")
+albedo_texture = ExtResource("4_fal3i")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_m2wpx"]
@@ -177,7 +231,7 @@ points = PackedVector3Array(0.2971, 2.263498, 1.6188744, 0.6375381, 2.263498, 1.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5jmsb"]
 resource_name = "bois"
 cull_mode = 2
-albedo_texture = ExtResource("4_rd22c")
+albedo_texture = ExtResource("5_sswun")
 roughness = 0.5
 uv1_scale = Vector3(4, 4, 1)
 uv1_offset = Vector3(0, -3, 0)
@@ -186,7 +240,7 @@ uv1_offset = Vector3(0, -3, 0)
 resource_name = "Material.009"
 transparency = 4
 cull_mode = 2
-albedo_texture = ExtResource("5_c52hx")
+albedo_texture = ExtResource("6_4d1ps")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e1aiu"]
@@ -251,7 +305,7 @@ points = PackedVector3Array(-1.6681936, 0.42866653, 0.24882378, 1.6799648, 1.026
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ambq0"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("8_ahq85")
+albedo_texture = ExtResource("7_u0flm")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -299,7 +353,7 @@ points = PackedVector3Array(1.7652919, 3.6835551, 2.4206274, -1.3181522, 2.45034
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w188h"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("9_rd22c")
+albedo_texture = ExtResource("8_uvakf")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -347,7 +401,7 @@ points = PackedVector3Array(2.3267443, 3.4285545, 0.9838075, -0.2471928, 2.55540
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yv4j5"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("10_c52hx")
+albedo_texture = ExtResource("9_1huaq")
 roughness = 0.5
 uv1_scale = Vector3(3, 3, 1)
 uv1_offset = Vector3(0, -2, 0)
@@ -392,7 +446,7 @@ points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jv3u7"]
 resource_name = "mur"
 cull_mode = 2
-albedo_texture = ExtResource("11_56d8s")
+albedo_texture = ExtResource("10_xqanp")
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_y1u3b"]
@@ -433,7 +487,7 @@ shadow_mesh = SubResource("ArrayMesh_y1u3b")
 points = PackedVector3Array(1.0186071, 5.7079577, 0.47991672, -1, 0.09096437, -1, -1, 0.09096437, 0.97374916, 1, 0.017918563, 1, -1, 5.497119, 0.97374916, 0.97374916, 4.9820933, -1, -1, 4.9820933, -1, 0.97374916, 0.09096437, -1, 1, 5.6561813, 1, 0.30055523, 5.7079577, 1.0186071, 0.30055523, 5.7079577, 0.47991672, -0.95836717, 5.3849, 0.4385847)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ai6w"]
-albedo_texture = ExtResource("1_61dw1")
+albedo_texture = ExtResource("11_m6pvr")
 uv1_scale = Vector3(-0.76, -0.76, -0.76)
 uv1_triplanar = true
 
@@ -444,11 +498,11 @@ size = Vector2(138.555, 86.375)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mgaak"]
 points = PackedVector3Array(70.37714, 1.0996428, 43.675667, -70.37714, -1.0996428, -44.278534, -70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, -44.278534, -70.37714, -1.0996428, 43.675667, -70.37714, 1.0996428, 43.675667, 70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, 43.675667)
 
-[node name="Aventure1" type="Node3D"]
+[node name="combat" type="Node3D"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
-script = ExtResource("2_4ai6w")
+script = ExtResource("1_bp245")
 
 [node name="head" type="Node3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
@@ -461,7 +515,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_mgaak")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.21117467, 0.7699785, 0.6021116, -0.4532166, 0.46865025, -0.7582623, 0, 3.6594257, 1.3243967)
+transform = Transform3D(-0.90702486, -0.42085233, 0.0137563795, -0.41643646, 0.90138674, 0.118669614, -0.06234224, 0.10190764, -0.99283856, 0, 3.6594257, 1.3243967)
 light_color = Color(0.32176235, 0.49148655, 0.96642417, 1)
 light_specular = 2.962
 shadow_enabled = true
@@ -474,7 +528,7 @@ directional_shadow_mode = 0
 directional_shadow_fade_start = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rd22c")
+environment = SubResource("Environment_ga5wk")
 
 [node name="assets" type="Node3D" parent="."]
 transform = Transform3D(3.4413657, 0, 0, 0, 3.4413655, 0, 0, 0, 3.4413657, -3.8146973e-06, 0, 28.651278)
@@ -3396,8 +3450,11 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="assets/MeshInstance3D/Groupe Arbre4/Arbre_002/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_mu4mu")
 
-[node name="Crane" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.846252, 3.354331, -2.9172573)
+[node name="monsters" type="Node3D" parent="."]
+
+[node name="dragon" parent="monsters" instance=ExtResource("13_yrmrc")]
+transform = Transform3D(3.96, 0, 0, 0, 3.96, 0, 0, 0, 3.96, 0, 4.245472, 0)
+
+[node name="king" parent="monsters" instance=ExtResource("14_7x4kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.776764, 1.5573444, 6.5909624)
 billboard = 1
-texture_filter = 2
-texture = ExtResource("12_rm0fk")

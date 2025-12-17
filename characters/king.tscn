@@ -5,25 +5,25 @@
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xwleu"]
 data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d3vxw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4cpj"]
 atlas = ExtResource("1_l4cpj")
-region = Rect2(640, 720, 320, 360)
+region = Rect2(654, 749, 320, 312)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u33ym"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwleu"]
 atlas = ExtResource("1_l4cpj")
-region = Rect2(960, 720, 320, 360)
+region = Rect2(974, 749, 320, 312)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bwwpp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3vxw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d3vxw")
+"texture": SubResource("AtlasTexture_l4cpj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u33ym")
+"texture": SubResource("AtlasTexture_xwleu")
 }],
 "loop": true,
-"name": &"standing_walk",
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -40,10 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
 shape = SubResource("ConcavePolygonShape3D_xwleu")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
-billboard = 1
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_bwwpp")
-animation = &"standing_walk"
-autoplay = "standing_walk"
-frame_progress = 0.40678304
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
+sprite_frames = SubResource("SpriteFrames_d3vxw")
