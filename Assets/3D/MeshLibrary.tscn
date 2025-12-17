@@ -174,13 +174,13 @@ _data = {
 &"RESET": SubResource("Animation_7f66v")
 }
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fmvu7"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ipj2f"]
 points = PackedVector3Array(1.005539, 4.052107, 0.04092936, -1.0409293, -0.04082918, -0.04092936, -1.0409293, -0.04082918, 0.04092936, -1.0409293, 4.052107, -0.04092936, 1.005539, -0.04082918, -0.04092936, 1.005539, -0.04082918, 0.04092936, -1.0409293, 4.052107, 0.04092936, 1.005539, 4.052107, -0.04092936)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g8vc8"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jutwd"]
 points = PackedVector3Array(-1.0409293, 4.052107, -0.040889323, 1.005539, 4.870694, 0.36836427, 1.005539, 4.870694, 0.28644145, -1.0409293, 4.870694, 0.36836427, 1.005539, 4.052107, 0.12283616, -1.0409293, 4.625102, 0.36836427, 1.005539, 4.1339974, -0.040889323, -1.0409293, 4.543131, 0.12283616, -1.0409293, 4.052107, 0.12283616, 1.005539, 4.625102, 0.36836427, -1.0409293, 4.870694, 0.28644145, 1.005539, 4.052107, -0.040889323, -1.0409293, 4.1339974, -0.040889323, 1.005539, 4.543131, 0.12283616, 1.005539, 4.2159686, 0.20459874, -1.0409293, 4.2159686, 0.20459874)
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pc8hq"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5x87q"]
 points = PackedVector3Array(1.005539, 5.1980896, 1.1869515, -1.0409293, 4.7888355, 0.3685245, -1.0409293, 4.8707585, 0.3685245, 1.005539, 4.7888355, 0.3685245, -1.0409293, 5.0343637, 1.1049886, -1.0409293, 5.1980896, 1.0231059, 1.005539, 4.9526014, 0.45032713, 1.005539, 4.9526014, 0.9413032, -1.0409293, 4.7888355, 0.5322099, 1.005539, 5.1980896, 1.0231059, -1.0409293, 5.0343637, 0.61401254, -1.0409293, 5.1980896, 1.1869515, 1.005539, 5.1162066, 1.1869515, 1.005539, 4.7888355, 0.5322099, -1.0409293, 5.1162066, 1.1869515, -1.0409293, 4.9526014, 0.45032713, 1.005539, 4.8707585, 0.3685245, 1.005539, 5.0343637, 1.1049886, 1.005539, 5.0343637, 0.61401254, -1.0409293, 4.9526014, 0.9413032)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0sm4"]
@@ -1921,7 +1921,8 @@ points = PackedVector3Array(1.005539, 5.1162066, 1.1869515, -1.0409293, 4.788835
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7j6py"]
 albedo_texture = ExtResource("15_evt1g")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vlphh"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc8hq"]
+albedo_texture = ExtResource("8_6gerc")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nbxcb"]
 _surfaces = [{
@@ -1944,7 +1945,7 @@ _surfaces = [{
 "format": 34896613399,
 "index_count": 6,
 "index_data": PackedByteArray("AAABAAIAAAADAAEA"),
-"material": SubResource("StandardMaterial3D_vlphh"),
+"material": SubResource("StandardMaterial3D_pc8hq"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 4,
@@ -1998,13 +1999,13 @@ skeleton = NodePath("")
 [node name="StaticBody3D" type="StaticBody3D" parent="Mur4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Mur4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_fmvu7")
+shape = SubResource("ConvexPolygonShape3D_ipj2f")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Mur4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_g8vc8")
+shape = SubResource("ConvexPolygonShape3D_jutwd")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Mur4/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_pc8hq")
+shape = SubResource("ConvexPolygonShape3D_5x87q")
 
 [node name="TrucAEau" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
@@ -2614,7 +2615,7 @@ shape = SubResource("ConvexPolygonShape3D_uhyb2")
 shape = SubResource("ConvexPolygonShape3D_vrxmh")
 
 [node name="Solpenché" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11.969499)
 material_override = SubResource("StandardMaterial3D_7j6py")
 mesh = SubResource("ArrayMesh_0567c")
 skeleton = NodePath("")
