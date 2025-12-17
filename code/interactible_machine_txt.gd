@@ -1,4 +1,4 @@
-extends Interactible
+extends 
 
 @export var machine_txt : Control
 

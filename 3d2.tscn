@@ -1,7 +1,8 @@
-[gd_scene load_steps=42 format=4 uid="uid://cx7b0ovtilyvc"]
+[gd_scene load_steps=43 format=4 uid="uid://cx7b0ovtilyvc"]
 
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_2pyxx"]
 [ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="1_8cnks"]
+[ext_resource type="MeshLibrary" uid="uid://itkd5d75241e" path="res://Assets/Objet2D/objets.tres" id="1_u5d51"]
 [ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="2_2q8wl"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="2_v6ftp"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="3_11g8y"]
@@ -354,6 +355,14 @@ viewport_path = NodePath("SubViewport")
 size = Vector3(11.489014, 6.4730835, 3.7419434)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="objets" type="GridMap" parent="."]
+mesh_library = ExtResource("1_u5d51")
+cell_size = Vector3(1, 0.8, 1)
+data = {
+"cells": PackedInt32Array(1, 65535, 0, 2, 0, 65538, -65531, 1, 1114114, 65538, 0, 1114114, 65537, 0, 1114118, 65536, 0, 1114117)
+}
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="wall2" type="GridMap" parent="."]
 mesh_library = ExtResource("1_8cnks")
