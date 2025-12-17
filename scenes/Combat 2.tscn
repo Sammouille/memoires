@@ -3565,6 +3565,7 @@ shape = SubResource("BoxShape3D_q5ovj")
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/king/giant/MeshInstance3D"]
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_dxgwr")
+autoplay = "default"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="monsters/king/giant/MeshInstance3D"]
 
@@ -3815,6 +3816,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.285078, 1.9182882, 0)
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="monsters/mage/MeshInstance3D"]
 billboard = 1
 sprite_frames = SubResource("SpriteFrames_n0ilc")
+autoplay = "default"
 
 [node name="StaticBody3D" type="StaticBody3D" parent="monsters/mage/MeshInstance3D"]
 
