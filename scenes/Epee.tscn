@@ -1035,7 +1035,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.37
 shape = SubResource("CylinderShape3D_tt8b8")
 
 [node name="PLAYER" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, -2.274519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9493474, 0.8560618, 7.8838816)
 script = ExtResource("3_sapg6")
 
 [node name="head" type="Node3D" parent="PLAYER"]

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fo4uemaffdt6" path="res://Assets/3D/Arbre2_Arbre.png" id="4_u2tnj"]
 [ext_resource type="Texture2D" uid="uid://b3a1ej062r6y3" path="res://Assets/3D/Arbre2_feuille.png" id="5_ro4wy"]
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="6_0kow5"]
-[ext_resource type="Sky" uid="uid://dxcnnocd105mm" path="res://new_sky.tres" id="7_ypav1"]
+[ext_resource type="Sky" uid="uid://qv62lxxvveap" path="res://new_sky.tres" id="7_ypav1"]
 [ext_resource type="Texture2D" uid="uid://wxpb2ici68kv" path="res://Assets/3D/Ruine3_Mur.png" id="8_w416e"]
 [ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="9_5qgll"]
 [ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="10_0hwnu"]
