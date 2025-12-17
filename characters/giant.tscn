@@ -28,6 +28,7 @@ animations = [{
 data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
 
 [node name="giant" type="Sprite3D"]
+billboard = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 
