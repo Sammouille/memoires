@@ -1,15 +1,21 @@
-[gd_scene load_steps=20 format=3 uid="uid://d13k403yf1uji"]
+[gd_scene load_steps=33 format=3 uid="uid://d13k403yf1uji"]
 
 [ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_qtg4g"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="3_sapg6"]
+[ext_resource type="Script" uid="uid://sm361u8bbhkf" path="res://code/area_interaction.gd" id="4_5wi27"]
+[ext_resource type="Script" uid="uid://bxm5go06rolx4" path="res://code/livreInteractible.gd" id="4_fh2xm"]
 [ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_rxtyn"]
-[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="8_kg62m"]
 [ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="10_qhvbj"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_umwyf"]
+[ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="11_051ob"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="11_777ts"]
+[ext_resource type="PackedScene" uid="uid://be7nmp3j3bmys" path="res://Assets/3D/pierre1.glb" id="12_3li2y"]
+[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="12_5wi27"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="12_cb0ju"]
-[ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="12_dibfs"]
+[ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="13_th7h4"]
+[ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="14_4drxf"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -60,9 +66,73 @@ glow_enabled = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_th7h4"]
+height = 3.6967773
+radius = 0.71533203
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_051ob"]
+height = 44.575012
+radius = 52.13086
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
-height = 36.954712
-radius = 52.6958
+height = 44.575012
+radius = 11.911621
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
+shader = ExtResource("11_051ob")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj5cn"]
+shader = ExtResource("11_051ob")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
 
 [node name="scene_base" type="Node3D"]
 
@@ -88,57 +158,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_r1q5g")
 
-[node name="LegendeEpee" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+[node name="AreaInteraction" type="Area3D" parent="CharacterBody3D/CollisionShape3D"]
+script = ExtResource("4_5wi27")
+
+[node name="A" type="CollisionShape3D" parent="CharacterBody3D/CollisionShape3D/AreaInteraction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8483887, 0)
+shape = SubResource("CylinderShape3D_th7h4")
+
+[node name="LegendeEpee" type="Node3D" parent="." node_paths=PackedStringArray("interface_livre", "area")]
 transform = Transform3D(-0.040000003, 0, -3.4969112e-09, 0, 0.040000003, 0, 3.4969112e-09, 0, -0.040000003, -4.266241, 1.7673626, 1.8461657)
-script = ExtResource("6_rxtyn")
-accroche = ""
+script = ExtResource("4_fh2xm")
+accroche = "Ce livre contient des informations sur les artefacts magiques du royaume."
 voix = ExtResource("10_umwyf")
-nom = "[font_size=30][outline_size=15][outline_color=dark_blue]L'épée sacrée"
-area = NodePath("Area3D")
+nom = "[font_size=30][outline_size=15][outline_color=gold]Registre des artefacts magiques"
+interface_livre = NodePath("../InterfaceLivre")
+area = NodePath("AreaLivre")
 
-[node name="Area3D" type="Area3D" parent="LegendeEpee"]
+[node name="AreaLivre" type="Area3D" parent="LegendeEpee"]
 transform = Transform3D(0.99999994, 0, -7.1054274e-15, 0, 0.99999994, 0, 7.1054274e-15, 0, 0.99999994, 117.260315, 0, 21.783562)
-script = ExtResource("8_kg62m")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LegendeEpee/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -17.190407, 1.3709717)
-shape = SubResource("CylinderShape3D_tt8b8")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LegendeEpee/AreaLivre"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -21.00056, 1.3709717)
+shape = SubResource("CylinderShape3D_051ob")
 
-[node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -5.531002, 1.4728022, 6.8445377)
+[node name="InterfaceDialogueROi" parent="." node_paths=PackedStringArray("titre", "input_node") instance=ExtResource("12_cb0ju")]
+visible = false
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.2833817, 1.4728022, 11.286154)
 script = ExtResource("6_rxtyn")
 voix = ExtResource("10_umwyf")
 nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
-area = NodePath("Area3D")
+interfaceDialogue = NodePath("../InterfaceDialogueROi")
+area = NodePath("AreaM")
 
-[node name="Area3D" type="Area3D" parent="Monarch"]
-script = ExtResource("8_kg62m")
+[node name="AreaM" type="Area3D" parent="Monarch"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/AreaM"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.3709726)
 shape = SubResource("CylinderShape3D_tt8b8")
 
 [node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
-
-[node name="InterfaceLivres" parent="." instance=ExtResource("12_dibfs")]
-unique_name_in_owner = true
-visible = false
-offset_top = 448.0
-offset_bottom = 404.0
-
-[node name="InterfaceDialogues" parent="." instance=ExtResource("12_cb0ju")]
-unique_name_in_owner = true
-visible = false
 
 [node name="Objets" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62134695, 0)
 mesh_library = ExtResource("10_qhvbj")
 cell_size = Vector3(2, 1, 2)
 data = {
-"cells": PackedInt32Array(65531, 0, 1048588, -5, 0, 1048587)
+"cells": PackedInt32Array(65531, 0, 1048588, -5, 0, 1048587, -131075, 3, 28)
 }
-metadata/_editor_floor_ = Vector3(0, -3, 0)
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="sol" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -161,3 +233,253 @@ data = {
 "cells": PackedInt32Array(4, 2, 1441794, 3, 4, 1441794, 3, 0, 1441794, 1, 6, 655362, 65535, 7, 655362, 65533, 6, 655362, 65531, 4, 1048578, 65530, 2, 1048578, 65531, 0, 1048578, 65533, 65534, 2, 65535, 65533, 2, 1, 65534, 2, 0, 65534, 1441801, 0, 65533, 10, 65534, 65533, 1048586, 65532, 65534, 1048586, 65531, 65535, 1048586, 65530, 1, 1048586, 65530, 3, 655370, 65531, 5, 655370, 65532, 6, 655370, 65534, 7, 655370, 0, 7, 1441802, 2, 6, 1441802, 3, 5, 1441802, 4, 3, 1441802, 4, 1, 10, 3, 65535, 10, 2, 65534, 10, 3, 1, 1441801, 2, 65535, 1441801, 3, 3, 655369, 2, 5, 655369, 0, 6, 655369, 65534, 6, 1048585, 65532, 5, 1048585, 65531, 3, 1048585, 65531, 1, 9, 65532, 65535, 9, 65534, 65534, 9, 65535, 4, 1441814, 65533, 2, 1441814, 65535, 0, 1441814, 1, 2, 1441814, 196603, 2, 1048576, 196605, 2, 1048576, 196605, 1, 1048576, 196605, 3, 1048576, 131073, 1, 1441792, 131073, 2, 1441792, 131073, 3, 1441792, 131072, 4, 655360, 196607, 4, 655360, 196606, 4, 655360, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 10, 131073, 4, 1441802, 196605, 4, 655370, 196605, 0, 1048586, 327678, 0, 2, 327679, 0, 2, 262144, 0, 2, 262145, 1, 1441794, 262145, 2, 1441794, 262145, 3, 1441794, 262144, 4, 655362, 327679, 4, 655362, 327678, 4, 655362, 327677, 3, 1048578, 327677, 2, 1048578, 327677, 1, 1048578, 327677, 0, 1048586, 262145, 0, 10, 262145, 4, 1441802, 327677, 4, 655370)
 }
 metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="InterfaceLivre" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_iy58a")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 62.0
+offset_right = -23.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_5wi27")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="InterfaceLivre"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("13_th7h4")
+
+[node name="forest" type="Node" parent="InterfaceLivre"]
+script = ExtResource("14_4drxf")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceLivre"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceLivre/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_fj5cn")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InterfaceLivre/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("15_a0l8k")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="InterfaceLivre"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Label" type="Label" parent="InterfaceLivre"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 238.0
+offset_top = 135.0
+offset_right = 374.0
+offset_bottom = 340.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▄▄▄█████▓
+▓  ██▒ ▓▒
+▒ ▓██░ ▒░
+░ ▓██▓ ░ 
+  ▒██▒ ░ 
+  ▒ ░░   
+    ░    
+  ░     "
+horizontal_alignment = 3
+
+[node name="Label2" type="Label" parent="InterfaceLivre"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 398.0
+offset_top = 270.0
+offset_right = 521.0
+offset_bottom = 501.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "  ██░ ██ 
+▓██░ ██▒
+▒██▀▀██░
+░▓█ ░██ 
+░▓█▒░██▓
+ ▒ ░░▒░▒
+ ▒ ░▒░ ░
+ ░  ░░ ░
+ ░  ░  ░"
+horizontal_alignment = 3
+
+[node name="Label3" type="Label" parent="InterfaceLivre"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 558.0
+offset_top = 135.0
+offset_right = 685.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = " ██▀███  
+▓██ ▒ ██▒
+▓██ ░▄█ ▒
+▒██▀▀█▄  
+░██▓ ▒██▒
+░ ▒▓ ░▒▓░
+  ░▒ ░ ▒░
+  ░░   ░ 
+   ░     "
+horizontal_alignment = 3
+
+[node name="Label4" type="Label" parent="InterfaceLivre"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 693.0
+offset_top = 135.0
+offset_right = 800.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="Label5" type="Label" parent="InterfaceLivre"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 808.0
+offset_top = 135.0
+offset_right = 915.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="InterfaceLivre"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 211.0
+offset_top = 105.0
+offset_right = 251.0
+offset_bottom = 145.0
+scale = Vector2(19.452564, 10.180315)
+
+[node name="Titre" type="RichTextLabel" parent="InterfaceLivre"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -555.5
+offset_top = -52.0
+offset_right = 220.5
+offset_bottom = -8.0
+grow_horizontal = 2
+bbcode_enabled = true
+
+[node name="pierre1" parent="." instance=ExtResource("12_3li2y")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.0797937, 0.005473256, 3.5691342)
+
+[connection signal="text_submitted" from="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceLivre" method="_on_input_text_submitted"]
+[connection signal="button_down" from="InterfaceLivre/reset" to="InterfaceLivre" method="_on_button_button_down"]
+
+[editable path="InterfaceDialogueROi"]
