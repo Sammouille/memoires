@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://bt7svw607h6ld"]
+[gd_scene load_steps=23 format=3 uid="uid://bt7svw607h6ld"]
 
-[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_iju8q"]
+[ext_resource type="Shader" path="res://stylised_sky.gdshader" id="1_iju8q"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_7xjic"]
 [ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://cube.tres" id="2_fji6l"]
 [ext_resource type="MeshLibrary" uid="uid://bwuak6fopd0f3" path="res://guard_bboad_sprite.tres" id="3_7xjic"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="9_tt8b8"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="10_33ndu"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_tt8b8"]
+[ext_resource type="PackedScene" uid="uid://27f0o3042qw8" path="res://scenes/interface_livre.tscn" id="13_iekpf"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -91,9 +92,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_r1q5g")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7685852, -0.019537449, 4.3237305)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1768723, -0.019537449, 1.2993164)
 use_collision = true
-size = Vector3(8.177673, 0.09375, 9.452148)
+size = Vector3(16.29094, 0.09375, 15.500977)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("3_7xjic")
@@ -111,7 +112,7 @@ data = {
 metadata/_editor_floor_ = Vector3(0, -1, 0)
 
 [node name="Jester" type="Node3D" parent="." node_paths=PackedStringArray("area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -1.6040208, 0.80483294, 0)
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -4.7585363, 0.80483294, -3.2806513)
 script = ExtResource("6_33ndu")
 voix = ExtResource("7_euqcc")
 nom = "[font_size=30][outline_size=15][outline_color=rebecca_purple]Jester"
@@ -144,6 +145,61 @@ shape = SubResource("CylinderShape3D_tt8b8")
 [node name="king" parent="Monarch" instance=ExtResource("7_r1q5g")]
 transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
 
+[node name="Druid" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0.6294761, 1.4728022, 2.006019)
+script = ExtResource("6_33ndu")
+voix = ExtResource("10_tt8b8")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Druid"]
+script = ExtResource("9_tt8b8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Druid/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_tt8b8")
+
+[node name="king" parent="Druid" instance=ExtResource("7_r1q5g")]
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
+[node name="Mage" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.6083946, 1.4728022, -2.8242745)
+script = ExtResource("6_33ndu")
+voix = ExtResource("10_tt8b8")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Mage"]
+script = ExtResource("9_tt8b8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Mage/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_tt8b8")
+
+[node name="king" parent="Mage" instance=ExtResource("7_r1q5g")]
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
+[node name="Alchemist" type="Node3D" parent="." node_paths=PackedStringArray("area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 4.5514846, 1.4728022, 5.7805543)
+script = ExtResource("6_33ndu")
+voix = ExtResource("10_tt8b8")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="Alchemist"]
+script = ExtResource("9_tt8b8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Alchemist/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_tt8b8")
+
+[node name="king" parent="Alchemist" instance=ExtResource("7_r1q5g")]
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+
 [node name="InterfaceDialogues" parent="." instance=ExtResource("10_33ndu")]
+unique_name_in_owner = true
+visible = false
+
+[node name="InterfaceLivres" parent="." instance=ExtResource("13_iekpf")]
 unique_name_in_owner = true
 visible = false

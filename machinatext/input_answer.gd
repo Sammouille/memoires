@@ -5,7 +5,7 @@ var fade_in = create_tween()
 @onready var answer_given: Label = $answer_given
 
 var idx_txt:= 0
-var type_speed:= 0.1
+var type_speed:= 0.05
 var idx_spd:= 0.0
 
 func set_voice(voix: AudioStream):

@@ -75,7 +75,8 @@ func cleanBoiteDialogue():
 		history_rows.get_child(i).queue_free()
 
 func initxt(accroche: String, titre: String):
-	%Titre.text = titre
+	if %Titre:
+		%Titre.text = titre
 	var start_msg = answer_given.instantiate()
 	start_msg.text = accroche
 	add_answer(start_msg)
