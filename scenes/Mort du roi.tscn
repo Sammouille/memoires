@@ -801,7 +801,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Jester" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -2.887897, -1.3875597, 5.2582912)
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -7.149895, -1.3875597, 5.2582912)
 script = ExtResource("9_43ljb")
 accroche = "Un objet qui brille..."
 voix = ExtResource("15_wemac")
