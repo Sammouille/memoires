@@ -1,61 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://c77rat21f0ibd"]
+[gd_scene load_steps=3 format=3 uid="uid://c77rat21f0ibd"]
 
-[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_enao0"]
-[ext_resource type="Texture2D" uid="uid://dpk7r2a7rwrbw" path="res://shooting_star_sampler.png" id="2_n7aiw"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_14rf8"]
-load_path = "res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"
-
-[sub_resource type="Curve" id="Curve_a0i6q"]
-_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_7odd2"]
-curve = SubResource("Curve_a0i6q")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_2aydg"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o6vd5"]
-noise = SubResource("FastNoiseLite_2aydg")
-seamless = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_wptyr"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_smxj7"]
-noise = SubResource("FastNoiseLite_wptyr")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnpua"]
-shader = ExtResource("1_enao0")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_smxj7")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_o6vd5")
-shader_parameter/cloud_curves = SubResource("CurveTexture_7odd2")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.40000000596048
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.02999999932944
-shader_parameter/clouds_light_color = Color(0.39169577, 0.32355374, 0.45524788, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/high_clouds_density = 0.0
-shader_parameter/top_color = Color(1.3717264e-06, 0.13854748, 0.38574982, 1)
-shader_parameter/bottom_color = Color(2.1442249e-05, 0.10287713, 0.3652952, 1)
-shader_parameter/sun_scatter = Color(0.10210004, 5.340107e-05, 0.35367465, 1)
-shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
-shader_parameter/astro_sampler = SubResource("CompressedTexture2D_14rf8")
-shader_parameter/astro_scale = 3.5000000521542
-shader_parameter/astro_intensity = 3.0
-shader_parameter/stars_intensity = 5.0
-shader_parameter/shooting_stars_intensity = 0.10000000149012
-shader_parameter/shooting_star_sampler = ExtResource("2_n7aiw")
-shader_parameter/shooting_star_tint = Color(0.9547902, 0.8833602, 0.7613127, 1)
-
-[sub_resource type="Sky" id="Sky_swpyb"]
-sky_material = SubResource("ShaderMaterial_jnpua")
+[ext_resource type="Sky" uid="uid://cowvfpbrxvi4b" path="res://ciel_nuit.tres" id="1_exke6"]
 
 [sub_resource type="Environment" id="Environment_pig7h"]
 background_mode = 2
-sky = SubResource("Sky_swpyb")
+sky = ExtResource("1_exke6")
 tonemap_mode = 2
 glow_enabled = true
 

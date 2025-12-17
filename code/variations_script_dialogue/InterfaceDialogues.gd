@@ -35,7 +35,7 @@ func scrollbar_change():
 
 
 func _on_input_text_submitted(new_text: String) -> void:
-	if (new_text.is_empty()):
+	if (new_text.is_empty()) :
 		return
 	var Input_Response = input_answer.instantiate()
 	var response = command_processor.process_command(new_text) 
@@ -67,7 +67,7 @@ func _on_button_button_down() -> void:
 	for i in history_rows.get_child_count() :
 		history_rows.get_child(i).queue_free()
 	var start_msg = answer_given.instantiate()
-	start_msg.text = "Je ne me souviens plus... De quoi parlions-nous ?"
+	start_msg.text = "Un objet qui brille..."
 	add_answer(start_msg)
 
 

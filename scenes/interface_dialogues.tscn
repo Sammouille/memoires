@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bwd7shsnbjfht"]
 
-[ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="1_6ftef"]
+[ext_resource type="Shader" path="res://machinatext/control.gdshader" id="1_6ftef"]
 [ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="2_6ftef"]
 [ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="3_l4l2w"]
-[ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="4_7u7ev"]
+[ext_resource type="Script" path="res://machinatext/tree.gd" id="4_7u7ev"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="5_xbjng"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]

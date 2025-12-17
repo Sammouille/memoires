@@ -1,0 +1,282 @@
+[gd_scene load_steps=30 format=3 uid="uid://ci61vxku0uk5l"]
+
+[ext_resource type="Texture2D" uid="uid://cclcw4wi6i8kf" path="res://characters/monsters.png" id="3_lw0km"]
+[ext_resource type="Texture2D" uid="uid://iyw2hkps6vu0" path="res://characters/cha_sheet_jester.png" id="4_v1qc2"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_64nw0"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13y27"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(967, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1qc2"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(1127, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij7d2"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(1287, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilrqw"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(1447, 0, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_64nw0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13y27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1qc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij7d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilrqw")
+}],
+"loop": true,
+"name": &"standing_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xwleu"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kqcq"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(1127, 312, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40imc"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(1447, 312, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3vxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kqcq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40imc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf4tb"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(0, 67, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htkao"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(320, 67, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipbh2"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(958, 38, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yoxh"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(1437, 38, 320, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5bye3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf4tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htkao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipbh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yoxh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7nwub"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5enm"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(958, 38, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blud6"]
+atlas = ExtResource("3_lw0km")
+region = Rect2(1437, 38, 320, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j32ew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5enm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blud6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ij7d2"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw0km"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(7, 480, 320, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j32ew"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(327, 480, 320, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_og1qf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lw0km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j32ew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_w170f"]
+data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_silo1"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(167, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhc6a"]
+atlas = ExtResource("4_v1qc2")
+region = Rect2(327, 0, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ko0g6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_silo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhc6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="jester" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="jester"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="jester/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jester/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_64nw0")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="jester"]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_64nw0")
+animation = &"standing_walk"
+autoplay = "standing_walk"
+frame_progress = 0.8089625
+
+[node name="king" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="king"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="king/MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="king/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_xwleu")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="king/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_d3vxw")
+autoplay = "default"
+
+[node name="dragon" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="dragon"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="dragon/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_5bye3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="dragon/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dragon/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_7nwub")
+
+[node name="giant" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="giant"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="giant/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_j32ew")
+autoplay = "default"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="giant/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="giant/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ij7d2")
+
+[node name="alchimiste" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="alchimiste"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="alchimiste/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_og1qf")
+autoplay = "default"
+frame_progress = 0.61740094
+
+[node name="StaticBody3D" type="StaticBody3D" parent="alchimiste/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="alchimiste/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_w170f")
+
+[node name="sorcier" type="Sprite3D" parent="."]
+billboard = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="sorcier"]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="sorcier/MeshInstance3D"]
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_ko0g6")
+autoplay = "default"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="sorcier/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sorcier/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_w170f")
