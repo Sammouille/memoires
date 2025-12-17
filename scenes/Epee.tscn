@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://d13k403yf1uji"]
+[gd_scene load_steps=41 format=4 uid="uid://d13k403yf1uji"]
 
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_qtg4g"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="12_cb0ju"]
 [ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="13_th7h4"]
 [ext_resource type="Script" path="res://machinatext/tree.gd" id="14_4drxf"]
+[ext_resource type="Texture2D" uid="uid://bx6o7rpeb017g" path="res://Assets/Objet2D/épée.png" id="15_5wi27"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
@@ -127,6 +128,14 @@ shader_parameter/vignette_opacity = 0.1150000054625
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
 bg_color = Color(0.09850656, 0.328561, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5wi27"]
+transparency = 1
+albedo_texture = ExtResource("15_5wi27")
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_th7h4"]
+material = SubResource("StandardMaterial3D_5wi27")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4jwg"]
 resource_name = "Material"
@@ -293,7 +302,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.37
 shape = SubResource("CylinderShape3D_tt8b8")
 
 [node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, -3.18499, 0)
 
 [node name="Objets" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62134695, 0)
@@ -436,6 +445,10 @@ bbcode_enabled = true
 
 [node name="pierre1" parent="." instance=ExtResource("12_3li2y")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.0797937, 0.005473256, 3.5691342)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="pierre1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51206, 0)
+mesh = SubResource("QuadMesh_th7h4")
 
 [node name="PLAYER" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, -2.274519)

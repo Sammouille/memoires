@@ -3245,7 +3245,7 @@ shape = SubResource("ConvexPolygonShape3D_54ugp")
 shape = SubResource("ConvexPolygonShape3D_xpdpc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="assets"]
-transform = Transform3D(0.2905823, 0, 0, 0, 0.2905823, 0, 0, 0, 0.2905823, 1.1084835e-06, 0, -8.325554)
+transform = Transform3D(0.29058227, 0, 0, 0, 0.29058227, 0, 0, 0, 0.29058227, 0.10588401, 0.13877992, -8.332304)
 mesh = SubResource("PlaneMesh_mgaak")
 skeleton = NodePath("../..")
 
