@@ -69,7 +69,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 18.0
-offset_top = 25.0
+offset_top = 62.0
 offset_right = -23.0
 offset_bottom = -19.0
 grow_horizontal = 2
@@ -289,6 +289,18 @@ offset_top = 105.0
 offset_right = 251.0
 offset_bottom = 145.0
 scale = Vector2(19.452564, 10.180315)
+
+[node name="Titre" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -555.5
+offset_top = -52.0
+offset_right = 220.5
+offset_bottom = -8.0
+grow_horizontal = 2
 
 [connection signal="text_submitted" from="PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="." method="_on_input_text_submitted"]
 [connection signal="button_down" from="reset" to="." method="_on_button_button_down"]
