@@ -1,132 +1,7 @@
-[gd_scene load_steps=38 format=4 uid="uid://d13k403yf1uji"]
+[gd_scene load_steps=10 format=4 uid="uid://deknuyjklunas"]
 
-[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_qtg4g"]
-[ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="3_sapg6"]
-[ext_resource type="Script" path="res://code/area_interaction.gd" id="4_5wi27"]
-[ext_resource type="Script" path="res://code/livreInteractible.gd" id="4_fh2xm"]
-[ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_rxtyn"]
-[ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="10_qhvbj"]
-[ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_umwyf"]
-[ext_resource type="Shader" path="res://machinatext/control.gdshader" id="11_051ob"]
-[ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="11_777ts"]
-[ext_resource type="PackedScene" uid="uid://be7nmp3j3bmys" path="res://Assets/3D/pierre1.glb" id="12_3li2y"]
-[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="12_5wi27"]
-[ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="12_cb0ju"]
-[ext_resource type="Script" uid="uid://bci6ynir7w2tb" path="res://machinatext/command_processor_livrepee.gd" id="13_051ob"]
-[ext_resource type="Script" path="res://machinatext/tree.gd" id="14_4drxf"]
-[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
-
-[sub_resource type="Curve" id="Curve_iju8q"]
-_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_7xjic"]
-curve = SubResource("Curve_iju8q")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_r1q5g"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1q5g"]
-noise = SubResource("FastNoiseLite_r1q5g")
-seamless = true
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xjic"]
-shader = ExtResource("1_qtg4g")
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_r1q5g")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_r1q5g")
-shader_parameter/cloud_curves = SubResource("CurveTexture_7xjic")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.40000000596048
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.02999999932944
-shader_parameter/clouds_light_color = Color(1, 0.80784315, 1, 1)
-shader_parameter/clouds_shadow_intensity = 1.0
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_r1q5g")
-shader_parameter/high_clouds_density = 0.30000000447036
-shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
-shader_parameter/bottom_color = Color(0.2510261, 0.41236493, 0.67437, 1)
-shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
-shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
-shader_parameter/astro_sampler = ExtResource("2_nnril")
-shader_parameter/astro_scale = 5.5000000819566
-shader_parameter/astro_intensity = 3.0
-shader_parameter/stars_intensity = 0.0
-shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
-
-[sub_resource type="Sky" id="Sky_xe6jm"]
-sky_material = SubResource("ShaderMaterial_7xjic")
-
-[sub_resource type="Environment" id="Environment_r1q5g"]
-background_mode = 2
-sky = SubResource("Sky_xe6jm")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_051ob"]
-height = 44.575012
-radius = 52.13086
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
-height = 44.575012
-radius = 11.911621
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
-shader = ExtResource("11_051ob")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.3
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 8.0
-shader_parameter/roll_size = 15.0
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.03
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 1.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
-bg_color = Color(0.05615304, 0.22067188, 0, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj5cn"]
-shader = ExtResource("11_051ob")
-shader_parameter/overlay = false
-shader_parameter/scanlines_opacity = 0.4
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.122000005795
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 2.115
-shader_parameter/roll_size = 15.9370007570075
-shader_parameter/roll_variation = 1.8
-shader_parameter/distort_intensity = 0.05
-shader_parameter/noise_opacity = 0.1550000073625
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.1250000059375
-shader_parameter/aberration = 0.00500004773750006
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.1750000083125
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.1150000054625
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
-bg_color = Color(0.09850656, 0.328561, 0, 1)
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_g2els"]
+[ext_resource type="Script" path="res://code/area_interaction.gd" id="2_qhqgy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4jwg"]
 resource_name = "Material"
@@ -134,7 +9,7 @@ cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_051ob"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_dqkch"]
 resource_name = "hands_Cube"
 _surfaces = [{
 "aabb": AABB(-0.7834866, -3.1191483, -7.2638144, 1.5669732, 3.7084856, 17.146645),
@@ -154,7 +29,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="Skin" id="Skin_5wi27"]
+[sub_resource type="Skin" id="Skin_qlg0r"]
 resource_name = "Skin"
 bind_count = 17
 bind/0/name = &"Bone"
@@ -209,7 +84,7 @@ bind/16/name = &"Bone.016"
 bind/16/bone = -1
 bind/16/pose = Transform3D(0.29007205, 0, 0, 0, -0.0029363055, -0.29005718, 0, 0.29005718, -0.0029363316, 0.059242908, -1.7357118, 0.76127344)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2sgvl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_kgbxk"]
 _surfaces = [{
 "aabb": AABB(-2.2792673, -1.0983107, 0.48417717, 4.4235134, 1.1521169, 1.9596312),
 "format": 34359742465,
@@ -223,7 +98,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_th7h4"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_tuyoq"]
 resource_name = "hands_Cube_001"
 _surfaces = [{
 "aabb": AABB(-2.2792673, -1.0983107, 0.48417717, 4.4235134, 1.1521169, 1.9596312),
@@ -239,221 +114,30 @@ _surfaces = [{
 "vertex_data": PackedByteArray("QAsvvBDv4r0S5vc+BF4hvu78hb/OEJc/mDRvPnKVjL9vNBo/qsHNvoDNcr0a8Ic/rB/BP+BjXD0QzqQ/fkX2vozfXL58R8g/qsHNvoDNcr0a8Ic/aOLJPcKADr6kM/4/AjLzPwAzFTvzrjU/qsHNvoDNcr0a8Ic/QAsvvBDv4r0S5vc+rB/BP+BjXD0QzqQ/mDRvPnKVjL9vNBo/VmTgP8UGb7/C7rM/VTsJQNA3fL9b8FM/BF4hvu78hb/OEJc/VTsJQNA3fL9b8FM/rB/BP+BjXD0QzqQ/AjLzPwAzFTvzrjU/VmTgP8UGb7/C7rM/HtGtvmCqSb/wCtE/GCrrv+IaQr9bZxxA7Nl1Pq4SNr+MewNA+NAIwLhDTL9dbA5ABF4hvu78hb/OEJc/7Nl1Pq4SNr+MewNAVmTgP8UGb7/C7rM/HtGtvmCqSb/wCtE/qsHNvoDNcr0a8Ic/HtGtvmCqSb/wCtE/BF4hvu78hb/OEJc/fkX2vozfXL58R8g/VmTgP8UGb7/C7rM/aOLJPcKADr6kM/4/rB/BP+BjXD0QzqQ/7Nl1Pq4SNr+MewNAGCrrv+IaQr9bZxxAhN8RwOpEZ76jCgpAMEf9v5ShPr6iBRhA+NAIwLhDTL9dbA5AfkX2vozfXL58R8g/+NAIwLhDTL9dbA5AHtGtvmCqSb/wCtE/hN8RwOpEZ76jCgpA7Nl1Pq4SNr+MewNAMEf9v5ShPr6iBRhAaOLJPcKADr6kM/4/GCrrv+IaQr9bZxxAaOLJPcKADr6kM/4/hN8RwOpEZ76jCgpAfkX2vozfXL58R8g/MEf9v5ShPr6iBRhAAjLzPwAzFTvzrjU/mDRvPnKVjL9vNBo/VTsJQNA3fL9b8FM/QAsvvBDv4r0S5vc+FBXfQP///78UFd9A////vxQV30D///+/FBXfQP///79edE7l////P150TuX///8/XnRO5f///z9edE7l////P+VtC/v///+/5W0L+////7/lbQv7////v+VtC/v///+/84QaEv///z/zhBoS////P/OEGhL///8/84QaEv///z/ewBSV////P97AFJX///8/3sAUlf///z/ewBSV////P/OEGhL/LTA/84QaEv8tMD/zhBoS////P/OEGhL/LTA/mH0HJv///z+YfQcm////P5h9Byb///8/mH0HJv///z9JFzRU////v0kXNFT///+/SRc0VP///79JFzRU////v+yiqZH///8/7KKpkf///z/soqmR////P+yiqZH///8/NEzOe6FdavQ0TM57oV1q9DRMznuhXWr0NEzOe6FdavTREHgb////v9EQeBv///+/0RB4G////7/REHgb////v2+Rqo////8/b5Gqj////z9vkaqP////P2+Rqo////8/5W0L+////7/lbQv7////v+VtC/v///+/5W0L+////7+T9gQNauJsNpP2BA1q4mw2k/YEDaBdavST9gQNauJsNg==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2sgvl")
+shadow_mesh = SubResource("ArrayMesh_kgbxk")
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4drxf"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fjrip"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0l8k"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_smehm"]
 height = 3.6967773
 radius = 0.71533203
 
-[node name="scene_base" type="Node3D"]
+[node name="PLAYER" type="CharacterBody3D"]
+script = ExtResource("1_g2els")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, 3.6594257, 1.3243967)
-shadow_enabled = true
-directional_shadow_mode = 0
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_r1q5g")
-
-[node name="LegendeEpee" type="Node3D" parent="." node_paths=PackedStringArray("interface_livre", "area")]
-transform = Transform3D(-0.040000003, 0, -3.4969112e-09, 0, 0.040000003, 0, 3.4969112e-09, 0, -0.040000003, -4.266241, 1.7673626, 1.8461657)
-script = ExtResource("4_fh2xm")
-accroche = "Ce livre contient des informations sur les artefacts magiques du royaume."
-voix = ExtResource("10_umwyf")
-nom = "[font_size=30][outline_size=15][outline_color=gold]Registre des artefacts magiques"
-interface_livre = NodePath("../InterfaceLivre")
-area = NodePath("AreaLivre")
-
-[node name="AreaLivre" type="Area3D" parent="LegendeEpee"]
-transform = Transform3D(0.99999994, 0, -7.1054274e-15, 0, 0.99999994, 0, 7.1054274e-15, 0, 0.99999994, 117.260315, 0, 21.783562)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LegendeEpee/AreaLivre"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -21.00056, 1.3709717)
-shape = SubResource("CylinderShape3D_051ob")
-
-[node name="InterfaceDialogueROi" parent="." node_paths=PackedStringArray("titre", "input_node") instance=ExtResource("12_cb0ju")]
-visible = false
-titre = NodePath("Titre")
-input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
-
-[node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.2833817, 1.4728022, 11.286154)
-script = ExtResource("6_rxtyn")
-voix = ExtResource("10_umwyf")
-nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
-interfaceDialogue = NodePath("../InterfaceDialogueROi")
-area = NodePath("AreaM")
-
-[node name="AreaM" type="Area3D" parent="Monarch"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/AreaM"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.3709726)
-shape = SubResource("CylinderShape3D_tt8b8")
-
-[node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, 0, 0)
-
-[node name="Objets" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62134695, 0)
-mesh_library = ExtResource("10_qhvbj")
-cell_size = Vector3(2, 1, 2)
-data = {
-"cells": PackedInt32Array(65531, 0, 1048588, -5, 0, 1048587, -131075, 3, 28)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="sol" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-mesh_library = ExtResource("10_qhvbj")
-cell_size = Vector3(2, 1, 2)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(65532, 0, 1310728, 65532, 65535, 1310728, 65533, 65535, 1310728, 65534, 65535, 1310728, 65535, 65535, 1310728, 0, 65535, 1310728, 1, 65535, 1310728, 2, 65535, 1310728, 2, 0, 1179656, 2, 1, 1310728, 1, 1, 1310728, 1, 2, 1310728, 1, 3, 1310728, 2, 2, 1310728, 2, 3, 1310728, 2, 4, 1310728, 2, 5, 1310728, 1, 5, 1310728, 1, 6, 1310728, 2, 6, 1310728, 0, 6, 1310728, 65535, 6, 1310728, 65535, 5, 1310728, 65534, 5, 1310728, 65534, 6, 1310728, 65533, 6, 1310728, 65533, 5, 1310728, 65532, 5, 1310728, 65532, 6, 1310728, 65531, 5, 1310728, 65531, 4, 1310728, 65532, 4, 1310728, 65532, 3, 1310728, 65532, 2, 1310728, 65532, 1, 1310728, 65533, 0, 1310728, 65533, 1, 1310728, 65533, 2, 1310728, 65533, 3, 1310728, 65533, 4, 1310728, 65534, 4, 1310728, 65535, 4, 1310728, 0, 4, 1310728, 0, 5, 1310728, 65535, 3, 1310728, 0, 3, 1310728, 0, 2, 1310728, 65535, 2, 1310728, 65535, 1, 1310728, 65534, 1, 1310728, 65534, 3, 1310728, 65534, 2, 1310728, 65534, 0, 1310728, 65535, 0, 1310728, 0, 1, 1310728, 0, 0, 1310728, 1, 4, 1310728, 1, 0, 1179656, 3, 5, 1179656, 3, 4, 1179656, 3, 3, 1179656, 3, 2, 1179656, 3, 1, 1179656, 3, 0, 1179656, 65531, 0, 1179656, 65531, 1, 1179656, 65531, 2, 1179656, 65531, 3, 1179656, 65534, 7, 1179656, 65535, 7, 1179656, 0, 7, 1179656, 4, 2, 1179656, 4, 3, 1179656, 65530, 2, 1179656, 65530, 3, 1179656, 65534, 65534, 1179656, 65535, 65534, 1179656, 0, 65534, 1179656, 65530, 1, 1179656, 4, 1, 1179656, 3, 65535, 1179656, 1, 65534, 1179656, 65531, 65535, 1179656, 65533, 65534, 1179656, 65532, 65534, 1179656, 2, 65534, 1179656, 0, 65533, 1179656, 65535, 65533, 1179656, 65534, 65533, 1179656, 327683, 2, 1441807, 327682, 2, 1441807, 327682, 3, 1441807, 327682, 4, 1441807, 327682, 1, 1441807, 327682, 0, 1441807, 327681, 0, 1441807, 327681, 1, 1441807, 327681, 4, 1441807, 327681, 5, 1441807, 327681, 3, 1441807, 327680, 0, 1441807, 393214, 0, 1441807, 393213, 0, 1441807, 393213, 1, 1441807, 393213, 3, 1441807, 393214, 4, 1441807, 393213, 4, 1441807, 327680, 4, 1441807, 327681, 2, 1441807, 393215, 0, 1441807, 393213, 2, 1441807, 393215, 4, 1441807, 327680, 5, 1441807, 393215, 5, 1441807, 393215, 6, 1441807, 393214, 5, 1441807, 393213, 5, 1441807, 393212, 4, 1441807, 393212, 3, 1441807, 393212, 2, 1441807, 393211, 2, 1441807, 393212, 0, 1441807, 393212, 1, 1441807, 393213, 65535, 1441807, 393214, 65535, 1441807, 393215, 65535, 1441807, 327680, 65535, 1441807, 327681, 65535, 1441807, 393215, 65534, 1441807, 327680, 3, 1441807, 393214, 3, 1441807, 327680, 1, 1441807, 393214, 1, 1441807, 851968, 1, 655368, 917503, 1, 655368, 917502, 3, 655368, 917503, 3, 655368, 851968, 2, 655368, 851968, 3, 655368, 917502, 2, 655368, 917502, 1, 655368)
-}
-metadata/_editor_floor_ = Vector3(0, 13, 0)
-
-[node name="murs" type="GridMap" parent="."]
-mesh_library = ExtResource("10_qhvbj")
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(4, 2, 1441794, 3, 4, 1441794, 3, 0, 1441794, 1, 6, 655362, 65535, 7, 655362, 65533, 6, 655362, 65531, 4, 1048578, 65530, 2, 1048578, 65531, 0, 1048578, 65533, 65534, 2, 65535, 65533, 2, 1, 65534, 2, 0, 65534, 1441801, 0, 65533, 10, 65534, 65533, 1048586, 65532, 65534, 1048586, 65531, 65535, 1048586, 65530, 1, 1048586, 65530, 3, 655370, 65531, 5, 655370, 65532, 6, 655370, 65534, 7, 655370, 0, 7, 1441802, 2, 6, 1441802, 3, 5, 1441802, 4, 3, 1441802, 4, 1, 10, 3, 65535, 10, 2, 65534, 10, 3, 1, 1441801, 2, 65535, 1441801, 3, 3, 655369, 2, 5, 655369, 0, 6, 655369, 65534, 6, 1048585, 65532, 5, 1048585, 65531, 3, 1048585, 65531, 1, 9, 65532, 65535, 9, 65534, 65534, 9, 65535, 4, 1441814, 65533, 2, 1441814, 65535, 0, 1441814, 1, 2, 1441814, 196603, 2, 1048576, 196605, 2, 1048576, 196605, 1, 1048576, 196605, 3, 1048576, 131073, 1, 1441792, 131073, 2, 1441792, 131073, 3, 1441792, 131072, 4, 655360, 196607, 4, 655360, 196606, 4, 655360, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 10, 131073, 4, 1441802, 196605, 4, 655370, 196605, 0, 1048586, 327678, 0, 2, 327679, 0, 2, 262144, 0, 2, 262145, 1, 1441794, 262145, 2, 1441794, 262145, 3, 1441794, 262144, 4, 655362, 327679, 4, 655362, 327678, 4, 655362, 327677, 3, 1048578, 327677, 2, 1048578, 327677, 1, 1048578, 327677, 0, 1048586, 262145, 0, 10, 262145, 4, 1441802, 327677, 4, 655370)
-}
-metadata/_editor_floor_ = Vector3(0, 4, 0)
-
-[node name="InterfaceLivre" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
-visible = false
-material = SubResource("ShaderMaterial_iy58a")
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = 62.0
-offset_right = -23.0
-offset_bottom = -19.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("12_5wi27")
-max_lines_rememebered = 8
-titre = NodePath("Titre")
-input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
-
-[node name="command processor" type="Control" parent="InterfaceLivre"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("13_051ob")
-
-[node name="forest" type="Node" parent="InterfaceLivre"]
-script = ExtResource("14_4drxf")
-
-[node name="PanelContainer" type="PanelContainer" parent="InterfaceLivre"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
-
-[node name="PanelContainer" type="PanelContainer" parent="InterfaceLivre/PanelContainer"]
-visible = false
-z_index = 1
-material = SubResource("ShaderMaterial_fj5cn")
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="InterfaceLivre/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
-
-[node name="rows" type="VBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="GameInfo" type="PanelContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows"]
-material = SubResource("ShaderMaterial_6a6wx")
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/GameInfo"]
-custom_minimum_size = Vector2(600, 0)
-layout_mode = 2
-follow_focus = true
-
-[node name="History" type="VBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 16
-
-[node name="InputArea" type="PanelContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
-layout_mode = 2
-text = " > "
-
-[node name="input" parent="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("15_a0l8k")]
-layout_mode = 2
-keep_editing_on_text_submit = true
-
-[node name="reset" type="Button" parent="InterfaceLivre"]
-visible = false
-z_index = 2
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -54.0
-offset_bottom = 31.0
-grow_horizontal = 0
-text = "RESET"
-
-[node name="Titre" type="RichTextLabel" parent="InterfaceLivre"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -555.5
-offset_top = -52.0
-offset_right = 220.5
-offset_bottom = -8.0
-grow_horizontal = 2
-bbcode_enabled = true
-
-[node name="pierre1" parent="." instance=ExtResource("12_3li2y")]
-transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.0797937, 0.005473256, 3.5691342)
-
-[node name="PLAYER" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, -2.274519)
-script = ExtResource("3_sapg6")
-
-[node name="head" type="Node3D" parent="PLAYER"]
+[node name="head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
 
-[node name="headVIEW" type="Camera3D" parent="PLAYER/head"]
+[node name="headVIEW" type="Camera3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
 
-[node name="hands" type="Node3D" parent="PLAYER/head/headVIEW"]
+[node name="hands" type="Node3D" parent="head/headVIEW"]
 transform = Transform3D(0.06, 0, 0, 0, 0.060000002, 0, 0, 0, 0.060000002, 0.4028481, -0.26450658, -0.6222129)
 
-[node name="Armature" type="Node3D" parent="PLAYER/head/headVIEW/hands"]
+[node name="Armature" type="Node3D" parent="head/headVIEW/hands"]
 transform = Transform3D(3.4474192, 0, 0, 0, -1.5069149e-07, 3.4474194, 0, -3.4474194, -1.5069149e-07, -0.20423514, -1.2014093, 1.2521653)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="PLAYER/head/headVIEW/hands/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="head/headVIEW/hands/Armature"]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.99999994, 0, 0, 0, 0.9999999, -9.313226e-10, 0, 9.313226e-10, 0.9999999, 3.7252903e-09, 3.5157427e-08, 2.9336661e-08)
@@ -574,27 +258,22 @@ bones/16/position = Vector3(3.7252903e-09, 0.39592162, -4.4703484e-08)
 bones/16/rotation = Quaternion(0, 0, 0.605, 1)
 bones/16/scale = Vector3(0.99999994, 0.9999998, 0.9999999)
 
-[node name="Cube" type="MeshInstance3D" parent="PLAYER/head/headVIEW/hands/Armature/Skeleton3D"]
-mesh = SubResource("ArrayMesh_051ob")
-skin = SubResource("Skin_5wi27")
+[node name="Cube" type="MeshInstance3D" parent="head/headVIEW/hands/Armature/Skeleton3D"]
+mesh = SubResource("ArrayMesh_dqkch")
+skin = SubResource("Skin_qlg0r")
 
-[node name="Cube_001" type="MeshInstance3D" parent="PLAYER/head/headVIEW/hands"]
+[node name="Cube_001" type="MeshInstance3D" parent="head/headVIEW/hands"]
 transform = Transform3D(0.7035228, 6.036138e-08, -0.80795306, 0.34481087, -0.01858291, 1.64831, -0.0034905958, -1.83566, -0.01668634, 0, -1.2649055, -1.2136331)
-mesh = SubResource("ArrayMesh_th7h4")
+mesh = SubResource("ArrayMesh_tuyoq")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PLAYER"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
-shape = SubResource("CapsuleShape3D_4drxf")
+shape = SubResource("CapsuleShape3D_fjrip")
 
-[node name="AreaInteraction" type="Area3D" parent="PLAYER/CollisionShape3D"]
-script = ExtResource("4_5wi27")
+[node name="AreaInteraction" type="Area3D" parent="CollisionShape3D"]
+script = ExtResource("2_qhqgy")
 
-[node name="A" type="CollisionShape3D" parent="PLAYER/CollisionShape3D/AreaInteraction"]
+[node name="A" type="CollisionShape3D" parent="CollisionShape3D/AreaInteraction"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8483887, 0)
-shape = SubResource("CylinderShape3D_a0l8k")
-
-[connection signal="text_submitted" from="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceLivre" method="_on_input_text_submitted"]
-[connection signal="button_down" from="InterfaceLivre/reset" to="InterfaceLivre" method="_on_button_button_down"]
-
-[editable path="InterfaceDialogueROi"]
+shape = SubResource("CylinderShape3D_smehm")

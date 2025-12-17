@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://diife0lvooak4"]
+[gd_scene load_steps=62 format=4 uid="uid://diife0lvooak4"]
 
 [ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="2_45ljr"]
 [ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="2_eecp3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bsdssy0io3pld" path="res://Assets/3D/torche3.png" id="4_32kia"]
 [ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="6_32kia"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="6_aa1qn"]
+[ext_resource type="Script" path="res://code/area_interaction.gd" id="7_kgbxk"]
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="7_m56jn"]
 [ext_resource type="Texture2D" uid="uid://dpk7r2a7rwrbw" path="res://shooting_star_sampler.png" id="8_gadrm"]
 [ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="9_43ljb"]
@@ -227,7 +228,7 @@ bind/16/name = &"Bone.016"
 bind/16/bone = -1
 bind/16/pose = Transform3D(0.29007205, 0, 0, 0, -0.0029363055, -0.29005718, 0, 0.29005718, -0.0029363316, 0.059242908, -1.7357118, 0.76127344)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_2sgvl"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_kgbxk"]
 _surfaces = [{
 "aabb": AABB(-2.2792673, -1.0983107, 0.48417717, 4.4235134, 1.1521169, 1.9596312),
 "format": 34359742465,
@@ -257,9 +258,13 @@ _surfaces = [{
 "vertex_data": PackedByteArray("QAsvvBDv4r0S5vc+BF4hvu78hb/OEJc/mDRvPnKVjL9vNBo/qsHNvoDNcr0a8Ic/rB/BP+BjXD0QzqQ/fkX2vozfXL58R8g/qsHNvoDNcr0a8Ic/aOLJPcKADr6kM/4/AjLzPwAzFTvzrjU/qsHNvoDNcr0a8Ic/QAsvvBDv4r0S5vc+rB/BP+BjXD0QzqQ/mDRvPnKVjL9vNBo/VmTgP8UGb7/C7rM/VTsJQNA3fL9b8FM/BF4hvu78hb/OEJc/VTsJQNA3fL9b8FM/rB/BP+BjXD0QzqQ/AjLzPwAzFTvzrjU/VmTgP8UGb7/C7rM/HtGtvmCqSb/wCtE/GCrrv+IaQr9bZxxA7Nl1Pq4SNr+MewNA+NAIwLhDTL9dbA5ABF4hvu78hb/OEJc/7Nl1Pq4SNr+MewNAVmTgP8UGb7/C7rM/HtGtvmCqSb/wCtE/qsHNvoDNcr0a8Ic/HtGtvmCqSb/wCtE/BF4hvu78hb/OEJc/fkX2vozfXL58R8g/VmTgP8UGb7/C7rM/aOLJPcKADr6kM/4/rB/BP+BjXD0QzqQ/7Nl1Pq4SNr+MewNAGCrrv+IaQr9bZxxAhN8RwOpEZ76jCgpAMEf9v5ShPr6iBRhA+NAIwLhDTL9dbA5AfkX2vozfXL58R8g/+NAIwLhDTL9dbA5AHtGtvmCqSb/wCtE/hN8RwOpEZ76jCgpA7Nl1Pq4SNr+MewNAMEf9v5ShPr6iBRhAaOLJPcKADr6kM/4/GCrrv+IaQr9bZxxAaOLJPcKADr6kM/4/hN8RwOpEZ76jCgpAfkX2vozfXL58R8g/MEf9v5ShPr6iBRhAAjLzPwAzFTvzrjU/mDRvPnKVjL9vNBo/VTsJQNA3fL9b8FM/QAsvvBDv4r0S5vc+FBXfQP///78UFd9A////vxQV30D///+/FBXfQP///79edE7l////P150TuX///8/XnRO5f///z9edE7l////P+VtC/v///+/5W0L+////7/lbQv7////v+VtC/v///+/84QaEv///z/zhBoS////P/OEGhL///8/84QaEv///z/ewBSV////P97AFJX///8/3sAUlf///z/ewBSV////P/OEGhL/LTA/84QaEv8tMD/zhBoS////P/OEGhL/LTA/mH0HJv///z+YfQcm////P5h9Byb///8/mH0HJv///z9JFzRU////v0kXNFT///+/SRc0VP///79JFzRU////v+yiqZH///8/7KKpkf///z/soqmR////P+yiqZH///8/NEzOe6FdavQ0TM57oV1q9DRMznuhXWr0NEzOe6FdavTREHgb////v9EQeBv///+/0RB4G////7/REHgb////v2+Rqo////8/b5Gqj////z9vkaqP////P2+Rqo////8/5W0L+////7/lbQv7////v+VtC/v///+/5W0L+////7+T9gQNauJsNpP2BA1q4mw2k/YEDaBdavST9gQNauJsNg==")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2sgvl")
+shadow_mesh = SubResource("ArrayMesh_kgbxk")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_njrek"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oevfh"]
+height = 3.6967773
+radius = 0.71533203
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_14rf8"]
 load_path = "res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"
@@ -491,23 +496,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
 light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
 light_size = 0.785
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="PLAYER" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, -2.274519)
 script = ExtResource("6_32kia")
 
-[node name="head" type="Node3D" parent="CharacterBody3D"]
+[node name="head" type="Node3D" parent="PLAYER"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
 
-[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
+[node name="headVIEW" type="Camera3D" parent="PLAYER/head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
 
-[node name="hands" type="Node3D" parent="CharacterBody3D/head/headVIEW"]
+[node name="hands" type="Node3D" parent="PLAYER/head/headVIEW"]
 transform = Transform3D(0.06, 0, 0, 0, 0.060000002, 0, 0, 0, 0.060000002, 0.4028481, -0.26450658, -0.6222129)
 
-[node name="Armature" type="Node3D" parent="CharacterBody3D/head/headVIEW/hands"]
+[node name="Armature" type="Node3D" parent="PLAYER/head/headVIEW/hands"]
 transform = Transform3D(3.4474192, 0, 0, 0, -1.5069149e-07, 3.4474194, 0, -3.4474194, -1.5069149e-07, -0.20423514, -1.2014093, 1.2521653)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="CharacterBody3D/head/headVIEW/hands/Armature"]
+[node name="Skeleton3D" type="Skeleton3D" parent="PLAYER/head/headVIEW/hands/Armature"]
 bones/0/name = "Bone"
 bones/0/parent = -1
 bones/0/rest = Transform3D(0.99999994, 0, 0, 0, 0.9999999, -9.313226e-10, 0, 9.313226e-10, 0.9999999, 3.7252903e-09, 3.5157427e-08, 2.9336661e-08)
@@ -628,18 +633,25 @@ bones/16/position = Vector3(3.7252903e-09, 0.39592162, -4.4703484e-08)
 bones/16/rotation = Quaternion(0, 0, 0.605, 1)
 bones/16/scale = Vector3(0.99999994, 0.9999998, 0.9999999)
 
-[node name="Cube" type="MeshInstance3D" parent="CharacterBody3D/head/headVIEW/hands/Armature/Skeleton3D"]
+[node name="Cube" type="MeshInstance3D" parent="PLAYER/head/headVIEW/hands/Armature/Skeleton3D"]
 mesh = SubResource("ArrayMesh_i1tma")
 skin = SubResource("Skin_5y34c")
 
-[node name="Cube_001" type="MeshInstance3D" parent="CharacterBody3D/head/headVIEW/hands"]
+[node name="Cube_001" type="MeshInstance3D" parent="PLAYER/head/headVIEW/hands"]
 transform = Transform3D(0.7035228, 6.036138e-08, -0.80795306, 0.34481087, -0.01858291, 1.64831, -0.0034905958, -1.83566, -0.01668634, 0, -1.2649055, -1.2136331)
 mesh = SubResource("ArrayMesh_6uc4v")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PLAYER"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
 shape = SubResource("CapsuleShape3D_njrek")
+
+[node name="AreaInteraction" type="Area3D" parent="PLAYER/CollisionShape3D"]
+script = ExtResource("7_kgbxk")
+
+[node name="A" type="CollisionShape3D" parent="PLAYER/CollisionShape3D/AreaInteraction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8483887, 0)
+shape = SubResource("CylinderShape3D_oevfh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.8660254, -0.4330128, 0.24999999, 0.19341183, 0.17095904, 0.96610814, -0.46107695, 0.8850271, -0.064305075, 0, -0.06480539, 1.3243967)
