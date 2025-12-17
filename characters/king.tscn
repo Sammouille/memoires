@@ -41,4 +41,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
 shape = SubResource("ConcavePolygonShape3D_xwleu")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="MeshInstance3D"]
+billboard = 1
 sprite_frames = SubResource("SpriteFrames_d3vxw")
+autoplay = "default"
