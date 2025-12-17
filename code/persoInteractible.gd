@@ -9,7 +9,7 @@ func debutInteraction():
 	interfaceDialogue.cleanBoiteDialogue()
 	interfaceDialogue.initxt(accroche, nom)
 	interfaceDialogue.inivoix(voix)
-	%InterfaceDialogues.show()
+	interfaceDialogue.show()
 	
 
 func finInteraction():
