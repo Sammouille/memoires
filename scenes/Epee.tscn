@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://be7nmp3j3bmys" path="res://Assets/3D/pierre1.glb" id="12_3li2y"]
 [ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="12_5wi27"]
 [ext_resource type="PackedScene" uid="uid://bwd7shsnbjfht" path="res://scenes/interface_dialogues.tscn" id="12_cb0ju"]
-[ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="13_th7h4"]
+[ext_resource type="Script" uid="uid://bci6ynir7w2tb" path="res://machinatext/command_processor_livrepee.gd" id="13_051ob"]
 [ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="14_4drxf"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
 
@@ -256,7 +256,7 @@ input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContain
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("13_th7h4")
+script = ExtResource("13_051ob")
 
 [node name="forest" type="Node" parent="InterfaceLivre"]
 script = ExtResource("14_4drxf")
