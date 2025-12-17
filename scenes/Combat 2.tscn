@@ -1,6 +1,5 @@
-[gd_scene load_steps=84 format=4 uid="uid://dm60yy1s7db1f"]
+[gd_scene load_steps=96 format=4 uid="uid://dm60yy1s7db1f"]
 
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_n0ilc"]
 [ext_resource type="Sky" uid="uid://cowvfpbrxvi4b" path="res://ciel_nuit.tres" id="2_o6qkm"]
 [ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_w3mmi"]
 [ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="4_72phv"]
@@ -12,8 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="10_hd7p5"]
 [ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="11_ac6rg"]
 [ext_resource type="Texture2D" uid="uid://dqp0pts7ka163" path="res://characters/monsters_white.png" id="12_dxgwr"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
+[ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="12_q5ovj"]
+[ext_resource type="AudioStream" uid="uid://t1fj5jare3xp" path="res://Assets/son/raw/AlchimistV4.mp3" id="13_k0646"]
+[ext_resource type="Shader" path="res://machinatext/control.gdshader" id="13_m6r3d"]
+[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="14_q5ovj"]
+[ext_resource type="Script" uid="uid://t25nt7dhyl0k" path="res://machinatext/command_processor.gd" id="15_k0646"]
+[ext_resource type="Script" path="res://machinatext/tree.gd" id="16_6m6i0"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="17_3wua3"]
+[ext_resource type="PackedScene" uid="uid://deknuyjklunas" path="res://scenes/player.tscn" id="17_m6r3d"]
 
 [sub_resource type="Environment" id="Environment_dxgwr"]
 background_mode = 2
@@ -469,6 +474,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_q5ovj"]
+size = Vector3(2.7442017, 1, 3.3648071)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_w170f"]
 atlas = ExtResource("12_dxgwr")
 region = Rect2(654, 5, 320, 312)
@@ -493,6 +501,62 @@ animations = [{
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o6qkm"]
 data = PackedVector3Array(1.5999999, -1.3449999, 0, -1.5999999, -1.3449999, 0, 1.5999999, 1.3449999, 0, -1.5999999, -1.3449999, 0, -1.5999999, 1.3449999, 0, 1.5999999, 1.3449999, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy58a"]
+shader = ExtResource("13_m6r3d")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0fbet"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj5cn"]
+shader = ExtResource("13_m6r3d")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h70th"]
 atlas = ExtResource("12_dxgwr")
@@ -519,20 +583,6 @@ animations = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_o6qkm"]
 
 [node name="combat" type="Node3D"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
-script = ExtResource("1_n0ilc")
-
-[node name="head" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
-
-[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
-shape = SubResource("CapsuleShape3D_mgaak")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.90702486, -0.42085233, 0.0137563795, -0.41643646, 0.90138674, 0.118669614, -0.06234224, 0.10190764, -0.99283856, 0, 3.6594257, 1.3243967)
@@ -3494,9 +3544,21 @@ sprite_frames = SubResource("SpriteFrames_o6qkm")
 animation = &"standing_walk"
 autoplay = "standing_walk"
 
-[node name="giant" type="Sprite3D" parent="monsters/king"]
+[node name="giant" type="Sprite3D" parent="monsters/king" node_paths=PackedStringArray("interfaceDialogue", "area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.745423, 0, -6.18819)
 billboard = 1
+script = ExtResource("12_q5ovj")
+accroche = "(NOTE DU MAGE : le géant nous fixait du regard il me semble… cela est si flou… elle ne semblait pas particulièrement terrible)"
+voix = ExtResource("13_k0646")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Colosse"
+interfaceDialogue = NodePath("InterfaceDialogueColosse")
+area = NodePath("AreaColosse")
+
+[node name="AreaColosse" type="Area3D" parent="monsters/king/giant"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/king/giant/AreaColosse"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38583374, 0, 0.031585693)
+shape = SubResource("BoxShape3D_q5ovj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="monsters/king/giant"]
 
@@ -3508,6 +3570,242 @@ sprite_frames = SubResource("SpriteFrames_dxgwr")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/king/giant/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_o6qkm")
+
+[node name="InterfaceDialogueColosse" type="Control" parent="monsters/king/giant" node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_iy58a")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("14_q5ovj")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="monsters/king/giant/InterfaceDialogueColosse"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("15_k0646")
+
+[node name="forest" type="Node" parent="monsters/king/giant/InterfaceDialogueColosse"]
+script = ExtResource("16_6m6i0")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/king/giant/InterfaceDialogueColosse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_fj5cn")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("17_3wua3")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Label" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 238.0
+offset_top = 135.0
+offset_right = 374.0
+offset_bottom = 340.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▄▄▄█████▓
+▓  ██▒ ▓▒
+▒ ▓██░ ▒░
+░ ▓██▓ ░ 
+  ▒██▒ ░ 
+  ▒ ░░   
+    ░    
+  ░     "
+horizontal_alignment = 3
+
+[node name="Label2" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 398.0
+offset_top = 270.0
+offset_right = 521.0
+offset_bottom = 501.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "  ██░ ██ 
+▓██░ ██▒
+▒██▀▀██░
+░▓█ ░██ 
+░▓█▒░██▓
+ ▒ ░░▒░▒
+ ▒ ░▒░ ░
+ ░  ░░ ░
+ ░  ░  ░"
+horizontal_alignment = 3
+
+[node name="Label3" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 558.0
+offset_top = 135.0
+offset_right = 685.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = " ██▀███  
+▓██ ▒ ██▒
+▓██ ░▄█ ▒
+▒██▀▀█▄  
+░██▓ ▒██▒
+░ ▒▓ ░▒▓░
+  ░▒ ░ ▒░
+  ░░   ░ 
+   ░     "
+horizontal_alignment = 3
+
+[node name="Label4" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 693.0
+offset_top = 135.0
+offset_right = 800.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="Label5" type="Label" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 808.0
+offset_top = 135.0
+offset_right = 915.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="monsters/king/giant/InterfaceDialogueColosse"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 211.0
+offset_top = 105.0
+offset_right = 251.0
+offset_bottom = 145.0
+scale = Vector2(19.452564, 10.180315)
+
+[node name="Titre" type="RichTextLabel" parent="monsters/king/giant/InterfaceDialogueColosse"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
 
 [node name="mage" type="Sprite3D" parent="monsters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.285078, 1.9182882, 0)
@@ -3522,3 +3820,9 @@ sprite_frames = SubResource("SpriteFrames_n0ilc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/mage/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_o6qkm")
+
+[node name="PLAYER" parent="." instance=ExtResource("17_m6r3d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, -2.274519)
+
+[connection signal="text_submitted" from="monsters/king/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="monsters/king/giant/InterfaceDialogueColosse" method="_on_input_text_submitted"]
+[connection signal="button_down" from="monsters/king/giant/InterfaceDialogueColosse/reset" to="monsters/king/giant/InterfaceDialogueColosse" method="_on_button_button_down"]
