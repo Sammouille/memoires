@@ -15,4 +15,5 @@ func finInteraction():
 	interfaceDialogue.hide()
 	interfaceDialogue.cleanBoiteDialogue()
 	get_tree().get_first_node_in_group("areajoueureuse").interactible_actuel = null
+
 	
