@@ -10,24 +10,24 @@
 [ext_resource type="Texture2D" uid="uid://8jfyiggtcs1x" path="res://Assets/3D/Ruine2_Mur.png" id="9_ad5hc"]
 [ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="10_y6dmp"]
 [ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="11_j2fof"]
-[ext_resource type="Script" uid="uid://b2sbjqvlnnwlt" path="res://characters/PersoInteractible_dragon.gd" id="11_pklk7"]
+[ext_resource type="Script" path="res://characters/PersoInteractible_dragon.gd" id="11_pklk7"]
 [ext_resource type="PackedScene" uid="uid://deknuyjklunas" path="res://scenes/player.tscn" id="12_0ugff"]
 [ext_resource type="Texture2D" uid="uid://dc045q1wofwrf" path="res://Assets/Objet2D/crâne.png" id="12_4datt"]
 [ext_resource type="Texture2D" uid="uid://bblvgq0k6kgn6" path="res://characters/cha_sheet_sorcier.png" id="12_pklk7"]
-[ext_resource type="Script" uid="uid://dwqsaulltexx4" path="res://characters/interactiblePerso_king.gd" id="13_y6dmp"]
+[ext_resource type="Script" path="res://characters/interactiblePerso_king.gd" id="13_y6dmp"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="14_j2fof"]
 [ext_resource type="Texture2D" uid="uid://4kq8ipmmd2vk" path="res://characters/cha_sheet.png" id="15_uind5"]
 [ext_resource type="Script" uid="uid://cjonkxjco11ga" path="res://machinatext/command_processor_roihumble.gd" id="15_xldwb"]
 [ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="16_pklk7"]
 [ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="17_x0ptw"]
-[ext_resource type="Script" uid="uid://bpsb46vktioxq" path="res://scenes/command_processor_roi.gd" id="18_xldwb"]
+[ext_resource type="Script" path="res://scenes/command_processor_roi.gd" id="18_xldwb"]
 [ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="19_dr8bc"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="20_5knm4"]
-[ext_resource type="Script" uid="uid://mxbh0d7l67g" path="res://scenes/intPer_jester.gd" id="24_dr8bc"]
+[ext_resource type="Script" path="res://scenes/intPer_jester.gd" id="24_dr8bc"]
 [ext_resource type="Texture2D" uid="uid://iyw2hkps6vu0" path="res://characters/cha_sheet_jester.png" id="24_x0ptw"]
 [ext_resource type="AudioStream" uid="uid://bwlmhyrcy16gj" path="res://Assets/son/Jester.tres" id="25_5knm4"]
 [ext_resource type="Script" uid="uid://bgj55ot8ukb45" path="res://scenes/command_processor_Jester.gd" id="25_xldwb"]
-[ext_resource type="Script" uid="uid://d20hi5txu2mv1" path="res://scenes/intPer_sorcier.gd" id="28_ruuca"]
+[ext_resource type="Script" path="res://scenes/intPer_sorcier.gd" id="28_ruuca"]
 [ext_resource type="AudioStream" uid="uid://dt4ccghdsjv1d" path="res://Assets/son/Wizard.tres" id="29_kss30"]
 [ext_resource type="Script" uid="uid://brus5mykmrm80" path="res://scenes/command_processor_sorcier.gd" id="29_lqiwi"]
 [ext_resource type="AudioStream" uid="uid://yypui5mn1jrj" path="res://Assets/son/musique/A King's Story (JAM2025).mp3" id="30_fv7w0"]
@@ -6754,7 +6754,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38583374, 0, 0.031585693)
 shape = SubResource("BoxShape3D_uvakf")
 
 [node name="jester" type="Sprite3D" parent="char" node_paths=PackedStringArray("interfaceDialogue", "area")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1319456, 20.404974)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.1319456, 22.225956)
 billboard = 1
 script = ExtResource("24_dr8bc")
 accroche = "C'est un objet qui brillait je crois"
