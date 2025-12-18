@@ -9,10 +9,10 @@ var fade_in = create_tween()
 @export var j = 0
 
 func process_command(input: String) -> String:
-	if input.contains("personne") or input.contains("qui") or input.contains("bouffon"): 
-		return "La personne qui rigole sans cesse."
-	else :
-		var i = 1
-		while i > 0:
-			i+= 1
-		return "Je ne sais pas parler, je suis une épée."
+	if input.contains("coeur"):
+		if input.contains("pûreté") or input.contains("pureté"): 
+			return "Les légendes finirent par oublier ce qui fut réellement décidé à propos de mes conditions. Ce n'est pas la pûreté de coeur qui est demandée, c'est la jovialité de coeur."
+		if input.contains("jovialite") or input.contains("jovialité"):
+			return "La jovialité de coeur c'est être à la recherche de la joie au goût le plus fort, mais surtout c'est avoir compris que son goût est prononcé proportionnellement à la quantité de personnes qui la partagent."
+	
+	return "Je ne peux pas parler, je suis une épée."

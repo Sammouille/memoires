@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://d13k403yf1uji"]
+[gd_scene load_steps=69 format=4 uid="uid://d13k403yf1uji"]
 
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_qtg4g"]
 [ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_nnril"]
@@ -7,18 +7,26 @@
 [ext_resource type="Script" uid="uid://bxm5go06rolx4" path="res://code/livreInteractible.gd" id="4_fh2xm"]
 [ext_resource type="Script" uid="uid://b7yx1f5pmea0o" path="res://code/persoInteractible.gd" id="6_rxtyn"]
 [ext_resource type="Script" uid="uid://cjonkxjco11ga" path="res://machinatext/command_processor_roihumble.gd" id="7_051ob"]
+[ext_resource type="Texture2D" uid="uid://dnixlvan60hfl" path="res://Assets/Objet2D/banane.png" id="8_1ftqj"]
+[ext_resource type="Script" uid="uid://c2jcniv4cu62k" path="res://machinatext/command_processor_alchemistepee.gd" id="10_kfnkc"]
 [ext_resource type="MeshLibrary" uid="uid://xjdrwoo0flew" path="res://Assets/3D/LDLib2.tres" id="10_qhvbj"]
 [ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="10_umwyf"]
 [ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="11_051ob"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="11_777ts"]
+[ext_resource type="Script" uid="uid://br7f1jdayby5g" path="res://code/area_interactible.gd" id="11_bpj0l"]
+[ext_resource type="AudioStream" uid="uid://cvrwasa110t2w" path="res://Assets/son/Alchemist.tres" id="11_kfnkc"]
 [ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="12_5wi27"]
+[ext_resource type="Texture2D" uid="uid://4kq8ipmmd2vk" path="res://characters/cha_sheet.png" id="12_kfnkc"]
 [ext_resource type="Script" uid="uid://guumolaujnql" path="res://machinatext/command_processor_epee.gd" id="12_th7h4"]
 [ext_resource type="Script" uid="uid://bci6ynir7w2tb" path="res://machinatext/command_processor_livrepee.gd" id="13_051ob"]
 [ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="14_4drxf"]
-[ext_resource type="Texture2D" uid="uid://4kg18t2h7284" path="res://Assets/3D/pierre1_texturepierre.png" id="14_5wi27"]
 [ext_resource type="Texture2D" uid="uid://bx6o7rpeb017g" path="res://Assets/Objet2D/épée.png" id="15_5wi27"]
 [ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="15_a0l8k"]
 [ext_resource type="AudioStream" uid="uid://c2xmnn42qjt8g" path="res://Assets/son/Mage.tres" id="17_4drxf"]
+[ext_resource type="Texture2D" uid="uid://dos87k2nkbqjh" path="res://Assets/3D/torche2.png" id="19_0p28o"]
+[ext_resource type="Texture2D" uid="uid://bj6y50brdij0v" path="res://Assets/3D/torche1.png" id="20_ktskn"]
+[ext_resource type="Texture2D" uid="uid://bsdssy0io3pld" path="res://Assets/3D/torche3.png" id="21_1ftqj"]
+[ext_resource type="MeshLibrary" uid="uid://itkd5d75241e" path="res://Assets/Objet2D/objets.tres" id="22_ktskn"]
 
 [sub_resource type="Curve" id="Curve_iju8q"]
 _data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
@@ -127,9 +135,157 @@ shader_parameter/vignette_opacity = 0.1150000054625
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_62e2m"]
 bg_color = Color(0.09850656, 0.328561, 0, 1)
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0w44e"]
+height = 8.473877
+radius = 8.963379
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i57ke"]
+atlas = ExtResource("12_kfnkc")
+region = Rect2(0, 350, 320, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnm68"]
+atlas = ExtResource("12_kfnkc")
+region = Rect2(320, 350, 320, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7avhs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i57ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnm68")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tt8b8"]
 height = 34.542877
-radius = 11.911621
+radius = 8.070801
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q7708"]
+transparency = 1
+albedo_texture = ExtResource("19_0p28o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhvkc"]
+resource_name = "torche"
+transparency = 4
+cull_mode = 2
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2q74h"]
+_surfaces = [{
+"aabb": AABB(-0.3369911, 2.6628206, 0.0035962872, 0.73996305, 1.1905704, 0.06614129),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("FAABAAIAFAAVAAEAFQADAAEAFQAAAAMAFgAUAAIAFgACAAUAFwAVABQAGAAAABUAFwAYABUAGAAKAAAAGQAXABQAGQAUABYAGgAYABcAGwAKABgAGgAbABgAGwALAAoAEgALABsAEgATAAsAEQASABsAEQAbABoAEAARABoAHAAaABcAEAAaABwAHAAXABkADwAQABwADwAcAB0AHQAcABkADgAPAB0AHQAZAB4ADgAdAB8AHwAdAB4ADQAOAB8AHgAZABYADQAfAAwADAAfACAAHwAeACAADAAgAAkAHgAWACEAIAAeACEAIQAWAAUAIQAFAAYAIAAhACIACQAgACIAIgAhAAYACQAiAAQAIgAGAAcABAAiAAcABAAHAAgA"),
+"lods": [0.086160615, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABAAFAAYABAAGAAcABAAHAAgACQAAAAQACQAKAAAACwAKAAkADAALAAkADQAOAAwADgALAAwADgAPAAsADwAQAAsAEAARAAsAEQASAAsAEgATAAsA")],
+"name": "torche",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("Srr//2ppAAD//yDSAAAAAP//QqQAAAAA/////wAAAABKugAAAAAAAP//ZHYAAAAA//+GSAAAAAD//0MkAAAAAP//AAAAAAAAlXQAAAAAAACVdP////8AAEo6//9qaQAASjoAAAAAAAAAAAAAAAAAAAAAQyQAAAAAAACGSAAAAAAAAGR2AAAAAAAAQqQAAAAAAAAg0gAAAAAAAP//AAAAAEq6QqRqaQAASrog0mppAABKumR2sC0AAJV0QqT//wAAlXQg0v//AACVdGR2//8AAEo6QqRqaQAASjog0mppAABKOmR2sC0AAEo6hkiwLQAAlXSGSP//AABKOkMksC0AAJV0QySwLQAASrqGSLAtAABKukMksC0AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t0kps"]
+resource_name = "Torche_Plane_009"
+_surfaces = [{
+"aabb": AABB(-0.3369911, 2.6628206, 0.0035962872, 0.73996305, 1.1905704, 0.06614129),
+"attribute_data": PackedByteArray("yZnHEpOzFS6Ts2NJk7PHEsmZK6uTs7Fkk7P/f5OzlZWTsyur/38rq/9/xxJuascSbmorq91UK6vdVJWV3VT/f91UsWTdVGNJ3VQVLt1UxxLJmWNJyZkVLsmZsWT/f2NJ/38VLv9/sWRuamNJbmoVLm5qsWRuav9//3//f25qlZX/f5WVyZn/f8mZlZU="),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("FAABAAIAFAAVAAEAFQADAAEAFQAAAAMAFgAUAAIAFgACAAUAFwAVABQAGAAAABUAFwAYABUAGAAKAAAAGQAXABQAGQAUABYAGgAYABcAGwAKABgAGgAbABgAGwALAAoAEgALABsAEgATAAsAEQASABsAEQAbABoAEAARABoAHAAaABcAEAAaABwAHAAXABkADwAQABwADwAcAB0AHQAcABkADgAPAB0AHQAZAB4ADgAdAB8AHwAdAB4ADQAOAB8AHgAZABYADQAfAAwADAAfACAAHwAeACAADAAgAAkAHgAWACEAIAAeACEAIQAWAAUAIQAFAAYAIAAhACIACQAgACIAIgAhAAYACQAiAAQAIgAGAAcABAAiAAcABAAHAAgA"),
+"lods": [0.086160615, PackedByteArray("AAABAAIAAAADAAEABAAAAAIABAACAAUABAAFAAYABAAGAAcABAAHAAgACQAAAAQACQAKAAAACwAKAAkADAALAAkADQAOAAwADgALAAwADgAPAAsADwAQAAsAEAARAAsAEQASAAsAEgATAAsA")],
+"material": SubResource("StandardMaterial3D_mhvkc"),
+"name": "torche",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 35,
+"vertex_data": PackedByteArray("Srr//2ppnob//yDSAAB5hf//QqQAAMKE/////wAAeYVKugAAAAA3gv//ZHYAAD6D//+GSAAAYoL//0MkAADsgf//AAAAANuBlXQAAAAA2IKVdP////+8gEo6//9qaeKHSjoAAAAAQIIAAAAAAAADggAAQyQAAEGCAACGSAAA2YIAAGR2AADXgwAAQqQAAKiFAAAg0gAAh4YAAP//AACHhkq6QqRqaaiGSrog0mppnoZKumR2sC2bhpV0QqT//xWBlXQg0v//vICVdGR2//8vgUo6QqRqaemHSjog0mpp4odKOmR2sC3Vh0o6hkiwLW6GlXSGSP//TINKOkMksC3Kg5V0QySwLa2ESrqGSLAteoVKukMksC1/g/9/AAD/fwAA424cEv9/AACcHEdk+md+GP9/AAC9W/4k2TkjRQAA/3//f////3///6cg0J93P5HA/V5f4P9///9walPrEHBm8f9/////f///gnOfDf9/AABqc7UNVEJow/9///9+Rr/Hb3Rd9f9///9YdEP1ZWNc5gwakpcUPyXBCQtFhktigB9mOrVF")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2q74h")
+
+[sub_resource type="Animation" id="Animation_35710"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_q7708")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nvgwp"]
+transparency = 1
+albedo_texture = ExtResource("20_ktskn")
+emission_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itxn1"]
+transparency = 1
+albedo_texture = ExtResource("19_0p28o")
+emission_enabled = true
+emission_energy_multiplier = 2.88
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_slo66"]
+transparency = 1
+albedo_texture = ExtResource("21_1ftqj")
+emission_enabled = true
+
+[sub_resource type="Animation" id="Animation_ipxkf"]
+resource_name = "Torche"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material_override")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_nvgwp"), SubResource("StandardMaterial3D_itxn1"), SubResource("StandardMaterial3D_slo66")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OmniLight3D:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.385]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o76gl"]
+_data = {
+&"RESET": SubResource("Animation_35710"),
+&"Torche": SubResource("Animation_ipxkf")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5wi27"]
 shader = ExtResource("11_051ob")
@@ -187,48 +343,9 @@ shader_parameter/vignette_opacity = 0.1150000054625
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bpj0l"]
 bg_color = Color(0.09850656, 0.328561, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frsjo"]
-resource_name = "pierre"
-cull_mode = 2
-albedo_texture = ExtResource("14_5wi27")
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_yo4c8"]
-_surfaces = [{
-"aabb": AABB(-1, -0.58728254, -1.5307144, 3.669358, 2.5182414, 3.7260957),
-"format": 34896613377,
-"index_count": 84,
-"index_data": PackedByteArray("DAANAAIAAwACAA0AAwAGAAIADgADAA0ADAAOAA0ADwAGAAMADgAPAAMACQACAAYACQAMAAIADwAJAAYABwAOAAwACAAPAA4ABwAIAA4ACAAKAA8ACgAJAA8AAAAIAAcACwAMAAkACgALAAkACwAHAAwABQALAAoABAAHAAsABQAEAAsABAAAAAcAAQAFAAoAAQAEAAUAAQAKAAgAAQAAAAQAAAABAAgA"),
-"lods": [1.3751544, PackedByteArray("BwAIAAIACAADAAIAAwAGAAIACQACAAYAAwAJAAYACQAHAAIACAAKAAMACgAJAAMAAAAIAAcACgALAAkACwAHAAkABQALAAoABAAHAAsABQAEAAsABAAAAAcAAQAFAAoAAQAEAAUAAQAKAAgAAQAAAAQAAAABAAgA"), 3.3628244, PackedByteArray("AAABAAIAAQADAAIAAQAAAAQAAQAFAAMAAQAEAAUABAAAAAYABgAAAAIABQAEAAYAAwAGAAIABQAGAAMA")],
-"name": "pierre",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 16,
-"vertex_data": PackedByteArray("4RbeCKDlAAAAAOAQdiQAAGoUd/qQbgAAC2P//wAAAACK0QAAA9EAAKm6AgjZDwAAC2P//4FSAACFJTVe//8AAAAA+Ud2JAAAzqQXvIG1AABy2oNFcQoAAP//v2C25QAAthIHqsXYAABqFHf6DxwAABIEyIsMTAAAi5XtmUEpAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_mnm2k"]
-resource_name = "pierre1_Cube_011"
-_surfaces = [{
-"aabb": AABB(-1, -0.58728254, -1.5307144, 3.669358, 2.5182414, 3.7260957),
-"attribute_data": PackedByteArray("/1////9f/7//n////5//f/9f/3//n/8//9//P/9f/z//H/9//x//P/9fAAD/nwAAV3H//1dx/79Xcf9/bYj/P1dxAABXcf8/bYj///+f/79tiP+/bYj/f//f/39tiAAA"),
-"format": 34896613399,
-"index_count": 84,
-"index_data": PackedByteArray("EgATAAIAEgAUABMADAAUABIAFAADABMADAANABQAAAANAAwAAAABAA0ADQAVABQAFAAVAAMAAQAOAA0ADQAOABUAAQAEAA4AAwAGABYAAwAFAAYAFQAFAAMAFQAPAAUADgAPABUADwALAAUADwAXAAsADgARAA8AEQAXAA8ABAARAA4AEQAQABcABAAHABEABwAQABEABwAKABAACAAHAAQACAAJAAcA"),
-"lods": [1.3751544, PackedByteArray("DAANAAIAAAANAAwAAAABAA0ADQADAAIAAQAOAA0ADQAOAAMAAQAEAA4AAwAFAAYAAwAPAAUADgAPAAMADwALAAUADwAQAAsADgARAA8AEQAQAA8ABAARAA4ABwAQABEABAAHABEABwAKABAACAAHAAQACAAJAAcA"), 3.3628244, PackedByteArray("AAABAAIAAQADAAIAAQAEAAMABAAFAAMAAwAFAAYABAAHAAUACAAHAAQACAAJAAcABwAKAAUABQAKAAsA")],
-"material": SubResource("StandardMaterial3D_frsjo"),
-"name": "pierre",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("4RbeCKDlqMQAAOAQdiRp9moUd/qQbj/aC2P//wAAkfypugII2Q8b3Qtj//+BUoTnahR3+pBuY+OK0QAAA9GntgAA4BB2JBPj4RbeCKDlVq7hFt4IoOWdw2oUd/qQbubhhSU1Xv//YboAAPlHdiSg4HLag0VxCkbuzqQXvIG1Ct+FJTVe//+4wv//v2C25XbJthIHqsXYJtZqFHf6DxwJ5BIEyIsMTALdi5XtmUEpzflqFHf6DxwY5LYSB6rF2GjctTnD+UbMg9dM7kc111BeGJUeel6awUkD3nVNtzkHck4ALIeKzUFIpcw5vPgh6VkvQe1u5UDD2ctgNF8y48jqBFjxg+X+JVUbZvvzMOLkgLH9zsbQVEUjG5l91OJ+93Qt")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_yo4c8")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_th7h4"]
-data = PackedVector3Array(-0.73179996, 1.0853, 1.6243999, -0.70739996, 1.8765, -1.1223, -0.70739996, 1.8765, 0.0786, -0.73179996, 1.0853, 1.6243999, -0.9417, 0.7877, -0.4238, -0.70739996, 1.8765, -1.1223, -0.4622, 0.3394, 2.1954, -0.9417, 0.7877, -0.4238, -0.73179996, 1.0853, 1.6243999, -0.9417, 0.7877, -0.4238, 0.41959998, 1.931, -1.5307, -0.70739996, 1.8765, -1.1223, -0.4622, 0.3394, 2.1954, -1, 0.120699994, -1, -0.9417, 0.7877, -0.4238, -0.6721, -0.5001, 1.8115, -1, 0.120699994, -1, -0.4622, 0.3394, 2.1954, -0.6721, -0.5001, 1.8115, -1, -0.4213, -1, -1, 0.120699994, -1, -1, 0.120699994, -1, 1.1435, 0.92689997, -0.9303, -0.9417, 0.7877, -0.4238, -0.9417, 0.7877, -0.4238, 1.1435, 0.92689997, -0.9303, 0.41959998, 1.931, -1.5307, -1, -0.4213, -1, 2.1311, 0.096499994, -1.3787, -1, 0.120699994, -1, -1, 0.120699994, -1, 2.1311, 0.096499994, -1.3787, 1.1435, 0.92689997, -0.9303, -1, -0.4213, -1, 1.6754999, -0.5085, -1.3, 2.1311, 0.096499994, -1.3787, 0.41959998, 1.931, -1.5307, -0.70739996, 1.8765, 0.0786, -0.70739996, 1.8765, -1.1223, 0.41959998, 1.931, -1.5307, 0.41959998, 1.931, -0.32979998, -0.70739996, 1.8765, 0.0786, 1.1435, 0.92689997, -0.9303, 0.41959998, 1.931, -0.32979998, 0.41959998, 1.931, -1.5307, 1.1435, 0.92689997, -0.9303, 1.3622999, 1.263, 1.1111, 0.41959998, 1.931, -0.32979998, 2.1311, 0.096499994, -1.3787, 1.3622999, 1.263, 1.1111, 1.1435, 0.92689997, -0.9303, 1.3622999, 1.263, 1.1111, -0.70739996, 1.8765, 0.0786, 0.41959998, 1.931, -0.32979998, 1.3622999, 1.263, 1.1111, -0.73179996, 1.0853, 1.6243999, -0.70739996, 1.8765, 0.0786, 2.1311, 0.096499994, -1.3787, 2.6694, 0.3644, 1.8127999, 1.3622999, 1.263, 1.1111, 2.6694, 0.3644, 1.8127999, -0.73179996, 1.0853, 1.6243999, 1.3622999, 1.263, 1.1111, 1.6754999, -0.5085, -1.3, 2.6694, 0.3644, 1.8127999, 2.1311, 0.096499994, -1.3787, 2.6694, 0.3644, 1.8127999, -0.4622, 0.3394, 2.1954, -0.73179996, 1.0853, 1.6243999, 1.6754999, -0.5085, -1.3, 2.0035, -0.5873, 1.5115, 2.6694, 0.3644, 1.8127999, 2.0035, -0.5873, 1.5115, -0.4622, 0.3394, 2.1954, 2.6694, 0.3644, 1.8127999, 2.0035, -0.5873, 1.5115, -0.6721, -0.5001, 1.8115, -0.4622, 0.3394, 2.1954, -1, -0.4213, -1, 2.0035, -0.5873, 1.5115, 1.6754999, -0.5085, -1.3, -1, -0.4213, -1, -0.6721, -0.5001, 1.8115, 2.0035, -0.5873, 1.5115)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bpj0l"]
+height = 34.542877
+radius = 11.240723
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j4jwg"]
 resource_name = "Material"
@@ -352,7 +469,7 @@ radius = 0.71533203
 [node name="scene_base" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 0.9999999, 0, -1, -4.3711385e-08, 0, 3.6594257, 1.3243967)
+transform = Transform3D(0.6832738, -0.7221421, -0.10792486, 0, -0.14780945, 0.98901576, -0.73016226, -0.6757686, -0.100994304, 0, 3.6594257, 1.3243967)
 shadow_enabled = true
 directional_shadow_mode = 0
 
@@ -363,7 +480,7 @@ environment = SubResource("Environment_r1q5g")
 transform = Transform3D(-0.040000003, 0, -3.4969112e-09, 0, 0.040000003, 0, 3.4969112e-09, 0, -0.040000003, -4.266241, 1.7673626, 1.8461657)
 script = ExtResource("4_fh2xm")
 accroche = "Ce livre contient des informations sur les artefacts magiques du royaume."
-voix = ExtResource("10_umwyf")
+voix = ExtResource("17_4drxf")
 nom = "[font_size=30][outline_size=15][outline_color=gold]Registre des artefacts magiques"
 interface_livre = NodePath("../InterfaceLivre")
 area = NodePath("AreaLivre")
@@ -396,6 +513,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("7_051ob")
+texture_banane = ExtResource("8_1ftqj")
 
 [node name="forest" type="Node" parent="InterfaceDialogueROi"]
 script = ExtResource("14_4drxf")
@@ -611,8 +729,266 @@ offset_right = 275.0
 offset_bottom = -10.0
 bbcode_enabled = true
 
+[node name="InterfaceDialogueAlchemist" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_iy58a")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("12_5wi27")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="InterfaceDialogueAlchemist"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("10_kfnkc")
+
+[node name="forest" type="Node" parent="InterfaceDialogueAlchemist"]
+script = ExtResource("14_4drxf")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceDialogueAlchemist"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0fbet")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceDialogueAlchemist/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_fj5cn")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InterfaceDialogueAlchemist/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_62e2m")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("15_a0l8k")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Label" type="Label" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 238.0
+offset_top = 135.0
+offset_right = 374.0
+offset_bottom = 340.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▄▄▄█████▓
+▓  ██▒ ▓▒
+▒ ▓██░ ▒░
+░ ▓██▓ ░ 
+  ▒██▒ ░ 
+  ▒ ░░   
+    ░    
+  ░     "
+horizontal_alignment = 3
+
+[node name="Label2" type="Label" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 398.0
+offset_top = 270.0
+offset_right = 521.0
+offset_bottom = 501.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "  ██░ ██ 
+▓██░ ██▒
+▒██▀▀██░
+░▓█ ░██ 
+░▓█▒░██▓
+ ▒ ░░▒░▒
+ ▒ ░▒░ ░
+ ░  ░░ ░
+ ░  ░  ░"
+horizontal_alignment = 3
+
+[node name="Label3" type="Label" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 558.0
+offset_top = 135.0
+offset_right = 685.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = " ██▀███  
+▓██ ▒ ██▒
+▓██ ░▄█ ▒
+▒██▀▀█▄  
+░██▓ ▒██▒
+░ ▒▓ ░▒▓░
+  ░▒ ░ ▒░
+  ░░   ░ 
+   ░     "
+horizontal_alignment = 3
+
+[node name="Label4" type="Label" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 693.0
+offset_top = 135.0
+offset_right = 800.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="Label5" type="Label" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = -1
+offset_left = 808.0
+offset_top = 135.0
+offset_right = 915.0
+offset_bottom = 366.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(3.8961844e-05, 0.646256, 0.06660809, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "▓█████ 
+▓█   ▀ 
+▒███   
+▒▓█  ▄ 
+░▒████▒
+░░ ▒░ ░
+ ░ ░  ░
+   ░   
+   ░  ░"
+horizontal_alignment = 3
+
+[node name="PanelContainer2" type="PanelContainer" parent="InterfaceDialogueAlchemist"]
+visible = false
+z_index = 2
+layout_mode = 0
+offset_left = 211.0
+offset_top = 105.0
+offset_right = 251.0
+offset_bottom = 145.0
+scale = Vector2(19.452564, 10.180315)
+
+[node name="Titre" type="RichTextLabel" parent="InterfaceDialogueAlchemist"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
+
+[node name="ALCHEMIST" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 2.205699, 1.2424891, -0.55022955)
+script = ExtResource("6_rxtyn")
+accroche = "Il est persuadé que quelqu'un aurait versé de la colle sur l'épée, il n'arrive même pas à douter de sa soi disante pureté de coeur ..."
+voix = ExtResource("11_kfnkc")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue]Monarch"
+interfaceDialogue = NodePath("../InterfaceDialogueAlchemist")
+area = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="ALCHEMIST"]
+script = ExtResource("11_bpj0l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ALCHEMIST/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02551651, -2.9499884, 1.3709717)
+shape = SubResource("CylinderShape3D_0w44e")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="ALCHEMIST"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+billboard = 1
+sprite_frames = SubResource("SpriteFrames_7avhs")
+autoplay = "default"
+
 [node name="Monarch" type="Node3D" parent="." node_paths=PackedStringArray("interfaceDialogue", "area")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 1.2833817, 1.4728022, 10.963921)
+transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, -0.97227275, 1.4728023, 5.736852)
 script = ExtResource("6_rxtyn")
 accroche = "Je n'arrive pas à porter cette épée, je ne sais pas quoi faire ..."
 voix = ExtResource("10_umwyf")
@@ -623,11 +999,11 @@ area = NodePath("AreaM")
 [node name="AreaM" type="Area3D" parent="Monarch"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Monarch/AreaM"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -7.9660563, 1.3709726)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.025512695, -7.9660563, 1.3709733)
 shape = SubResource("CylinderShape3D_tt8b8")
 
 [node name="king" parent="Monarch" instance=ExtResource("11_777ts")]
-transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, -4.1167345, 0)
+transform = Transform3D(-2.1855693e-07, 0, -5, 0, 5, 0, 5, 0, -2.1855693e-07, 0, -3.867042, 0)
 
 [node name="InterfaceDialogueEpee" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
 visible = false
@@ -868,11 +1244,147 @@ bbcode_enabled = true
 [node name="Objets" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62134695, 0)
 mesh_library = ExtResource("10_qhvbj")
-cell_size = Vector3(2, 1, 2)
+cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(65531, 0, 1048588, -5, 0, 1048587, -131075, 3, 28, 327677, 1, 1048608, 262166, 6, 1048608)
+"cells": PackedInt32Array(-131075, 3, 28, 262166, 6, 1048608, -9, 1, 1048587, 65527, 1, 1048588, -8, 11, 1441818, -8, 10, 1441818, 65528, 11, 1441818, -65534, 5, 1441818, -65533, 4, 1441818, -65533, 5, 1441818, -4, 65530, 1441818, -4, 65531, 1441818, 65532, 65530, 1441818, 3, 4, 1441818, 1, 6, 1441809, 0, 7, 655377, 65531, 7, 655377, 65530, 6, 1048593, 65530, 1, 1048593, 65531, 0, 655377, 0, 0, 655377, 1, 1, 1048593)
 }
 metadata/_editor_floor_ = Vector3(0, 4, 0)
+
+[node name="Torche" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.691015, -0.902655, 1.9983704)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche2" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 6.691015, -0.902655, 6.001493)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche2"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche3" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.651856, -0.902655, 1.9983704)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche3"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche4" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -10.651856, -0.902655, 6.001493)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche4"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche5" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0016673207, -0.902655, -4.5877)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche5"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche6" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4.001455, -0.902655, -4.5877)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche6"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche7" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0016673207, -0.902655, 12.525165)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche7"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="Torche8" type="MeshInstance3D" parent="Objets"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4.001455, -0.902655, 12.525165)
+material_override = SubResource("StandardMaterial3D_q7708")
+mesh = SubResource("ArrayMesh_t0kps")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Objets/Torche8"]
+libraries = {
+&"": SubResource("AnimationLibrary_o76gl")
+}
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Objets/Torche8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4947758, 0.11541426)
+light_color = Color(0.99969774, 0.9023826, 0.7583521, 1)
+light_size = 0.785
+
+[node name="objets" type="GridMap" parent="Objets"]
+mesh_library = ExtResource("22_ktskn")
+cell_size = Vector3(1, 0.44, 1)
+data = {
+"cells": PackedInt32Array(131064, 10, 1048581, 65539, 5, 1048582, 65538, 5, 1048578, 131068, 65531, 1048578)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="sol" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
@@ -1007,33 +1519,26 @@ bbcode_enabled = true
 [node name="pierre1" type="Node3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -2.0797937, 0.005473256, 3.5691342)
 
-[node name="Cube_005" type="MeshInstance3D" parent="pierre1"]
-mesh = SubResource("ArrayMesh_mnm2k")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="pierre1/Cube_005"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pierre1/Cube_005/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_th7h4")
-
 [node name="sword" type="Sprite3D" parent="pierre1"]
-transform = Transform3D(-8.742276e-08, 0, -2, -0.51763827, -1.9318516, 2.262669e-08, -1.9318516, 0.51763827, 8.44439e-08, 0, 3.2924716, -0.8145418)
+unique_name_in_owner = true
+transform = Transform3D(2, 0, 0, 0, -8.742278e-08, -2, 0, 2, -8.742278e-08, 0, 0.5036965, 0.37985706)
 texture = ExtResource("15_5wi27")
 
-[node name="Monarch" type="Node3D" parent="pierre1" node_paths=PackedStringArray("interfaceDialogue", "area")]
+[node name="Epee" type="Node3D" parent="pierre1" node_paths=PackedStringArray("interfaceDialogue", "area")]
+unique_name_in_owner = true
 transform = Transform3D(-8.742278e-09, 0, 0.20000002, 0, 0.20000002, 0, -0.20000002, 0, -8.742278e-09, 0, 1.7469332, 0)
 script = ExtResource("6_rxtyn")
-accroche = "Ce qu'il ne sait pas, c'est que je connais déjà une personne capable de me porter."
+accroche = "Ce n'est pas pour être essentialiste mais bon, du fait de son statut il ne pourra jamais me saisir."
 voix = ExtResource("17_4drxf")
 nom = "[font_size=30][outline_size=15][outline_color=deep_sky_blue]Epée"
 interfaceDialogue = NodePath("../../InterfaceDialogueEpee")
 area = NodePath("AreaEpee")
 
-[node name="AreaEpee" type="Area3D" parent="pierre1/Monarch"]
+[node name="AreaEpee" type="Area3D" parent="pierre1/Epee"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pierre1/Monarch/AreaEpee"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02550888, -2.9499884, 1.3709726)
-shape = SubResource("CylinderShape3D_tt8b8")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pierre1/Epee/AreaEpee"]
+transform = Transform3D(0.9999906, 0, -3.1974423e-13, 0, 0.9999906, 0, 3.1974423e-13, 0, 0.9999906, 1.4386597, -2.9499865, -0.9785137)
+shape = SubResource("CylinderShape3D_bpj0l")
 
 [node name="PLAYER" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9493474, 0.8560618, 7.8838816)
@@ -1194,6 +1699,8 @@ shape = SubResource("CylinderShape3D_a0l8k")
 
 [connection signal="text_submitted" from="InterfaceDialogueROi/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceDialogueROi" method="_on_input_text_submitted"]
 [connection signal="button_down" from="InterfaceDialogueROi/reset" to="InterfaceDialogueROi" method="_on_button_button_down"]
+[connection signal="text_submitted" from="InterfaceDialogueAlchemist/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceDialogueAlchemist" method="_on_input_text_submitted"]
+[connection signal="button_down" from="InterfaceDialogueAlchemist/reset" to="InterfaceDialogueAlchemist" method="_on_button_button_down"]
 [connection signal="text_submitted" from="InterfaceDialogueEpee/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceDialogueEpee" method="_on_input_text_submitted"]
 [connection signal="button_down" from="InterfaceDialogueEpee/reset" to="InterfaceDialogueEpee" method="_on_button_button_down"]
 [connection signal="text_submitted" from="InterfaceLivre/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceLivre" method="_on_input_text_submitted"]

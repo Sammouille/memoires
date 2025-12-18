@@ -10,16 +10,38 @@ var shape_tree = " "
 var tree_branch = "o@@o%;@"
 var t = randi_range(5,9)
 
+var idx_banane:= 0
+var banane:= false
+
+@export var texture_banane: Texture
 
 func process_command(input: String) -> String:
-	if input.contains("épée") or input.contains("épee")or input.contains("epee")or input.contains("epée"):
-		if input.contains("soulève") or input.contains("prends") or input.contains("prendre") or input.contains("soulever"):
-			return "Je n'y arrive pas, je pense que je devrais abandonner et passer à autre chose" 
-		return "Cette épée est magique, la légende dit que seule une personne au coeur pur peut la soulever."
-	elif input.contains("abandonne") or input.contains("abandonner") or input.contains("passe"):
-		return "C'est probablement la meilleure chose à faire ..."
+	if !banane:
+		if input.contains("épée") or input.contains("épee")or input.contains("epee")or input.contains("epée"):
+			if input.contains("soulève") or input.contains("prends") or input.contains("prendre") or input.contains("soulever")or input.contains("souleve"):
+				idx_banane += 1
+				banane = true
+				if idx_banane >= 3:
+					%sword.texture = texture_banane
+					%Epee.queue_free()
+					return"\"JE SUIS SÛR QUE C'EST ENCORE UN COUP FOURRE DE L'AUTRE COMIQUE ! QUE L'ON M'APPORTE SA TÊTE SUR UN PLATEAU OU ALORS C'EST MOI QUI IRAIT LA CHERCHER AVEC CETTE EPEE !\" 
+Et il tente de nouveau de la soulever, en vain ... Sauf que cette fois-ci, afin"
+				return "\"Tu as raison ! Je dois m'acharner, cette épée est à moi !\" 
+Et il tente de nouveau de la soulever, en vain ..."
+			return "Cette épée est magique, la légende dit que seule une personne au coeur pur peut la soulever, il me paraît tout à fait évident que cela me décrit parfaitement."
+		elif input.contains("abandonne") or input.contains("abandonner") or input.contains("passe"):
+			idx_banane += 1
+			if idx_banane >= 3:
+				banane = true
+				%sword.texture = texture_banane
+				%Epee.queue_free()
+				return"\"JE SUIS SÛR QUE C'EST ENCORE UN COUP FOURRE DE L'AUTRE COMIQUE ! QUE L'ON M'APPORTE SA TÊTE SUR UN PLATEAU OU ALORS C'EST MOI QUI IRAIT LA CHERCHER AVEC CETTE EPEE !\" 
+Et il tente de nouveau de la soulever, en vain ... Sauf que cette fois-ci, afin de convaincre le monarque d'arrêter, elle prit l'apparence d'une banane."
+			return "\" NON! JE REFUSE ! EN TANT QUE MONARQUE CETTE EPEE ME REVIENT DE DROIT ! \" 
+Et il tente de nouveau de la soulever, en vain ..."
 	else:
-		return "Je ne comprends pas ..."
+		return "NOOOOOOOON !!! MON EPEE !!!"
+	return "Je ne comprends pas ..."
  
 
 func animation() :
