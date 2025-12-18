@@ -14,7 +14,7 @@ func process_command(input: String) -> String:
 	var word_count = input.split(" ", false).size()
 	print(word_count)
 	if words.size() == 0 :
-		return "(NOTE DU MAGE : le géant nous fixait du regard il me semble… cela est si flou… elle ne semblait pas particulièrement terrible)"
+		return "Je reste convaincu que personne n'a attaqué qui que ce soit à ce moment là"
 	var first_word = words[0].to_lower()
 	var second_word = "".to_lower()
 	if words.size() > 1: 
@@ -26,9 +26,11 @@ func process_command(input: String) -> String:
 		j = randi_range(1,4)
 		print(j)
 
-	if input.contains("attaquer") or input.contains("attaque"): 
-			return "Grrr…. (NOTE DU MAGE : le roi n’aurait jamais attaqué le golem… malgré toute sa bétise, j’en reste persuadé"
-	if input.contains("séduire"):
-		return "Ho Ho Ho(NOTE DU MAGE : …) (NOTE DU SORCIER : Je t’assure que ça se serait passé comme ça SI CA AVAIT EU LIEU !  Hors, ce n’est pas le cas)"
+	if input.contains("que s'est-il passé ?") or input.contains("roi"): 
+			return "Malgré sa bétise, le roi n'aurait jamais attaqué le colosse... Cette pauvre créature est finalement peu impressionnante"
+	if input.contains("colosse"):
+		return "Une créature magnifique ! Bien que beaucoup moins impressionnante qu'il n'y parait... (NOTE DU SoRcIeR : Evidemment que le roi n'a jamais attaqué le colosse ! Il s'agissait d'un dragon !!)"
+	if input.contains("sorcier"):
+		return "Ne vous préocuppez pas de cet idiot... et encore moins du bouffon. Je suis sur qu'il s'agissait d'un colosse ! Impossible d'oublier une si petite créature."
 	else :
 		return "(NOTE DU ROI : Je vous assure qu’il s’agissait d’un dragon !! Le golem c’est une toute autre histoire. "
