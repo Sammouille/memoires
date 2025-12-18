@@ -4,12 +4,13 @@ const input_answer = preload("res://machinatext/input_answer.tscn")
 const answer_given = preload("res://machinatext/answer_given.tscn")
 
 @export var max_lines_rememebered = 30
+@export var titre: RichTextLabel
 
 var max_scroll_length := 0
 
 var voix_actuelle: AudioStream
 
-@onready var input_node := %input
+@export var input_node : Control
 @onready var history_rows = $PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer/History
 @onready var scroll = $PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer
 @onready var scrollbar = scroll.get_v_scroll_bar()
@@ -34,7 +35,7 @@ func scrollbar_change():
 
 
 func _on_input_text_submitted(new_text: String) -> void:
-	if (new_text.is_empty()):
+	if (new_text.is_empty()) :
 		return
 	var Input_Response = input_answer.instantiate()
 	var response = command_processor.process_command(new_text) 
@@ -66,7 +67,7 @@ func _on_button_button_down() -> void:
 	for i in history_rows.get_child_count() :
 		history_rows.get_child(i).queue_free()
 	var start_msg = answer_given.instantiate()
-	start_msg.text = "Je ne me souviens plus... De quoi parlions-nous ?"
+	start_msg.text = "Un objet qui brille..."
 	add_answer(start_msg)
 
 
@@ -74,8 +75,9 @@ func cleanBoiteDialogue():
 	for i in history_rows.get_child_count() :
 		history_rows.get_child(i).queue_free()
 
-func initxt(accroche: String, titre: String):
-	%Titre.text = titre
+func initxt(accroche: String, _titre: String):
+	if titre:
+		titre.text = _titre
 	var start_msg = answer_given.instantiate()
 	start_msg.text = accroche
 	add_answer(start_msg)

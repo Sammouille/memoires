@@ -1,0 +1,139 @@
+[gd_scene load_steps=23 format=3 uid="uid://b24ejnpvh3pd7"]
+
+[ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="1_ngugn"]
+[ext_resource type="Texture2D" uid="uid://p3kihnmxk126" path="res://icon.png" id="2_0yeua"]
+[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="3_ra05n"]
+[ext_resource type="MeshLibrary" path="res://Assets/3D/LDLib.tres" id="4_ngugn"]
+[ext_resource type="MeshLibrary" uid="uid://c7h0ypyx7vxdi" path="res://Assets/3D/cube.tres" id="5_n8wym"]
+[ext_resource type="PackedScene" uid="uid://467lamtayt8g" path="res://characters/sprite_3d_anim.tscn" id="6_pkp8n"]
+[ext_resource type="PackedScene" uid="uid://smhydxargyd0" path="res://Assets/3D/Mur.glb" id="7_5jdgd"]
+[ext_resource type="PackedScene" uid="uid://bas3h2nahuogt" path="res://Assets/3D/Eau.glb" id="8_axs1i"]
+[ext_resource type="PackedScene" uid="uid://sswfg0yvinnm" path="res://Assets/3D/FontaineMural.glb" id="9_jua06"]
+[ext_resource type="PackedScene" uid="uid://c4s861asgh21p" path="res://Assets/3D/Torche.glb" id="10_83soi"]
+[ext_resource type="PackedScene" uid="uid://diw8hjib7w36p" path="res://Assets/3D/Mousse1.glb" id="11_hcadi"]
+[ext_resource type="PackedScene" uid="uid://bhuaxsl3v44le" path="res://Assets/3D/Mousse2.glb" id="12_2ob08"]
+[ext_resource type="PackedScene" uid="uid://b7hdm6p5saug4" path="res://Assets/3D/Mousse3.glb" id="13_abasg"]
+[ext_resource type="PackedScene" uid="uid://bj3e12q723g66" path="res://Assets/3D/Sol.glb" id="14_1vrp6"]
+
+[sub_resource type="Curve" id="Curve_iju8q"]
+_data = [Vector2(0.011160709, 0), 0.0, 0.0, 0, 0, Vector2(0.078124985, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.7821012), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7xjic"]
+curve = SubResource("Curve_iju8q")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r1q5g"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r1q5g"]
+noise = SubResource("FastNoiseLite_r1q5g")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7xjic"]
+shader = ExtResource("1_ngugn")
+shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/cloud_curves = SubResource("CurveTexture_7xjic")
+shader_parameter/clouds_samples = 32
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.40000000596048
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.02999999932944
+shader_parameter/clouds_light_color = Color(1, 0.80784315, 1, 1)
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_r1q5g")
+shader_parameter/high_clouds_density = 0.30000000447036
+shader_parameter/top_color = Color(0.34901962, 0.5882353, 1, 1)
+shader_parameter/bottom_color = Color(0, 0.32941177, 0.96862745, 1)
+shader_parameter/sun_scatter = Color(0.29803923, 0.29803923, 0.29803923, 1)
+shader_parameter/astro_tint = Color(0.90588236, 0.7882353, 0.627451, 1)
+shader_parameter/astro_sampler = ExtResource("2_0yeua")
+shader_parameter/astro_scale = 5.5000000819566
+shader_parameter/astro_intensity = 3.0
+shader_parameter/stars_intensity = 0.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_xe6jm"]
+sky_material = SubResource("ShaderMaterial_7xjic")
+
+[sub_resource type="Environment" id="Environment_r1q5g"]
+background_mode = 2
+sky = SubResource("Sky_xe6jm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1q5g"]
+
+[node name="scene_base" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, -0.21117467, 0.7699785, 0.6021116, -0.4532166, 0.46865025, -0.7582623, 0, 3.6594257, 1.3243967)
+shadow_enabled = true
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r1q5g")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
+script = ExtResource("3_ra05n")
+
+[node name="head" type="Node3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
+
+[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
+shape = SubResource("CapsuleShape3D_r1q5g")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7685852, -0.019537449, 4.3237305)
+use_collision = true
+size = Vector3(8.177673, 0.09375, 9.452148)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("4_ngugn")
+data = {
+"cells": PackedInt32Array(65535, 0, 0, 65534, 0, 0, 2, 3, 0, 1, 3, 0, 0, 3, 0, 65535, 3, 0, 65532, 3, 9)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="wall" type="GridMap" parent="."]
+mesh_library = ExtResource("5_n8wym")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, -65536, 0, 0, -65536, 1, 0, -65536, 2, 0, -65535, 2, 0, -65535, 1, 0, -65535, 3, 0, -65536, 3, 0, -65536, 4, 0, -65536, 5, 0, -65535, 5, 0, -65535, 4, 0, -65534, 1, 0, -65534, 0, 0, -65534, 2, 0, -65534, 3, 0, -65534, 4, 0, -65534, 5, 0, -65534, 6, 0, -1, 1, 0, -1, 2, 0, -1, 3, 0, -1, 4, 0, -65535, 6, 0, -65536, 6, 0, -1, 6, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="Sprite3D" parent="wall" instance=ExtResource("6_pkp8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6040208, 0.80483294, 0)
+
+[node name="Mur2" parent="." instance=ExtResource("7_5jdgd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0886226, 0.027337313, 3.124139)
+
+[node name="Eau" parent="." instance=ExtResource("8_axs1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1615498, 0.028196454, 3.1468809)
+
+[node name="Mur3" parent="." instance=ExtResource("7_5jdgd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.088, 0.027, 3.124)
+
+[node name="FontaineMural" parent="." instance=ExtResource("9_jua06")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.162, 0.028, 3.116)
+
+[node name="Torche2" parent="." instance=ExtResource("10_83soi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1643877, 0.027337551, 3.1289334)
+
+[node name="Mousse12" parent="." instance=ExtResource("11_hcadi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.239934, 0.027337074, 3.1882658)
+
+[node name="Mousse22" parent="." instance=ExtResource("12_2ob08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7753906, 0.027337551, 3.159687)
+
+[node name="Mousse32" parent="." instance=ExtResource("13_abasg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4961853, 0.027337551, 3.175467)
+
+[node name="Sol2" parent="." instance=ExtResource("14_1vrp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4630754, 0.2077303, 4.9820237)
