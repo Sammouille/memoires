@@ -10,7 +10,6 @@ var fade_in = create_tween()
 
 func process_command(input: String) -> String:
 	if input.contains("venir") or input.contains("avec"): 
-		return "Bien évidemment que je vais venir avec le roi, après tout c'est lui qui m'a gracieusement offert cette épée enchantée dont il était le noble utilisateur auparavant.
-J'ai juste besoin d'une dizaine de minute pour finir mon café et j'arrive."
+		return "Très bien ! Cependant une fois le roi acheminé j'irai me servir dans les caves du château, que ce soit clair."
 	else :
-		return "Notre bon roi a-t-il besoin de quelque chose ? Je donnerai corps et âme pour le servir !"
+		return "Son altesse a-t-elle besoin d'un service ?"

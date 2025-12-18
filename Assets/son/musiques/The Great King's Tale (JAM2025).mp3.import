@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df5c2vuyg6hvo"
+path="res://.godot/imported/The Great King's Tale (JAM2025).mp3-82349d0ce66636439e34bbaf1f513c5e.mp3str"
+
+[deps]
+
+source_file="res://Assets/son/musiques/The Great King's Tale (JAM2025).mp3"
+dest_files=["res://.godot/imported/The Great King's Tale (JAM2025).mp3-82349d0ce66636439e34bbaf1f513c5e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

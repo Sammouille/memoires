@@ -8,20 +8,21 @@ const input_answer = preload("res://machinatext/input_answer.tscn")
 var fade_in = create_tween()
 var shape_tree = " "
 var tree_branch = "o@@o%;@"
-var t = randi_range(5,9)
+var t = 0
 
 
 func process_command(input: String) -> String:
-	if input.contains("épée") or input.contains("épee")or input.contains("epee")or input.contains("epée"):
-		if input.contains("brandir") or input.contains("tenir") or input.contains("porter") or input.contains("enchantée") or input.contains("prendre") or input.contains("soulever"):
-			return "L'enchantement qui affecte l'épée magique fait que seule une personne au coeur pur peut la soulever." 
-		elif input.contains("magique"):
-			return "L'épée magique est enchantée."
-		return "Il existe une épée magique qui tranche le métal comme du beurre
- et qui chez les adversaires fait naître la peur."
-	else:
-		return "Aucun passage de l'ouvrage mentionne cela."
- 
+	if (input.contains("arrive") or input.contains("arrivé")) and (input.contains("roi") or input.contains("monarque")):
+		return "Le Roi n’a besoin de personne !
+Tant pis s'il se perd en pleine forêt sans armes ni nourriture.
+Tant pis si une lance lui pique son postérieur
+Tant pis si sa tête est coincée entre les deux crocs d’un dragon en manque d’un cure-dent.
+Tant pis s’il est de nouveau perdu dans un donjon obscur ses yeux hors de ses orbites, une hache plantée dans le fion et un pilum traversant le sternum.
+Car le roi n’a besoin de personne et personne n’a besoin du roi."
+	elif input.contains("compagnons") or input.contains("passés") or input.contains("passé"):
+		return "Faisant toujours passer ses besoins avant ceux d'autrui, le roi finit par repousser ses compagnons. Nul doute qu'ils se reverront, et le roi."
+	return "Rien n'y fait référence dans cet ouvrage"
+
 
 func animation() :
 	return "

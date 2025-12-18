@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwqnsj3b1gupx"
+path="res://.godot/imported/A King's Story (JAM2025).mp3-42a82a7ce73d6e1e22d5e5eecf946162.mp3str"
+
+[deps]
+
+source_file="res://Assets/son/musiques/A King's Story (JAM2025).mp3"
+dest_files=["res://.godot/imported/A King's Story (JAM2025).mp3-42a82a7ce73d6e1e22d5e5eecf946162.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

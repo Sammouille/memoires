@@ -12,9 +12,12 @@ var t = randi_range(5,9)
 
 
 func process_command(input: String) -> String:
-	if (input.contains("épée") or input.contains("epée") or input.contains("epee") or input.contains("épee")) and (input.contains("donné") or input.contains("donner")):
-		return "Oui oui c'est ça exactement ! Je l'ai donnée, c'est absolument rien d'autre !"
-	return "Je ne vois pas de quoi vous parlez."
+	t = randi_range(0, 1)
+	if t == 1:
+		return "VOUS AVEZ L'AIR DE QUELQU'UN QUI N'A PAS ENCORE [[Trouvé]] !! IL FAUT [[Regarder de plus près]]."
+	else:
+		return "N'AVEZ VOUS PAS TROUVE [[Executable renommé]] ?? ESSAYEZ [[Renommer Executable]] !"
+
 
 func animation() :
 	return "
