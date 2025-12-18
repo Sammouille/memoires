@@ -9,27 +9,30 @@ var fade_in = create_tween()
 var shape_tree = " "
 var tree_branch = "o@@o%;@"
 var t = randi_range(5,9)
-@export var j = 0
+
 
 func process_command(input: String) -> String:
-
-	var words = input.split(" ", false)
-	var word_count = input.split(" ", false).size()
-	print(word_count)
-	if words.size() == 0 :
-		return "c'était un objet qui brille... Mais je ne m'en souviens plus..."
-	var first_word = words[0].to_lower()
-	var second_word = "".to_lower()
-	if words.size() > 1: 
-		for w in words.size()-1:
-			second_word += words[1+w] + " "
-			w+=1
-		print(second_word)
-	if Input.is_action_just_pressed("ui_accept"):
-		j = randi_range(1,4)
-		print(j)
-
-	if input.contains(""): 
-			return "c'était un objet qui brille... Mais je ne m'en souviens plus..."
-	else :
-		return "c'était un objet qui brille... Mais je ne m'en souviens plus..."
+	if input.contains("brille"):
+		print("l'épée était un objet qui brillait lorsque porté par un coeur pur. Elle rouillait de la main d'un bouffon.")
+		return "print([red*$ctèd])"
+	if input.contains("séduire") or input.contains("séduction"):
+		return "Ha ha... (NOTE DU MAGE : on peut éviter ?)"
+	if input.contains("épée") or input.contains("épee")or input.contains("epee")or input.contains("epée"):
+		return "[redacted]"
+	elif input.contains("colosse") or input.contains("géant") or input.contains("golem"):
+		return "Nan mais alors moi, je suis là pour amuser la foule à la base, et on n'a visiblement pas le temps d'écrire des textes incroyables et rigolos, donc on va se contenter de rappeler que personne n'est sur de savoir s'il s'agissait d'un golem ou d'un dragon, mais allez-y ! critiquez ! j'aimerai bien vous voir vous... "
+	elif input.contains("attaque") or input.contains("attaquer") :
+		return "... Moi? Attaquer une créature ? Et la vaincre ?... Oui ça peut ressembler à ce que je peux dire, mais je ne peux pas vous assurer qu'il s'agisse de la vérité. C'est co"
+	elif input.contains("donner") :
+		return "Ah bah merci"
+	elif input.contains("mage") or input.contains("sorcier") or input.contains("magicien") or input.contains("alchimiste"):
+		return "oui... probablement..."
+	elif input.contains("bouffon"):
+		while t >=5:
+			t += 1
+			print("je n'aurais jamais l'épée")
+			return "Je n'aurais jamais l'épée"
+		return "l'épée brille quand je la porte au coeur"
+	else:
+		return "Je ne comprends pas ..."
+ 

@@ -1,0 +1,246 @@
+[gd_scene load_steps=21 format=3 uid="uid://cme2sn5lssap6"]
+
+[ext_resource type="Script" uid="uid://mxbh0d7l67g" path="res://scenes/intPer_jester.gd" id="1_clsog"]
+[ext_resource type="AudioStream" uid="uid://bwlmhyrcy16gj" path="res://Assets/son/Jester.tres" id="2_tvdlq"]
+[ext_resource type="Texture2D" uid="uid://iyw2hkps6vu0" path="res://characters/cha_sheet_jester.png" id="3_b3j06"]
+[ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="4_6m4mq"]
+[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="5_p1w1p"]
+[ext_resource type="Script" uid="uid://bgj55ot8ukb45" path="res://scenes/command_processor_Jester.gd" id="6_78jxa"]
+[ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="7_pd7dt"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="8_h2x6w"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_xldwb"]
+data = PackedVector3Array(0.5, -0.8825, 0, -0.5, -0.8825, 0, 0.5, 0.8825, 0, -0.5, -0.8825, 0, -0.5, 0.8825, 0, 0.5, 0.8825, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13y27"]
+atlas = ExtResource("3_b3j06")
+region = Rect2(967, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1qc2"]
+atlas = ExtResource("3_b3j06")
+region = Rect2(1127, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ij7d2"]
+atlas = ExtResource("3_b3j06")
+region = Rect2(1287, 0, 160, 312)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilrqw"]
+atlas = ExtResource("3_b3j06")
+region = Rect2(1447, 0, 160, 312)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dr8bc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13y27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1qc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ij7d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilrqw")
+}],
+"loop": true,
+"name": &"standing_walk",
+"speed": 5.0
+}]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0ptw"]
+size = Vector3(1, 2.5029297, 1.4172363)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dr8bc"]
+shader = ExtResource("4_6m4mq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5knm4"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ruuca"]
+shader = ExtResource("4_6m4mq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lqiwi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv7w0"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
+
+[node name="jester" type="Sprite3D" node_paths=PackedStringArray("interfaceDialogue", "area")]
+billboard = 1
+script = ExtResource("1_clsog")
+accroche = "C'est un objet qui brillait je crois"
+voix = ExtResource("2_tvdlq")
+nom = "[font_size=30][outline_size=15][outline_color=forest_green] Bouffon du R*$irù·e"
+interfaceDialogue = NodePath("InterfaceDialogueTemplate")
+area = NodePath("Area3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3545088, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7598509, 0)
+shape = SubResource("ConcavePolygonShape3D_xldwb")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_dr8bc")
+animation = &"standing_walk"
+autoplay = "standing_walk"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07531738)
+shape = SubResource("BoxShape3D_x0ptw")
+
+[node name="InterfaceDialogueTemplate" type="Control" parent="." node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_dr8bc")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_p1w1p")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="InterfaceDialogueTemplate"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_78jxa")
+
+[node name="forest" type="Node" parent="InterfaceDialogueTemplate"]
+script = ExtResource("7_pd7dt")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceDialogueTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5knm4")
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfaceDialogueTemplate/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_ruuca")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InterfaceDialogueTemplate/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_lqiwi")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fv7w0")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("8_h2x6w")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="InterfaceDialogueTemplate"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Titre" type="RichTextLabel" parent="InterfaceDialogueTemplate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
+
+[connection signal="text_submitted" from="InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="InterfaceDialogueTemplate" method="_on_input_text_submitted"]
+[connection signal="button_down" from="InterfaceDialogueTemplate/reset" to="InterfaceDialogueTemplate" method="_on_button_button_down"]
