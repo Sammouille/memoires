@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="memoires"
-run/main_scene="uid://bt7svw607h6ld"
+run/main_scene="uid://dm60yy1s7db1f"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+<<<<<<<HEADrun/main_scene="uid://bt7svw607h6ld"
 
 [autoload]
 
