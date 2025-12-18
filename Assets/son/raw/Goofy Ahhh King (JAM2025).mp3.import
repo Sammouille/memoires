@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di8ix0tet6wej"
+path="res://.godot/imported/Goofy Ahhh King (JAM2025).mp3-d249f3b970be33ffbf1a7c8c13b0540b.mp3str"
+
+[deps]
+
+source_file="res://Assets/son/raw/Goofy Ahhh King (JAM2025).mp3"
+dest_files=["res://.godot/imported/Goofy Ahhh King (JAM2025).mp3-d249f3b970be33ffbf1a7c8c13b0540b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

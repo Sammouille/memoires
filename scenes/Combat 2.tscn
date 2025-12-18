@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=4 uid="uid://dm60yy1s7db1f"]
+[gd_scene load_steps=122 format=4 uid="uid://dm60yy1s7db1f"]
 
 [ext_resource type="Sky" uid="uid://cowvfpbrxvi4b" path="res://ciel_nuit.tres" id="2_o6qkm"]
 [ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_w3mmi"]
@@ -29,8 +29,10 @@
 [ext_resource type="AudioStream" uid="uid://db5ij1klmelwu" path="res://Assets/son/raw/Mage2.mp3" id="21_v7s8j"]
 [ext_resource type="AudioStream" uid="uid://dx4esg20nn0x4" path="res://Assets/son/raw/KingV3.mp3" id="22_4yhur"]
 [ext_resource type="AudioStream" uid="uid://dg8wymk8dgnos" path="res://Assets/son/raw/Mage3.mp3" id="22_noaei"]
+[ext_resource type="AudioStream" uid="uid://ci1ejppulpcar" path="res://Assets/son/raw/KingV4.mp3" id="23_4yhur"]
 [ext_resource type="AudioStream" uid="uid://bd17ocadngs42" path="res://Assets/son/raw/KingV5.mp3" id="23_akvtk"]
 [ext_resource type="AudioStream" uid="uid://ewevpne04xj5" path="res://Assets/son/raw/Mage5.mp3" id="24_26jfg"]
+[ext_resource type="AudioStream" uid="uid://b364qki70bamv" path="res://Assets/son/musique/Goofy Ahhh King (JAM2025).mp3" id="33_akvtk"]
 
 [sub_resource type="Environment" id="Environment_dxgwr"]
 background_mode = 2
@@ -546,10 +548,12 @@ shader_parameter/vignette_opacity = 0.1150000054625
 bg_color = Color(0.09850656, 0.328561, 0, 1)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_64ys8"]
+resource_local_to_scene = true
 streams_count = 5
 stream_0/stream = ExtResource("20_xj082")
 stream_1/stream = ExtResource("21_s7wt5")
-stream_3/stream = ExtResource("22_4yhur")
+stream_2/stream = ExtResource("22_4yhur")
+stream_3/stream = ExtResource("23_4yhur")
 stream_4/stream = ExtResource("23_akvtk")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tne8t"]
@@ -4062,6 +4066,11 @@ shape = SubResource("BoxShape3D_q5ovj")
 
 [node name="PLAYER" parent="." instance=ExtResource("17_m6r3d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, 16.500725)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("33_akvtk")
+autoplay = true
+parameters/looping = true
 
 [connection signal="text_submitted" from="monsters/giant/InterfaceDialogueColosse/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="monsters/giant/InterfaceDialogueColosse" method="_on_input_text_submitted"]
 [connection signal="button_down" from="monsters/giant/InterfaceDialogueColosse/reset" to="monsters/giant/InterfaceDialogueColosse" method="_on_button_button_down"]
