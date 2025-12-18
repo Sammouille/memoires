@@ -1,0 +1,57 @@
+res://Assets/3D/LDLib2.tres::b878e75f06a314c81c67b975fb6ee602::1766023422::res://.godot/exported/133200997/export-8aa1ab6642c4bf55511e98e8f632c342-LDLib2.res
+res://Assets/3D/LDLib_2.tres::d1c1a8ff1c53eabfdcce1686976f0e29::1766004120::res://.godot/exported/133200997/export-436afd772098c451ec222781bd30c218-LDLib_2.res
+res://Assets/3D/MeshLibrary.tscn::04a22536009815e2f0beaef103b71bd9::1766009062::res://.godot/exported/133200997/export-8b9d4f02faf910033a137073c5cfccbc-MeshLibrary.scn
+res://Assets/3D/sprite.tres::af40b1225f361de0107ffac820a1b561::1766004120::res://.godot/exported/133200997/export-7bb6124c7efbde8a7bbf1bc02aeb86fd-sprite.res
+res://Assets/3D/SpriteEau.tres::058cbd286026a785378c922ad5e73b72::1765918822::res://.godot/exported/133200997/export-6bce1483fb8b02b85ec6e2ecc91f4bfb-SpriteEau.res
+res://Assets/3D/torche.tscn::9f3f3227b81c1226ae351e84737a506b::1765918822::res://.godot/exported/133200997/export-2e92beb83013533470d71819208d0ef1-torche.scn
+res://Assets/Objet2D/objets.tres::afad545681621eb6f952c1cc7ea938ec::1766023422::res://.godot/exported/133200997/export-b21e42995f2c2ab2c8cba53b90c102aa-objets.res
+res://Assets/Objet2D/objets.tscn::0efa28a8708feb07fa5e55cf426eac80::1766004120::res://.godot/exported/133200997/export-0b33969d7c420cc1f8f9c2b5f64ec337-objets.scn
+res://Assets/son/Alchemist.tres::0f3262036dfa86e04013b44f8ce475a8::1765921782::res://.godot/exported/133200997/export-3481d2f3acbf7cef3198df5eca5781aa-Alchemist.res
+res://Assets/son/druid.tres::e506afed5ce3aa321156f8423c10da20::1765921808::res://.godot/exported/133200997/export-a4268e05282700f6807a1a24986745c9-druid.res
+res://Assets/son/Jester.tres::9787255cafa666867ffa01e28bf6272e::1765921622::res://.godot/exported/133200997/export-23f29ca10fc621dc85e63f15ca594134-Jester.res
+res://Assets/son/Mage.tres::ce0c925beb6528db41b38256ea1153e6::1765921838::res://.godot/exported/133200997/export-a0e1179b777d3c15d254d5567f9c2e75-Mage.res
+res://Assets/son/Monarch.tres::8adeeac8d003e6cc038f68edabd97e0d::1765921738::res://.godot/exported/133200997/export-b9c612a7ff1c515883dd715ed0364872-Monarch.res
+res://Assets/son/Wizard.tres::3be7406bbb636e46ca1506322f7ee93b::1765921882::res://.godot/exported/133200997/export-ac948f758ca3c5d7a6d1425ea6fbdd77-Wizard.res
+res://characters/bandits.tscn::54c877197965991d0f00a0887b9c95b6::1766004120::res://.godot/exported/133200997/export-602b197da5c77529cf93b2d648bcd9a6-bandits.scn
+res://characters/dragon.tscn::3ba285f2f7a65d84a7ec33f4133649c0::1766004120::res://.godot/exported/133200997/export-593343ea2a0af446fe414a13342a6762-dragon.scn
+res://characters/giant.tscn::bc4301d7babc26460afee3b745a0f491::1766004120::res://.godot/exported/133200997/export-458c49e82c1e9802d516f10521a45177-giant.scn
+res://characters/king.tscn::eb5786a892a24a1df54ee839aa04dcb3::1766004120::res://.godot/exported/133200997/export-6e3e3c8d673588a431111b33c3029c14-king.scn
+res://characters/sprite.tres::58cf5545be47ee57be5f435fa77c9dc4::1766004120::res://.godot/exported/133200997/export-df424690cde7731b4a0ccc05c1a585fb-sprite.res
+res://characters/sprite.tscn::5c7650338d45ea90a4a37c65ee570e65::1766004120::res://.godot/exported/133200997/export-c2b2584f6228098158b6a02875301db8-sprite.scn
+res://characters/sprite_3d_anim.tscn::9acc599d97e86be6eadbfd9858a6b1a6::1765918822::res://.godot/exported/133200997/export-ff4b3b70d32685edfa33cd93ba9d2f2c-sprite_3d_anim.scn
+res://characters/sprite_blc.tscn::3183a2a815b17f8bad31e7bf056803bd::1766004120::res://.godot/exported/133200997/export-473bdc4dde0764221a2eef6da6db572c-sprite_blc.scn
+res://characters/sprite_v2.tscn::3540a1d440a01115806c37edbdb94a74::1766004120::res://.godot/exported/133200997/export-e81fb2603003ae97adbf621ba974a011-sprite_v2.scn
+res://machinatext/answer_given.tscn::cf88ee7fd57d1d555d9dca339fe92113::1765918822::res://.godot/exported/133200997/export-483acbc8d5488074fa8f47364208c50c-answer_given.scn
+res://machinatext/arbre_2.tscn::b78cd09183a0e705abcc3945bd472bbd::1765918822::res://.godot/exported/133200997/export-ff2050222bf97fa184e65284dd803a6c-arbre_2.scn
+res://machinatext/control.tscn::f7b1f0fbdde42418ffe97decfb4ba862::1765921568::res://.godot/exported/133200997/export-afa8319ca3ef613c90f97c025a05ad97-control.scn
+res://machinatext/iam.tscn::5e7ce2c29459383654e6372b2f3e71e9::1765918822::res://.godot/exported/133200997/export-c6c1ec0c36cea93259da60e53a911e00-iam.scn
+res://machinatext/input_answer.tscn::807be2bd30e4a98b835603bd84dfd595::1766004120::res://.godot/exported/133200997/export-fbe8c2f92fe733f4c66465046215109d-input_answer.scn
+res://machinatext/input_scn.tscn::aff35165d123168ce0303b755a81c24d::1765918822::res://.godot/exported/133200997/export-b754453b7d88884acc01fe5ccc6c8b9f-input_scn.scn
+res://machinatext/input_submitted.tscn::648ff1a258b253ef239dd0c931e9f300::1765918822::res://.godot/exported/133200997/export-0421b3aa0415a1d71b759d18f251cb82-input_submitted.scn
+res://machinatext/menu.tscn::efbb5ea5a08fe74c58767d33820ed63e::1765918822::res://.godot/exported/133200997/export-3965784d9ab2433f38e489a3c92de6e3-menu.scn
+res://machinatext/tree.tscn::b95c238035b82bcf968dd8b5722d328f::1765918824::res://.godot/exported/133200997/export-dc493d2dccd908361e1d94ad19beb9e3-tree.scn
+res://scenes/3d2.tscn::eff3db60cae7485238efcb0413283a18::1766004118::res://.godot/exported/133200997/export-d164abd37d53543bad481849c35f9e2f-3d2.scn
+res://scenes/3d.tscn::3749b1476f46fd21af74d4e12df43fd4::1766024602::res://.godot/exported/133200997/export-89374d0738d9bc0e74f4532b63cf5ce5-3d.scn
+res://scenes/Aventure1.tscn::c1bdf172cc589a938f97f134fd83b50c::1766037232::res://.godot/exported/133200997/export-aaa93b722ef7b61b0a5ee7a7ae6937e7-Aventure1.scn
+res://scenes/Aventure2.tscn::8df63e06fb2bc86ad06130f6b39ece18::1766036528::res://.godot/exported/133200997/export-dc0b6f74a2755d5662332ca9cd447f64-Aventure2.scn
+res://scenes/Aventure3.tscn::2122ff336eea46ac8217736b71262768::1766035928::res://.godot/exported/133200997/export-012a6438247cd2ebad9049258d87b72f-Aventure3.scn
+res://scenes/ciel.tscn::3d5f4f70caa4465d615912464946b946::1766004122::res://.godot/exported/133200997/export-dd670b56aa099b3e3127cba23ea9ce8e-ciel.scn
+res://scenes/Combat 1.tscn::1e6cfaae7b34e200d0c38943c25e1758::1766004122::res://.godot/exported/133200997/export-071f0503c66c89a4867341e793b7d552-Combat 1.scn
+res://scenes/Combat 2.tscn::e0497d164e6b1dbc5a6f9491b52e1d9f::1766004122::res://.godot/exported/133200997/export-082c5b8cb434699799d54743b4f96040-Combat 2.scn
+res://scenes/Combat 3.tscn::18d7d7f14f0b6b014594baea5fb9817e::1766004122::res://.godot/exported/133200997/export-689185745a61d93af2909a10ace15a7d-Combat 3.scn
+res://scenes/Epee.tscn::f91a9512fa3b35600f241d087db46833::1766036724::res://.godot/exported/133200997/export-06fc2383df30c82f68ce0a4fd87c3552-Epee.scn
+res://scenes/fausse_machine_txt.tscn::704751c6a59381b40bdc18704748ea91::1765919640::res://.godot/exported/133200997/export-1fa25a58b3f4185139af3bf3480ba550-fausse_machine_txt.scn
+res://scenes/interface_dialogues.tscn::7dddba98d37351261cdc5ca7974d4d45::1766004122::res://.godot/exported/133200997/export-cc551c091881ee7c82dba978bb717e7a-interface_dialogues.scn
+res://scenes/interface_livre.tscn::7ee6f9861095c42f81a0a822ef7fa712::1766004122::res://.godot/exported/133200997/export-ea08470379a6394c8626cec420dc4a8c-interface_livre.scn
+res://scenes/Mort du roi.tscn::848954c29fb41675de0cc7f899926671::1766004122::res://.godot/exported/133200997/export-869bb3d9a41694be9ecf0d1e4c7ce6fa-Mort du roi.scn
+res://scenes/player.tscn::6f6e0c25f11baec2f8282eeafc10f893::1766004122::res://.godot/exported/133200997/export-234fb6894ec6226e856ab7f825500d3d-player.scn
+res://scenes/scene_vide.tscn::c002a8d668541dc803e96b2fd0e31358::1766004122::res://.godot/exported/133200997/export-149a62f408a9626a89590c990f45410c-scene_vide.scn
+res://scenes/Vide.tscn::20a5c1891d9c69ecff81e055dcfb90c7::1766004122::res://.godot/exported/133200997/export-132419c6e7d3a386a94810a9f2ac7888-Vide.scn
+res://ciel_nuit.tres::58879200e96ac36735c08b020fdc375a::1766023422::res://.godot/exported/133200997/export-9e14c98946de4b7ab9f167c296e55296-ciel_nuit.res
+res://cube.tres::cc9d463740e3d004d67fbf34a8f93951::1766023422::res://.godot/exported/133200997/export-72ccd235d7f6e6a0e5a437a3326e3ecc-cube.res
+res://guard_bboad.tres::fa9abd9e63ac3bc4b66a53b3fd1e2738::1766023374::res://.godot/exported/133200997/export-53562603ae4dce9a9e642bf73c38bfa0-guard_bboad.res
+res://guard_bboad_sprite.tres::f1266834ba8d0343b580e3dc7760d0d4::1766023374::res://.godot/exported/133200997/export-8cc60cbd801c8a686b87e93f55f0951b-guard_bboad_sprite.res
+res://hands.tscn::d75ff7052540b5f32dd317170872eaff::1766023374::res://.godot/exported/133200997/export-255a2595d958edfb0493dc46b13cf941-hands.scn
+res://new_sky.tres::c102f11718f713c8b0ca6beaec10c20f::1766023422::res://.godot/exported/133200997/export-5b8cf7493721cd66d4e00d97c4fefbf9-new_sky.res
+res://night_scene.tscn::f26adbfba830fe6a9c35d070e449b6d9::1766023376::res://.godot/exported/133200997/export-7733a88929bbdb14a4834847c5ed484d-night_scene.scn
+res://sky.tres::cffb786cc54d015c82d73dfb1f9e6a6b::1766023376::res://.godot/exported/133200997/export-451f50ac8e5c01584876f20c3fd420c7-sky.res
