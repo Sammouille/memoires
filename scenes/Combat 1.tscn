@@ -1,6 +1,5 @@
-[gd_scene load_steps=83 format=4 uid="uid://d0imngbi0dm8x"]
+[gd_scene load_steps=105 format=4 uid="uid://d0imngbi0dm8x"]
 
-[ext_resource type="Script" uid="uid://b8pc53qamhlxx" path="res://characters/character_body_3d.gd" id="1_bp245"]
 [ext_resource type="Shader" uid="uid://duiuh77kjknqp" path="res://stylised_sky.gdshader" id="2_yrmrc"]
 [ext_resource type="Texture2D" uid="uid://cnsu1hpxp4f7l" path="res://Assets/3D/Arbre1_Arbre.png" id="3_7x4kj"]
 [ext_resource type="Texture2D" uid="uid://busx8dljns1e8" path="res://Assets/3D/Arbre1_feuille.png" id="4_fal3i"]
@@ -11,10 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://p3ggbyaexqfm" path="res://Assets/3D/Ruine1_Mur.png" id="9_1huaq"]
 [ext_resource type="Texture2D" uid="uid://4ry0jsk1oraq" path="res://Assets/3D/colonepluslongue_Mur.png" id="10_xqanp"]
 [ext_resource type="Texture2D" uid="uid://dc2uur5u6n2iw" path="res://Assets/3D/textureherbe.png" id="11_m6pvr"]
+[ext_resource type="Script" uid="uid://b2sbjqvlnnwlt" path="res://characters/PersoInteractible_dragon.gd" id="13_uvakf"]
 [ext_resource type="PackedScene" uid="uid://bn58vm7soj4rs" path="res://characters/dragon.tscn" id="13_yrmrc"]
+[ext_resource type="Shader" uid="uid://ds1cxbshmvvav" path="res://machinatext/control.gdshader" id="14_1huaq"]
 [ext_resource type="PackedScene" uid="uid://b4esrehdyjjt3" path="res://characters/king.tscn" id="14_7x4kj"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mgaak"]
+[ext_resource type="Script" uid="uid://bapwjo5auuhhj" path="res://code/variations_script_dialogue/InterfaceDialogues.gd" id="15_xqanp"]
+[ext_resource type="Script" uid="uid://cjonkxjco11ga" path="res://machinatext/command_processor_roihumble.gd" id="16_m6pvr"]
+[ext_resource type="Script" uid="uid://bhrh6vjlsssu" path="res://machinatext/tree.gd" id="17_58yqy"]
+[ext_resource type="PackedScene" uid="uid://n4d8t8u4vu8t" path="res://machinatext/input_scn.tscn" id="18_ga5wk"]
+[ext_resource type="Script" uid="uid://dwqsaulltexx4" path="res://characters/interactiblePerso_king.gd" id="20_1huaq"]
+[ext_resource type="AudioStream" uid="uid://7l7qwaj23p1i" path="res://Assets/son/Monarch.tres" id="21_xqanp"]
+[ext_resource type="Script" uid="uid://bpsb46vktioxq" path="res://scenes/command_processor_roi.gd" id="22_58yqy"]
+[ext_resource type="PackedScene" uid="uid://deknuyjklunas" path="res://scenes/player.tscn" id="22_ga5wk"]
+[ext_resource type="AudioStream" uid="uid://b364qki70bamv" path="res://Assets/son/musique/Goofy Ahhh King (JAM2025).mp3" id="22_m6pvr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7x4kj"]
 load_path = "res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.s3tc.ctex"
@@ -498,21 +506,127 @@ size = Vector2(138.555, 86.375)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mgaak"]
 points = PackedVector3Array(70.37714, 1.0996428, 43.675667, -70.37714, -1.0996428, -44.278534, -70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, -44.278534, -70.37714, -1.0996428, 43.675667, -70.37714, 1.0996428, 43.675667, 70.37714, 1.0996428, -44.278534, 70.37714, -1.0996428, 43.675667)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7q46k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tne8t"]
+shader = ExtResource("14_1huaq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8td2m"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4jivp"]
+shader = ExtResource("14_1huaq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krv0m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_erhac"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_58yqy"]
+size = Vector3(1.814331, 1, 1.6065674)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_58yqy"]
+shader = ExtResource("14_1huaq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 1.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga5wk"]
+bg_color = Color(0.05615304, 0.22067188, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7q46k"]
+shader = ExtResource("14_1huaq")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.122000005795
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.115
+shader_parameter/roll_size = 15.9370007570075
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.1550000073625
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.1250000059375
+shader_parameter/aberration = 0.00500004773750006
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.1750000083125
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.1150000054625
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvpnv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qrf7"]
+bg_color = Color(0.09850656, 0.328561, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uvakf"]
+size = Vector3(2.7442017, 1, 3.3648071)
+
 [node name="combat" type="Node3D"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0025649, 3.4438248)
-script = ExtResource("1_bp245")
-
-[node name="head" type="Node3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2380977, 0)
-
-[node name="headVIEW" type="Camera3D" parent="CharacterBody3D/head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.041048527, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9014225, 0)
-shape = SubResource("CapsuleShape3D_mgaak")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.90702486, -0.42085233, 0.0137563795, -0.41643646, 0.90138674, 0.118669614, -0.06234224, 0.10190764, -0.99283856, 0, 3.6594257, 1.3243967)
@@ -3452,9 +3566,256 @@ shape = SubResource("ConvexPolygonShape3D_mu4mu")
 
 [node name="monsters" type="Node3D" parent="."]
 
-[node name="dragon" parent="monsters" instance=ExtResource("13_yrmrc")]
+[node name="dragon" parent="monsters" node_paths=PackedStringArray("interfaceDialogue", "area") instance=ExtResource("13_yrmrc")]
 transform = Transform3D(3.96, 0, 0, 0, 3.96, 0, 0, 0, 3.96, 0, 4.245472, 0)
+script = ExtResource("13_uvakf")
+accroche = "Une minute . . .  
+C'est a quel sujet ?"
+voix = SubResource("AudioStreamRandomizer_7q46k")
+nom = "[font_size=30][outline_size=15][outline_color=dark_orchid] Dragon"
+interfaceDialogue = NodePath("InterfaceDialogueTemplate")
+area = NodePath("Area3D")
 
-[node name="king" parent="monsters" instance=ExtResource("14_7x4kj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.776764, 1.5573444, 6.5909624)
+[node name="InterfaceDialogueTemplate" type="Control" parent="monsters/dragon" node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_tne8t")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("15_xqanp")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="monsters/dragon/InterfaceDialogueTemplate"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_m6pvr")
+
+[node name="forest" type="Node" parent="monsters/dragon/InterfaceDialogueTemplate"]
+script = ExtResource("17_58yqy")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/dragon/InterfaceDialogueTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8td2m")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_4jivp")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_krv0m")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_erhac")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("18_ga5wk")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="monsters/dragon/InterfaceDialogueTemplate"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Titre" type="RichTextLabel" parent="monsters/dragon/InterfaceDialogueTemplate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
+
+[node name="Area3D" type="Area3D" parent="monsters/dragon"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/dragon/Area3D"]
+transform = Transform3D(0.99999696, 0, 0, 0, 0.99999696, 0, 0, 0, 0.99999696, 0.4071649, 0, 0.3032837)
+shape = SubResource("BoxShape3D_58yqy")
+
+[node name="king" parent="monsters" node_paths=PackedStringArray("interfaceDialogue", "area") instance=ExtResource("14_7x4kj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.766629, 0.591887, 8.828941)
 billboard = 1
+script = ExtResource("20_1huaq")
+accroche = "Ah mes
+nombreuses batailles, aucun de mes ennemis ont résistés.
+
+Et je n'ai eu besoin de personnes.
+"
+voix = ExtResource("21_xqanp")
+nom = "[font_size=30][outline_size=15][outline_color=dark_blue] Roi"
+interfaceDialogue = NodePath("InterfaceDialogueTemplate")
+area = NodePath("AreaRoi")
+
+[node name="InterfaceDialogueTemplate" type="Control" parent="monsters/king" node_paths=PackedStringArray("titre", "input_node")]
+visible = false
+material = SubResource("ShaderMaterial_58yqy")
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("15_xqanp")
+max_lines_rememebered = 8
+titre = NodePath("Titre")
+input_node = NodePath("PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input")
+
+[node name="command processor" type="Control" parent="monsters/king/InterfaceDialogueTemplate"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("22_58yqy")
+
+[node name="forest" type="Node" parent="monsters/king/InterfaceDialogueTemplate"]
+script = ExtResource("17_58yqy")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/king/InterfaceDialogueTemplate"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ga5wk")
+
+[node name="PanelContainer" type="PanelContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer"]
+visible = false
+z_index = 1
+material = SubResource("ShaderMaterial_7q46k")
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="rows" type="VBoxContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GameInfo" type="PanelContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+material = SubResource("ShaderMaterial_lvpnv")
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2qrf7")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+follow_focus = true
+
+[node name="History" type="VBoxContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/GameInfo/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+
+[node name="InputArea" type="PanelContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer"]
+layout_mode = 2
+text = " > "
+
+[node name="input" parent="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer" instance=ExtResource("18_ga5wk")]
+layout_mode = 2
+keep_editing_on_text_submit = true
+
+[node name="reset" type="Button" parent="monsters/king/InterfaceDialogueTemplate"]
+visible = false
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -54.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "RESET"
+
+[node name="Titre" type="RichTextLabel" parent="monsters/king/InterfaceDialogueTemplate"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -55.0
+offset_right = 275.0
+offset_bottom = -10.0
+bbcode_enabled = true
+
+[node name="AreaRoi" type="Area3D" parent="monsters/king"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="monsters/king/AreaRoi"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38583374, 0, 0.031585693)
+shape = SubResource("BoxShape3D_uvakf")
+
+[node name="PLAYER" parent="monsters" instance=ExtResource("22_ga5wk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8560618, 16.500725)
+
+[node name="musique" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_m6pvr")
+volume_db = -0.085
+autoplay = true
+parameters/looping = true
+
+[connection signal="text_submitted" from="monsters/dragon/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="monsters/dragon/InterfaceDialogueTemplate" method="_on_input_text_submitted"]
+[connection signal="button_down" from="monsters/dragon/InterfaceDialogueTemplate/reset" to="monsters/dragon/InterfaceDialogueTemplate" method="_on_button_button_down"]
+[connection signal="text_submitted" from="monsters/king/InterfaceDialogueTemplate/PanelContainer/MarginContainer/rows/InputArea/HBoxContainer/input" to="monsters/king/InterfaceDialogueTemplate" method="_on_input_text_submitted"]
+[connection signal="button_down" from="monsters/king/InterfaceDialogueTemplate/reset" to="monsters/king/InterfaceDialogueTemplate" method="_on_button_button_down"]
